@@ -1,9 +1,9 @@
 # ltw-project-g21
 
-* Bernardo Ferreira
-* Catarina Fernandes
-* Jéssica Nascimento
-* João Vítor Fernandes
+* [Bernardo Ferreira](https://github.com/BernardoFerreira00)
+* [Catarina Fernandes](https://github.com/catarina03)
+* [Jéssica Nascimento](https://github.com/jessymireie)
+* [João Vítor Fernandes](https://github.com/JViii)
 
 # Mockups
 ![Index](./images/index.png)
@@ -17,3 +17,4 @@
 
 
 # Database
+![Database](./images/database.png)
