@@ -55,6 +55,6 @@ create TABLE favourite(
   pet_id INTEGER,
   person_id INTEGER,
   FOREIGN KEY (pet_id) REFERENCES pet(id),
-  FOREIGN KEY (person_id) REFERENCES person(id),
+  FOREIGN KEY (person_id) REFERENCES person(person_id),
   PRIMARY KEY (pet_id,person_id)
 );
