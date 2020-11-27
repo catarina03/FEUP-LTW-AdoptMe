@@ -6,10 +6,13 @@
 * [João Vítor Fernandes](https://github.com/JViii)
 
 # Mockups
-![Index](./images/index.png)
-![Index after login](./images/inde_after_login.png)
-![Pet Profile](./images/pet_profile.png)
-![User Profile](./images/user_profile.png)
+![Index](./images/Index.png)
+![Search](./images/Search.png)
+![Login](./images/Log_in.png)
+![Sign up](./images/Sign_up.png)
+![Index after login](./images/Index_logged_in.png)
+![Pet Profile](./images/Pet_profile.png)
+![User Profile](./images/User_profile.png)
 
 
 # Navigation
