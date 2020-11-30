@@ -8,32 +8,32 @@ CREATE TABLE account (
 
 CREATE TABLE location (
   id INTEGER PRIMARY KEY,
-  city TEXT,
-  district TEXT
+  city TEXT NOT NULL,
+  district TEXT NOT NULL
 );
 
 CREATE TABLE person (
   person_id INTEGER PRIMARY KEY,
-  name TEXT,
-  account_id INTEGER,
-  location_id INTEGER,
+  name TEXT NOT NULL,
+  account_id INTEGER NOT NULL,
+  location_id INTEGER NOT NULL,
   FOREIGN KEY (account_id) REFERENCES account(id),
   FOREIGN KEY (location_id) REFERENCES location(id)
 );
 
 CREATE TABLE shelter (
   shelter_id INTEGER PRIMARY KEY,
-  name TEXT,
-  account_id INTEGER,
-  location_id INTEGER,
+  name TEXT NOT NULL,
+  account_id INTEGER NOT NULL,
+  location_id INTEGER NOT NULL,
   FOREIGN KEY (account_id) REFERENCES account(id),
   FOREIGN KEY (location_id) REFERENCES location(id)
 );
 
 CREATE TABLE breed(
   id INTEGER PRIMARY KEY,
-  type TEXT,
-  name TEXT
+  type TEXT NOT NULL,
+  name TEXT NOT NULL
 );
 
 CREATE TABLE pet (
@@ -52,9 +52,36 @@ CREATE TABLE pet (
 );
 
 create TABLE favourite(
-  pet_id INTEGER,
-  person_id INTEGER,
+  pet_id INTEGER NOT NULL,
+  person_id INTEGER NOT NULL,
   FOREIGN KEY (pet_id) REFERENCES pet(id),
   FOREIGN KEY (person_id) REFERENCES person(person_id),
   PRIMARY KEY (pet_id,person_id)
+);
+
+-- Have question date and answer date?
+create TABLE questions(
+  id INTEGER PRIMARY KEY,
+  question TEXT,
+  response TEXT,
+  date TEXT,
+  made_by INTEGER,
+  answered_by INTEGER,
+  about INTEGER,
+  FOREIGN KEY (made_by) REFERENCES account(id),
+  FOREIGN KEY (answered_by) REFERENCES account(id),
+  FOREIGN KEY (about) REFERENCES pet(id)
+);
+
+--table proposal
+create TABLE proposal(
+  id INTEGER PRIMARY KEY,
+  status INTEGER,
+  date TEXT,
+  pet_id INTEGER,
+  made_adoption_proposal INTEGER,
+  recv_adoption_proposal INTEGER,
+  FOREIGN KEY (pet_id) REFERENCES pet(id),
+  FOREIGN KEY (made_adoption_proposal) REFERENCES account(id),
+  FOREIGN KEY (recv_adoption_proposal) REFERENCES account(id)
 );

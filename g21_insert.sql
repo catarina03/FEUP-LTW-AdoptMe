@@ -6,7 +6,6 @@ INSERT INTO account VALUES(4, 'catarina@gmail.com','catarina123');
 INSERT INTO account VALUES(5, 'shelter1@gmail.com','shelter1');
 INSERT INTO account VALUES(6, 'shelter2@gmail.com','shelter1');
 
-
 -- Location
 INSERT INTO location VALUES(1, 'Amarante','Porto');
 INSERT INTO location VALUES(2, 'Baião','Porto');
@@ -49,3 +48,23 @@ INSERT INTO pet VALUES(3,'Cookie','male',4,54,'white',4,NULL,3);
 -- shelters can't have favourites
 INSERT INTO favourite VALUES(1,1);
 INSERT INTO favourite VALUES(3,3);
+
+-- Questions
+INSERT INTO questions VALUES(
+    NULL,
+    'Is this a question?',
+    'This is an answer',
+    '2020-11-30 15:44:12.000',
+    1,2,2
+);
+
+INSERT INTO questions VALUES(
+    NULL,
+    'Another question?',
+    'Another answer',
+    '2020-11-30 16:44:12.000',
+    1,2,2
+);
+
+
+INSERT INTO proposal VALUES(NULL,1,'2020-11-29 11:42:13.123',1,1,5);
