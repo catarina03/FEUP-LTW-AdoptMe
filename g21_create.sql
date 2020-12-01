@@ -12,14 +12,6 @@ CREATE TABLE location (
   district TEXT NOT NULL
 );
 
-CREATE TABLE person (
-  person_id INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
-  account_id INTEGER NOT NULL,
-  location_id INTEGER NOT NULL,
-  FOREIGN KEY (account_id) REFERENCES account(id),
-  FOREIGN KEY (location_id) REFERENCES location(id)
-);
 
 CREATE TABLE shelter (
   shelter_id INTEGER PRIMARY KEY,
@@ -28,6 +20,17 @@ CREATE TABLE shelter (
   location_id INTEGER NOT NULL,
   FOREIGN KEY (account_id) REFERENCES account(id),
   FOREIGN KEY (location_id) REFERENCES location(id)
+);
+
+CREATE TABLE person (
+  person_id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  account_id INTEGER NOT NULL,
+  location_id INTEGER NOT NULL,
+  works_at INTEGER,
+  FOREIGN KEY (account_id) REFERENCES account(id),
+  FOREIGN KEY (location_id) REFERENCES location(id),
+  FOREIGN KEY (works_at) REFERENCES shelter(shelter_id)
 );
 
 CREATE TABLE breed(
@@ -59,12 +62,12 @@ create TABLE favourite(
   PRIMARY KEY (pet_id,person_id)
 );
 
--- Have question date and answer date?
 create TABLE questions(
   id INTEGER PRIMARY KEY,
   question TEXT,
   response TEXT,
-  date TEXT,
+  question_date TEXT,
+  answer_date TEXT,
   made_by INTEGER,
   answered_by INTEGER,
   about INTEGER,
@@ -73,7 +76,6 @@ create TABLE questions(
   FOREIGN KEY (about) REFERENCES pet(id)
 );
 
---table proposal
 create TABLE proposal(
   id INTEGER PRIMARY KEY,
   status INTEGER,
