@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>ONLINE ANIMAL ADOPTION</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.png" alt="a logo image" width="80">
+        <h1>ADOPT ME!</h1>
+    </header>
+    <img src="images/search.png" alt="search"  width="300">
+    <form action="save.php" method="get">
+        <label>Name
+            <input type="search" name="search_bar">
+        </label>
+        <label>Location
+            <select name="Location">
+                <option value="Near me" selected>Near me</option>
+                <option value="Lisbon">Orange</option>
+            </select>
+        </label>
+        <label>Species
+            <select name="Species">
+                <option value="Dog" selected>Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+        </label>
+        <label>Breed
+            <select name="Breed">
+                <option value="Beagle" selected>Bleagle</option>
+                <option value="Boxer">Boxer</option>
+            </select>
+        </label>
+        <label>Color
+            <select name="Color">
+                <option value="Black" selected>Black</option>
+                <option value="Brown">Brown</option>
+            </select>
+        </label>
+        <input type="radio" name="sort by" value="Sort by alphabetical order" checked="checked">Sort by alphabetical order
+        <input type="radio" name="sort by" value="Sort by most recent">Sort by most recent
+        <input type="submit" value="Search">
+    </form>
+</body>
+
+</html>
