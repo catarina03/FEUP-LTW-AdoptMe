@@ -13,12 +13,23 @@
     </header>
     <section id="signup">
         <h2>Create Account</h2>
-        <form>
+        <form action=add_user.php method="post">
             <label>Email:
                 <input type="text" name="email" required>
             </label>
-            <label>City:
-                <input type="text" name="city" required>
+            <label for="city">City:
+                <select name="city" id="city">
+                    <?php 
+                        $db = new PDO('sqlite:g21.db');
+            
+                        $stmt = $db->prepare('SELECT city FROM location');
+                        $stmt->execute();
+                        $cities = $stmt->fetchAll();
+
+                        foreach($cities as $city)
+                            echo '<option value="'.$city['city'].'">'.$city['city'].'</option>';
+                    ?>
+                </select>
             </label>
             <label>Password:
                 <input type="password" name="password" required>

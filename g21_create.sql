@@ -2,7 +2,7 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE account (
   id INTEGER PRIMARY KEY,
-  email TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL
 );
 
