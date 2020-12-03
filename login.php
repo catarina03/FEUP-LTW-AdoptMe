@@ -11,5 +11,5 @@
         echo '<h1>Wrong email or password</h1>';
         
     if($success)
-        echo "<script>window.location='user-profile.html'</script>";
+        echo "<script>window.location='userprofile.php'</script>";
 ?>
