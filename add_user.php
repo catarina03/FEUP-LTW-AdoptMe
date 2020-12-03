@@ -1,5 +1,7 @@
 <?php
 
+    include_once('database/connection.php');
+
     function verifyInput(){
         foreach($_POST as $input){
             if(!isset($input) || $input === '')
@@ -13,7 +15,6 @@
         die();
     }
 
-    $db = new PDO('sqlite:g21.db');
     $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?)');
     $stmt->execute(array($_POST['email'],$_POST['password']));
 

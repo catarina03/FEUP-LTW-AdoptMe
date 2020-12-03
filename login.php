@@ -1,5 +1,5 @@
 <?php
-    $db = new PDO('sqlite:g21.db');
+    include_once('database/connection.php');
 
     $stmt = $db->prepare('SELECT password FROM account WHERE email = ?');
     $stmt->execute(array($_POST['email']));

@@ -20,7 +20,7 @@
             <label for="city">City:
                 <select name="city" id="city">
                     <?php 
-                        $db = new PDO('sqlite:g21.db');
+                        include_once('database/connection.php');
             
                         $stmt = $db->prepare('SELECT city FROM location');
                         $stmt->execute();
