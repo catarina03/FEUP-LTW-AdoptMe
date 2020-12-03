@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<?php 
+    include_once('templates/common/header.php');
+    include_once('database/connection.php');
+?>
 
-<head>
-    <title>ONLINE ANIMAL ADOPTION</title>
-    <meta charset="utf-8">
-</head>
 
-<body>
-    <header>
-        <img src="images/logo.png" alt="a logo image" width="80">
-        <h1>ADOPT ME!</h1>
-        <nav>
-            <a href="login.html">Log in</a>
-            <a href="register.php">Sign up</a>
-            <!-- search -->
-        </nav>
-    </header>
     <aside id="user_profile">
         <header>
             <img src="images/person.jpg" alt="profile picture" width="80">
-            <h3>LTW Profile user name</h3>
+            <h2>LTW Profile user name</h2>
         </header>
         <p id="bio">Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse.</p>
         <footer>
@@ -33,25 +21,26 @@
     </aside>
 
     <section id="posts">
+        <h2 class="visually-hidden">User posts</h2>
         <article>
-            <h3´>Dog name</h3>
+            <h2>Pet name</h2>
+            <img src="images/dog1.jpg" alt="dog profile picture" width="80">
+            <p>Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse. Very hand that feed shibe heckin angery woofer doggo sub woofer very jealous pupper vvv very jealous pupper super...</p>
+        </article>
+
+        <article>
+            <h2>Pet name</h2>
                 <img src="images/dog1.jpg" alt="dog profile picture" width="80">
                 <p>Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse. Very hand that feed shibe heckin angery woofer doggo sub woofer very jealous pupper vvv very jealous pupper super...</p>
         </article>
 
         <article>
-            <h3´>Dog name</h3>
+            <h2>Pet name</h2>
                 <img src="images/dog1.jpg" alt="dog profile picture" width="80">
                 <p>Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse. Very hand that feed shibe heckin angery woofer doggo sub woofer very jealous pupper vvv very jealous pupper super...</p>
         </article>
-
-        <article>
-            <h3´>Dog name</h3>
-                <img src="images/dog1.jpg" alt="dog profile picture" width="80">
-                <p>Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse. Very hand that feed shibe heckin angery woofer doggo sub woofer very jealous pupper vvv very jealous pupper super...</p>
-        </article>
-
     </section>
-</body>
 
-</html>
+<?php 
+    include_once('templates/common/footer.php');
+?>
