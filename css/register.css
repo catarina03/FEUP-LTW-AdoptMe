@@ -1,24 +1,28 @@
-    #signup > h2 {
+#signup > h2 {
+    color: #535353;
     text-align: center;
     font-size: 45px;
 }
 
-input {
-    display: block;
-}
-
 section {
     position: relative;
-    top: -4px;
+    top: 10px;
     background-color: #FFF8CD;
     align-self: center;
     padding-bottom: 135px;
 }
 
 form {
+    color: #535353;
+    position: relative;
+    top: -30px;
     padding-top: 50px;
-    margin: 0 auto; 
+    margin: 0 auto;
     width:250px;
+}
+
+input {
+    display: block;
 }
 
 form > label {
@@ -27,10 +31,10 @@ form > label {
 
 label > input {
     border-style: none;
-    width: 350px;
-    height: 35px;
     margin-top: 0;
     margin-bottom: 15px;
+    width: 220px;
+    height: 25px;
 }
 
 div > input {
@@ -41,10 +45,19 @@ div > input {
 
 input[type="submit"] {
     position: relative;
-    right: -150px;
-    top : 30px;
-    border-style: none;
+    top: 20px;
+    left: 45px;
+    background-color: #ff8829;
+    color: #FFF8CD;
+    font-size: 14px;
     padding: 10px 20px;
-    background-color: orangered;
-    color: white
+    text-decoration: none;
+    border-radius: 10%;
+    border-style: none;
+}
+
+input[type=submit]:hover{
+    background-color: #737373;
+    border-radius: 10%;
+    color: #FFF8CD;
 }
