@@ -5,7 +5,7 @@
 
     <section id="signup">
         <h2>Create Account</h2>
-        <form action=add_user.php method="post">
+        <form action=action_signup.php method="post">
             <label>Username:
                 <input type="text" name="username" required>
             </label>
