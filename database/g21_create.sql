@@ -3,7 +3,8 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE account (
   id INTEGER PRIMARY KEY,
   email TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
+  password TEXT NOT NULL,
+  bio TEXT
 );
 
 CREATE TABLE location (
