@@ -27,21 +27,22 @@
     </header>
     <section id='main'>
         <h2 class="visually-hidden">Pet profile</h2>
-        <img src="images/cao-em-casa.jpg" alt="dog image " width="130" height="180">
+        <img src="images/original/<?=$_GET['id']?>.jpg" alt="dog image " width="130" height="180">
         <article id="pet">
-            <?php
-                $stmt = $db->prepare(
-                    'SELECT 
-                    pet.name AS name,
-                    breed.name AS race,
-                    gender,weight,height,color
-                    FROM pet JOIN breed ON breed_id=breed.id
-                    WHERE pet.id=?'
-                );
 
-                $stmt->execute(array($_GET['id']));
-                $pet = $stmt->fetch();
-            ?>
+        <?php
+            $stmt = $db->prepare(
+                'SELECT 
+                pet.name AS name,
+                breed.name AS race,
+                gender,weight,height,color
+                FROM pet JOIN breed ON breed_id=breed.id
+                WHERE pet.id=?'
+            );
+
+            $stmt->execute(array($_GET['id']));
+            $pet = $stmt->fetch();
+        ?>
                 
             <h2><?=$pet['name']?></h2>
             <h3><?=$pet['race']?></h3>
