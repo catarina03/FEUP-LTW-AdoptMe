@@ -15,7 +15,7 @@
         die();
     }
 
-    $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?)');
+    $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?, NULL)');
     $stmt->execute(array($_POST['email'],$_POST['password']));
 
     echo '<h1>You just registered</h1>';

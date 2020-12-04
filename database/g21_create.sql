@@ -3,7 +3,8 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE account (
   id INTEGER PRIMARY KEY,
   email TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
+  password TEXT NOT NULL,
+  bio TEXT
 );
 
 CREATE TABLE location (
@@ -42,6 +43,7 @@ CREATE TABLE breed(
 CREATE TABLE pet (
   id INTEGER PRIMARY KEY,
   name TEXT,
+  bio TEXT,
   gender TEXT,
   weight REAL,
   height REAL,
