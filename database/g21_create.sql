@@ -43,6 +43,7 @@ CREATE TABLE breed(
 CREATE TABLE pet (
   id INTEGER PRIMARY KEY,
   name TEXT,
+  bio TEXT,
   gender TEXT,
   weight REAL,
   height REAL,

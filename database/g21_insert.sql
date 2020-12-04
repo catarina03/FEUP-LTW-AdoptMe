@@ -42,9 +42,10 @@ INSERT INTO breed VALUES(7,'Gato','Gato de pelo curto inglês');
 INSERT INTO breed VALUES(8,'Gato','Maine Coon');
 
 -- Pet
-INSERT INTO pet VALUES(1,'Abbie','female',2,35,'black',7,5,NULL);
-INSERT INTO pet VALUES(2,'Bambi','male',10,105,'light brown',3,6,NULL);
-INSERT INTO pet VALUES(3,'Cookie','male',4,54,'white',4,NULL,3);
+INSERT INTO pet VALUES(1,'Abbie', 'Im a friendly black dog', 'female',2,35,'black',7,5,NULL);
+INSERT INTO pet VALUES(2,'Bambi', 'My name is Bambi and I want to be adopted', 'male',10,105,'light brown',3,6,NULL);
+INSERT INTO pet VALUES(3,'Cookie', 'Hello, Im cookie', 'male',4,54,'white',4,NULL,3);
+INSERT INTO pet VALUES(4,'Bobi', 'I am a black dog that enjoying playing outside', 'female',3,50,'black',7,1,NULL);
 
 -- Favourite
 INSERT INTO favourite VALUES(1,1);

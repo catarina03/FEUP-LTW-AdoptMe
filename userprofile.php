@@ -2,11 +2,13 @@
     include_once('includes/init.php');
     include_once('database/db_user.php');
     include_once('templates/common/header.php');
+    include_once('templates/template-posts.php');
 
     if (!isset($_SESSION['username']))
         die(header('Location: login.html'));
 
     $user = getUser($_SESSION['username']);
+    $pets = getAllPetsForAdoption($_SESSION['username']);
 ?>
 
 
@@ -27,26 +29,8 @@
         </footer>
     </aside>
 
-    <section id="posts">
-        <h2 class="visually-hidden">User posts</h2>
-        <article>
-            <h2>Pet name</h2>
-            <img src="images/dog1.jpg" alt="dog profile picture" width="80">
-            <p>Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse. Very hand that feed shibe heckin angery woofer doggo sub woofer very jealous pupper vvv very jealous pupper super...</p>
-        </article>
-
-        <article>
-            <h2>Pet name</h2>
-                <img src="images/dog1.jpg" alt="dog profile picture" width="80">
-                <p>Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse. Very hand that feed shibe heckin angery woofer doggo sub woofer very jealous pupper vvv very jealous pupper super...</p>
-        </article>
-
-        <article>
-            <h2>Pet name</h2>
-                <img src="images/dog1.jpg" alt="dog profile picture" width="80">
-                <p>Doggo ipsum much ruin diet pats porgo very jealous pupper shoober, woofer noodle horse. Very hand that feed shibe heckin angery woofer doggo sub woofer very jealous pupper vvv very jealous pupper super...</p>
-        </article>
-    </section>
+    <?php drawAllPetPosts($pets); ?>
+    
 
 <?php 
     include_once('templates/common/footer.php');

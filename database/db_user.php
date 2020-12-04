@@ -22,6 +22,20 @@
             ON location.id = person.location_id
             WHERE account.email = ?');
         $stmt->execute(array($email)); 
-        return $stmt->fetch(); // return true if a line exists
+        return $stmt->fetch(); 
+    }
+
+    function getAllPetsForAdoption($email){
+        global $db;
+        $stmt = $db->prepare('SELECT pet.name AS name, pet.bio AS bio, pet.gender AS gender, pet.weight AS weight, 
+        pet.height AS  height, pet.color AS color, breed.type AS type, breed.name AS breed
+        FROM account 
+        INNER JOIN pet 
+        ON account.id = pet.has_for_adoption
+        INNER JOIN breed
+        ON pet.breed_id = breed.id
+        WHERE account.email = ?');
+    $stmt->execute(array($email)); 
+    return $stmt->fetchAll(); 
     }
 ?>
