@@ -8,11 +8,6 @@
     $breed = $_POST['breed'];
     $color = $_POST['color'];
 
-    if (checkUserPassword($email, $password)) {
-        $_SESSION['username'] = $email;
-        header('Location: userprofile.php');
-      } else {
-        header('Location: login.html');
-    }
+    
 
 ?>
