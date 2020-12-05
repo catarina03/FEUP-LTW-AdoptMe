@@ -24,7 +24,9 @@
             <h4>XX following</h4>
 
             <!-- placeholder-->
-            <a href="login.html">Edit profile</a>
+            <form action="edit_profile.php">
+                <input type="submit" value="Edit Profile">
+            </form>
 
         </footer>
     </aside>

@@ -27,7 +27,7 @@
     </header>
     <section id='main'>
         <h2 class="visually-hidden">Pet profile</h2>
-        <img src="images/original/<?=$_GET['id']?>.jpg" alt="dog image " width="130" height="180">
+        <img src="images/pets/original/<?=$_GET['id']?>.jpg" alt="dog image " width="130" height="180">
         <article id="pet">
 
         <?php
