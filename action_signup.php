@@ -20,7 +20,6 @@
         $stmt->execute(array($_POST['email'],$_POST['password']));
     }
     catch(PDOException $e){
-        $email = $_POST['email'];
         echo '<script>alert("Email already in use")</script>';
         echo '<a href=register.php>Try again</a>';
         die();
