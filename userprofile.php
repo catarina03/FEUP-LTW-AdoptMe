@@ -1,8 +1,8 @@
 <?php 
     include_once('includes/init.php');
     include_once('database/db_user.php');
-    include_once('templates/common/header.php');
     include_once('templates/template-posts.php');
+    include_once('templates/common/header.php');
 
     if (!isset($_SESSION['username']))
         die(header('Location: login.html'));
