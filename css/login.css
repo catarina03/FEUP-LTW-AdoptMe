@@ -1,29 +1,58 @@
 #main{
-    margin-top: 20px;
     background-color: #FFF8CD;
     padding-bottom: 100%;
-    text-align: center;
-    color: #535353;
 }
 
-label {
-    font-size: 20px;
-    margin: 10px;
+#main > h2 {
+    color: #535353;
+    text-align: center;
+    font-size: 45px;
+}
+
+section {
+    position: relative;
+    top: 10px;
+    background-color: #FFF8CD;
+    align-self: center;
+    padding-bottom: 135px;
+}
+
+form {
+    color: #535353;
+    position: relative;
+    top: -30px;
+    padding-top: 50px;
+    margin: 0 auto;
+    width:250px;
+}
+
+input {
     display: block;
 }
 
-input{
-    padding: 5px;
-    border:none;
+form > label {
+    font-size: 20px;
 }
 
-input[type=submit]{
+label > input {
+    border-style: none;
+    margin-top: 0;
+    margin-bottom: 15px;
+    width: 220px;
+    height: 25px;
+}
+
+input[type="submit"] {
+    position: relative;
+    top: 20px;
+    left: 45px;
     background-color: #ff8829;
     color: #FFF8CD;
     font-size: 14px;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 10%;
+    border-style: none;
 }
 
 input[type=submit]:hover{
@@ -31,24 +60,18 @@ input[type=submit]:hover{
     border-radius: 10%;
     color: #FFF8CD;
 }
-
-
-
-#main > h2 {
-    font-size: 45px;
-    padding-top: 15px;
+#main > p{
+    text-align: center;
 }
-
 
 .signup:hover{
     background-color: #FFF8CD;
     color: #ff8829
 }
-
 @media(max-width: 858px){
-   .signup{
-       padding: 0;
-       color: #535353;
-   }
-
-}
+    .signup{
+        padding: 0;
+        color: #535353;
+    }
+ 
+ }
