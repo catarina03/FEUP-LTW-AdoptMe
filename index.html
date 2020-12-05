@@ -18,7 +18,7 @@
         <a class="logged in" href="userprofile.php">
             <img alt="User profile" src="images/profile_photo.jpg" width="40" height="40">
         </a>
-        <a href="search.html">
+        <a href="search.php">
             <img alt="search" src="images/search_icon.png" width="100" height="100">
         </a>
         <h1>ADOPT ME!</h1>

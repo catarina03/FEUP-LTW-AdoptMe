@@ -5,7 +5,7 @@
     <section id="main">
         <h2 class="visually-hidden">Search</h2>
         <img src="images/search_icon.png" alt="search"  width="300">
-        <form action="action_search.php" method="get">
+        <form action="action_search.php" method="post">
             <label>Name
                 <input type="search" name="name">
             </label>
@@ -17,8 +17,8 @@
             </label>
             <label>Species
                 <select name="species">
-                    <option value="Dog" selected>Dog</option>
-                    <option value="Cat">Cat</option>
+                    <option value="Cão" selected>Cão</option>
+                    <option value="Gato">Gato</option>
                 </select>
             </label>
             <label>Breed
@@ -33,9 +33,9 @@
                     <option value="Brown">Brown</option>
                 </select>
             </label>
-            <input type="radio" name="sort by alphabetical order" value="Sort by alphabetical order" checked="checked">Sort by alphabetical order
-            <input type="radio" name="sort by most recent" value="Sort by most recent">Sort by most recent
-            <input type="submit" value="Search">
+            <input type="radio" name="sort" value="alphabetical" checked="checked">Sort by alphabetical order
+            <input type="radio" name="sort" value="most recent">Sort by most recent
+            <input type="submit" name="Search" value="Search">
         </form>
     </section>
 </body>
