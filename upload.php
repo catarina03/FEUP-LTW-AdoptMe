@@ -34,5 +34,5 @@
 
     imagejpeg($small,$smallFileName);
 
-    //header("Location: userprofile.php");
+    header("Location: userprofile.php");
 ?>

@@ -14,7 +14,7 @@
 
     <aside id="user_profile">
         <header>
-            <img src="images/person.jpg" alt="profile picture" width="80">
+            <img src="images/accounts/small/<?=$user['id']?>.jpg" alt="profile picture" width="80" onerror="this.onerror=null;this.src='images/missing_image.jpg';">
             <h2><?php echo $user['name'] ?></h2>
         </header>
         <p id="bio"><?php echo $user['bio'] ?></p>
