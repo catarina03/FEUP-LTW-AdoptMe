@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
-*{
-    padding: 0;  
+* {
+    padding: 0;
     margin: 10px 0px 0px 0px;
     text-decoration: none;
     list-style: none;
@@ -8,13 +8,13 @@
     font-family: 'Salsa', cursive;
 }
 
-header{
+body>header {
     background: #FFE05D;
     height: 80px;
     width: 100%;
 }
 
-.logo{
+.logo {
     top: -8px;
     position: relative;
     float: left;
@@ -22,11 +22,12 @@ header{
     margin-left: 30px;
 }
 
-h1.siteName, div.menu{
+h1.siteName,
+div.menu {
     color: #737373;
 }
 
-h1.siteName{
+h1.siteName {
     font-size: 30px;
     padding: 0 10px;
     margin-top: 25px;
@@ -39,8 +40,8 @@ h1.siteName{
     margin-right: 30px;
 }
 
-a{
-    font-size: 18px ;
+a {
+    font-size: 18px;
     color: inherit;
     margin: 0 5px;
     text-transform: capitalize;
@@ -48,26 +49,28 @@ a{
     border-radius: 5px;
 }
 
-a:hover{
+a:hover {
     transition: .2s;
     background: #ff8829;
     color: #FFE05D;
 }
 
-.loggedIn{
+.loggedIn {
     margin-top: 10px;
     /*display: none;*/
     float: right;
 }
-.loggedIn img{
+
+.loggedIn img {
     border-radius: 50%;
 }
-.search{
+
+.search {
     margin-top: 10px;
     float: right;
 }
 
-hr{
+hr {
     top: -15px;
     position: relative;
     margin: 0;
@@ -76,8 +79,10 @@ hr{
     width: 100%;
 }
 
+
 /* puts a button when page width is too small*/
-.checkbtn{
+
+.checkbtn {
     font-size: 30px;
     color: #ff8829;
     float: right;
@@ -87,22 +92,20 @@ hr{
     display: none;
 }
 
-#check{
+#check {
     display: none;
 }
 
-
-@media(max-width: 858px){
-    .logo{
+@media(max-width: 858px) {
+    .logo {
         top: -15px;
     }
-
-    hr{
+    hr {
         top: -35px;
     }
-    .checkbtn{
+    .checkbtn {
         display: block;
-    }    
+    }
     .loggedOut {
         margin-right: 0;
         position: fixed;
@@ -113,18 +116,18 @@ hr{
         text-align: center;
         transition: all 0.5s;
     }
-    a{
+    a {
         font-size: 20px;
         color: #FFF8CD;
         display: block;
         margin: 10px;
         line-height: 30px;
     }
-    a:hover{
+    a:hover {
         background: #FFF8CD;
         color: #ff8829;
     }
-    #check:checked ~ .loggedOut{
+    #check:checked~.loggedOut {
         right: 0;
         margin-right: 0;
     }
