@@ -5,11 +5,6 @@
     top: -11px;
 }
 
-#main>footer>a {
-    margin-right: 0;
-    padding-right: 0;
-}
-
 #main {
     display: inline-flex;
 }
