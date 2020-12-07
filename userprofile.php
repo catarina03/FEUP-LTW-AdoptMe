@@ -3,6 +3,7 @@
     include_once('database/db_user.php');
     include_once('templates/common/header.php');
     include_once('templates/template-posts.php');
+    include_once('templates/tpl_userprofile.php');
 
     if (!isset($_SESSION['username']))
         die(header('Location: login.html'));
@@ -12,28 +13,15 @@
 ?>
 
 
-    <aside id="user_profile">
-        <header>
-            <img src="images/accounts/small/<?=$user['id']?>.jpg" alt="profile picture" width="80" onerror="this.onerror=null;this.src='images/missing_image.jpg';">
-            <h2><?php echo $user['name'] ?></h2>
-        </header>
-        <p id="bio"><?php echo $user['bio'] ?></p>
-        <p id="location"><?php echo $user['city'] ?></p>
-        <footer>
-            <h4>XX followers</h4>
-            <h4>XX following</h4>
+    <?php drawUserProfile($user); ?>
 
-            <!-- placeholder-->
-            <form action="edit_profile.php">
-                <input type="submit" value="Edit Profile">
-            </form>
-
-        </footer>
-    </aside>
+    <form action="edit_profile.php">
+        <input type="submit" value="Edit Profile">
+    </form>
 
     <?php drawAllPetPosts($pets); ?>
     
 
 <?php 
-    include_once('templates/common/footer.php');
+    include_once('templates/common/footer.php')
 ?>

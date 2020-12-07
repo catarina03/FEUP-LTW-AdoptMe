@@ -38,4 +38,26 @@
     $stmt->execute(array($email)); 
     return $stmt->fetchAll(); 
     }
+
+    function getAllCities(){
+        global $db;
+        $stmt = $db->prepare('SELECT city FROM location');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function getPetInfo($petID){
+        global $db;
+        $stmt = $db->prepare(
+            'SELECT 
+            pet.name AS name,
+            breed.name AS race,
+            gender,weight,height,color
+            FROM pet JOIN breed ON breed_id=breed.id
+            WHERE pet.id=?'
+        );
+
+        $stmt->execute(array($petID));
+        return $stmt->fetch();
+    }
 ?>
