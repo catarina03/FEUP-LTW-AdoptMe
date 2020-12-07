@@ -2,61 +2,57 @@
         background-color: #FFF8CD;
         padding-bottom: 100%;
         position: relative;
-        top: 10px;
+        top: -11px;
+        display: inline-flex;
+        width: 100%;
     }
     
-    h2 {
-        font-size: 50px;
+    #pet_adoption {
+        position: relative;
+        top: 120px;
+        margin: 80px;
+        margin-left: 10%;
+        margin-bottom: 25px;
+       
     }
     
-    h3 {
-        font-size: 20px;
+    #pet_adoption button{
+        margin-left: 15px;
+        font-size: 30px;
+        font-weight: 600;
+        border: none;
+        color:#535353;
+        background-color: #FFF8CD;
+    }
+    #pet_adoption button:hover{
+        padding: 2px 5px;
+        color:#FFF8CD;
+        background-color: #ff8829;
+    }
+
+    #description {
+        position: relative;
+        top: 120px;
+        margin-top: 80px;
+        margin-right: 80px;
+    }
+    
+    #pet_adoption>img {
+        margin-left: 30px;
+        border-radius: 10%;
+        display: block;
     }
     
     .visually-hidden {
+        margin-bottom: 30px;
         display: none;
     }
     
-    .split {
-        height: 100%;
-        width: 50%;
-        position: fixed;
-        z-index: 1;
-        overflow-x: hidden;
-        padding-top: 20px;
-    }
-    
-    .left {
-        left: 0;
-    }
-    
-    .right {
-        right: 10%;
-    }
-    
-    .centered {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -100%);
-        margin-bottom: 10px;
-        margin-left: 50px;
-    }
-    
-    .centered>img {
-        display: block;
-        border-radius: 10%;
-        margin-bottom: 10px;
-        width: max-content;
-        height: 350px;
-    }
-    
-    .centered>article {
-        display: block;
-    }
-    
-    article>h2 {
+    #description h2, #description h3, #description p {
         position: relative;
-        top: -50px;
-        text-align: center;
+        top: 7px;
+        padding-left: 10px;
     }
+    
+
+   
