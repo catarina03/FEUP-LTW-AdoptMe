@@ -26,27 +26,6 @@
     margin: 80px;
 }
 
-
-/*
-.split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 200px;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
-.left {
-    left: 70px;
-}
-
-.right {
-    right: 100px;
-}
-*/
-
 footer>h3 {
     display: inline;
 }
