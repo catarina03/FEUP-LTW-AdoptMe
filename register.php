@@ -1,6 +1,9 @@
 <?php 
     include_once('includes/init.php');
     include_once('templates/common/header.php');
+    include_once('database/db_user.php');
+
+    $cities = getAllCities();
 ?>
 
     <section id="signup">
@@ -14,11 +17,7 @@
             </label>
             <label for="city">City:
                 <select name="city" id="city">
-                    <?php 
-                        $stmt = $db->prepare('SELECT city FROM location');
-                        $stmt->execute();
-                        $cities = $stmt->fetchAll();
-
+                    <?php
                         foreach($cities as $city)
                             echo '<option value="'.$city['city'].'">'.$city['city'].'</option>';
                     ?>
