@@ -8,8 +8,12 @@
         <img src="images/pets/original/<?=$webPet['id']?>.jpg" alt="pet<?=$webPet['id']?>" width="100" height="100">
         <a href="petprofile.php?id=<?=$webPet['id']?>"><?=$webPet['name']?></a>
     <?php } ?>
-    <body>
-    
+    </body>
+<?php
+    include_once('templates/common/footer.php');
+?>
+
+
 <?php
     
     function getAllPetsPostsFromWebsite() { 
@@ -25,5 +29,4 @@
         return $pets;
     }
 
-    include_once('templates/common/footer.php');
 ?>
