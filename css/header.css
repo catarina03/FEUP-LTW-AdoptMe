@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+* {
+    padding: 0;
+    margin: 10px 0px 0px 0px;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Salsa', cursive;
+    color: #737373;
+}
+.visually-hidden{
+    display: none;
+}
+
+body>header {
+    background: #FFE05D;
+    height: 80px;
+    width: 100%;
+}
+
+.logo {
+    top: -8px;
+    position: relative;
+    float: left;
+    padding: 0 5px;
+    margin-left: 30px;
+}
+
+h1.siteName,
+div.menu {
+    color: #737373;
+}
+
+h1.siteName {
+    font-size: 30px;
+    padding: 0 10px;
+    margin-top: 25px;
+    float: left;
+}
+
+.loggedOut {
+    float: right;
+    margin-top: 31px;
+    margin-right: 30px;
+}
+
+a {
+    font-size: 18px;
+    color: inherit;
+    margin: 0 5px;
+    text-transform: capitalize;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+a:hover {
+    transition: .2s;
+    background: #ff8829;
+    color: #FFE05D;
+}
+
+.loggedIn {
+    margin-top: 10px;
+    /*display: none;*/
+    float: right;
+}
+
+.loggedIn img {
+    border-radius: 50%;
+}
+
+.search {
+    margin-top: 10px;
+    float: right;
+}
+
+hr {
+    top: -15px;
+    position: relative;
+    margin: 0;
+    float: left;
+    border: 5px solid #ff8829;
+    width: 100%;
+}
+
+
+/* puts a button when page width is too small*/
+
+.checkbtn {
+    font-size: 30px;
+    color: #ff8829;
+    float: right;
+    line-height: 60px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+@media(max-width: 858px) {
+    .logo {
+        top: -15px;
+    }
+    hr {
+        top: -35px;
+    }
+    .checkbtn {
+        display: block;
+    }
+    .loggedOut {
+        margin-right: 0;
+        position: fixed;
+        width: 100%;
+        background: #ff8829;
+        top: 75px;
+        right: -100%;
+        text-align: center;
+        transition: all 0.5s;
+    }
+    a {
+        font-size: 20px;
+        color: #FFF8CD;
+        display: block;
+        margin: 10px;
+        line-height: 30px;
+    }
+    a:hover {
+        background: #FFF8CD;
+        color: #ff8829;
+    }
+    #check:checked~.loggedOut {
+        right: 0;
+        margin-right: 0;
+    }
+}

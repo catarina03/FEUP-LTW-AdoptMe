@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../css/register.css" > 
+
 <?php 
     include_once('../includes/init.php');
     include_once('../templates/common/header.php');
@@ -29,11 +31,11 @@
             <label>Repeat Password:
                 <input type="password" name="password" required>
             </label>
-            <fieldset>
+            <div>
                 <legend>I am a:</legend>
                 <input type="radio" name="type" value="User" checked>User
                 <input type="radio" name="type" value="Shelter">Shelter
-            </fieldset>
+            </div>
             <input type="submit" value="Send">
         </form>
     </section>
