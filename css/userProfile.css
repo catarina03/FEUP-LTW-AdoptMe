@@ -17,6 +17,10 @@
     position: relative;
     top: 120px;
     margin: 80px;
+    position: relative;
+    left: 10%;
+    margin-left: 30px;
+    margin-bottom: 25px;
 }
 
 footer>h3 {
@@ -31,13 +35,6 @@ footer>a {
     display: block;
     margin-left: 0;
     padding-right: 0;
-}
-
-#user_profile {
-    position: relative;
-    left: 10%;
-    margin-left: 30px;
-    margin-bottom: 25px;
 }
 
 #user_profile>header>img {
@@ -72,5 +69,5 @@ input[type="submit"]{
 input[type="submit"]:hover{    
     color: #FFF8CD;
     background-color: #ff8829;    
-    border-radius: 10%;
+    border-radius: 10px;
 }
