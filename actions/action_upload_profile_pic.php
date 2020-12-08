@@ -1,16 +1,16 @@
 <?php
-    include_once('includes/init.php');
-    include_once('database/db_user.php');
+    include_once('../includes/init.php');
+    include_once('../database/db_user.php');
 
     if (!isset($_SESSION['username']))
-        die(header('Location: login.html'));
+        die(header('Location: ../pages/login.html'));
 
     $user = getUser($_SESSION['username']);
 
     $id = $user['id'];
     
-    $originalFileName = "images/accounts/original/$id.jpg";
-    $smallFileName = "images/accounts/small/$id.jpg";
+    $originalFileName = "../images/accounts/original/$id.jpg";
+    $smallFileName = "../images/accounts/small/$id.jpg";
 
     move_uploaded_file($_FILES['image']['tmp_name'],$originalFileName);
 
@@ -34,5 +34,5 @@
 
     imagejpeg($small,$smallFileName);
 
-    header("Location: userprofile.php");
+    header("Location: ../pages/userprofile.php");
 ?>

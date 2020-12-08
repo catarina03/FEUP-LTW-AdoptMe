@@ -1,15 +1,16 @@
-<link rel="stylesheet" href="css/register.css" >
+<link rel="stylesheet" href="../css/register.css" > 
 
 <?php 
-    include_once('includes/init.php');
-    include_once('templates/common/header.php');
-    include_once('database/db_user.php');
+    include_once('../includes/init.php');
+    include_once('../templates/common/header.php');
+    include_once('../database/db_user.php');
 
     $cities = getAllCities();
 ?>
+
     <section id="signup">
         <h2>Create Account</h2>
-        <form action=action_signup.php method="post">
+        <form action="../actions/action_signup.php" method="post">
             <label>Username:
                 <input type="text" name="username" required>
             </label>
@@ -40,5 +41,5 @@
     </section>
 
 <?php 
-    include_once('templates/common/footer.php');
+    include_once('../templates/common/footer.php');
 ?>

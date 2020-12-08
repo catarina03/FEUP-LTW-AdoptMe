@@ -4,7 +4,7 @@
 <head>
     <title>ONLINE ANIMAL ADOPTION</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/./css/header.css">
+    <link rel="stylesheet" href="../css/header.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
@@ -16,21 +16,21 @@
         </label>
         
         <a class="logo" href="index.html">
-            <img alt="logo image" src="/./images/logo.png" width="80">
+            <img alt="logo image" src="../images/logo.png" width="80">
         </a>
         <h1 class="siteName" >ADOPT ME!</h1>
 
         <nav class='loggedOut'>
-                <a href="/./login.html">Log in</a>
-                <a href="/./register.php">Sign up</a>
+                <a href="../pages/login.html">Log in</a>
+                <a href="../pages/register.php">Sign up</a>
         </nav>
         
-        <a class="loggedIn" href="/./userprofile.php">
-                <img alt="User profile" src="/./images/profile_photo.jpg" width="40" height="40">
+        <a class="loggedIn" href="../pages/userprofile.php">
+                <img alt="User profile" src="../images/profile_photo.jpg" width="40" height="40">
         </a>
         
         <a class="search" href="search.html">
-            <img alt="search" src="/./images/search_icon.png" width="30" >
+            <img alt="search" src="../images/search_icon.png" width="30" >
         </a>
         <hr>
     </header>

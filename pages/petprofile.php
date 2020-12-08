@@ -1,13 +1,13 @@
 <?php 
-    include_once('database/db_user.php');
-    include_once('templates/common/header.php');
+    include_once('../database/db_user.php');
+    include_once('../templates/common/header.php');
 
     $pet = getPetInfo($_GET['id']);
 ?>
 
     <section id='main'>
         <h2 class="visually-hidden">Pet profile</h2>
-        <img src="images/pets/original/<?=$_GET['id']?>.jpg" alt="dog image " width="130" height="180">
+        <img src="../images/pets/original/<?=$_GET['id']?>.jpg" alt="dog image " width="130" height="180">
         <article id="pet">
                 
             <h2><?=$pet['name']?></h2>
@@ -22,4 +22,4 @@
         <button>ADOPT ME!</button>
     </section>
 
-<?php include_once('templates/common/footer.php'); ?>
+<?php include_once('../templates/common/footer.php'); ?>
