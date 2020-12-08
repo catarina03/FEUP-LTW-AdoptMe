@@ -5,6 +5,7 @@
     <title>ONLINE ANIMAL ADOPTION</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/login.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
@@ -34,4 +35,19 @@
         </a>
         <hr>
     </header>
+    <section id="main">
+        <h2>Log in</h2>
+        <form action="../actions/action_login.php" method="post">
+            <label for="email">Email:
+                <input type="text" name="email" required>
+            </label>
+            <label for="password">Password:
+                <input type="password" name="password" required>
+            </label>
+            <input type="submit" value="Send">
+        </form>
+        <p>Don’t have an account yet? <a href='register.php'>Sign up</a></p>
+    </section>
 </body>
+
+</html>

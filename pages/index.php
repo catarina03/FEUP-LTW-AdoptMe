@@ -17,3 +17,4 @@
 <?php   
     include_once('templates/common/footer.php');
 ?>
+<?php header('Location: pages/index.php') ?>
