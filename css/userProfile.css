@@ -1,11 +1,9 @@
 #main {
     background-color: #FFF8CD;
     padding-bottom: 100%;
+    width: 100%;
     position: relative;
     top: -11px;
-}
-
-#main {
     display: inline-flex;
 }
 
@@ -35,19 +33,18 @@ footer>a {
     padding-right: 0;
 }
 
-#user_profile>header {
+#user_profile {
+    position: relative;
+    left: 10%;
     margin-left: 30px;
     margin-bottom: 25px;
 }
 
 #user_profile>header>img {
-    margin-left: 30px;
+    margin-left: 65px;
     border-radius: 50%;
 }
 
-.visually-hidden {
-    margin-bottom: 30px;
-}
 
 #posts img {
     float: left;
@@ -63,4 +60,17 @@ footer>a {
 
 #posts>article {
     margin-bottom: 40px;
+}
+
+input[type="submit"]{
+    margin-left: 30px;
+    border:none;
+    padding: 10px 15px;
+    background-color: #FFF8CD;
+    font-size: 20px;
+}
+input[type="submit"]:hover{    
+    color: #FFF8CD;
+    background-color: #ff8829;    
+    border-radius: 10%;
 }
