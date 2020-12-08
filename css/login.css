@@ -1,10 +1,12 @@
+*{
+    color: #535353;
+}
 #main{
     background-color: #FFF8CD;
     padding-bottom: 100%;
 }
 
 #main > h2 {
-    color: #535353;
     text-align: center;
     font-size: 45px;
 }
@@ -18,12 +20,12 @@ section {
 }
 
 form {
-    color: #535353;
     position: relative;
     top: -30px;
     padding-top: 50px;
     margin: 0 auto;
     width:250px;
+    left: 20px;
 }
 
 input {
@@ -45,7 +47,7 @@ label > input {
 input[type="submit"] {
     position: relative;
     top: 20px;
-    left: 45px;
+    left: 65px;
     background-color: #ff8829;
     color: #FFF8CD;
     font-size: 14px;
@@ -64,12 +66,14 @@ input[type=submit]:hover{
     text-align: center;
 }
 
-.signup:hover{
+#main > p > a:hover{
     background-color: #FFF8CD;
     color: #ff8829
 }
+
 @media(max-width: 858px){
-    .signup{
+
+    #main > p > a{
         padding: 0;
         color: #535353;
     }

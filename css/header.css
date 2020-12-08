@@ -7,6 +7,9 @@
     box-sizing: border-box;
     font-family: 'Salsa', cursive;
 }
+.visually-hidden{
+    display: none;
+}
 
 body>header {
     background: #FFE05D;

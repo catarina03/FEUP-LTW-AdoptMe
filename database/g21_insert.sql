@@ -1,12 +1,12 @@
 -- Accounts
-INSERT INTO account VALUES(1, 'joao@gmail.com','joao123');
-INSERT INTO account VALUES(2, 'bernardo@gmail.com','bernardo123');
-INSERT INTO account VALUES(3, 'jessica@gmail.com','jessica123');
-INSERT INTO account VALUES(4, 'catarina@gmail.com','catarina123');
-INSERT INTO account VALUES(5, 'shelter1@gmail.com','shelter1');
-INSERT INTO account VALUES(6, 'shelter2@gmail.com','shelter2');
-INSERT INTO account VALUES(7, 'worker1@gmail.com','worker1');
-INSERT INTO account VALUES(8, 'worker2@gmail.com','worker2');
+INSERT INTO account VALUES(1, 'joao@gmail.com','joao123', 'I love animals');
+INSERT INTO account VALUES(2, 'bernardo@gmail.com','bernardo123', 'I have 5 dogs and want more');
+INSERT INTO account VALUES(3, 'jessica@gmail.com','jessica123', 'I live in porto and like cats');
+INSERT INTO account VALUES(4, 'catarina@gmail.com','catarina123', 'I have many pets for adoption, check them out');
+INSERT INTO account VALUES(5, 'shelter1@gmail.com','shelter1', 'We are a shelter of portugal');
+INSERT INTO account VALUES(6, 'shelter2@gmail.com','shelter2', 'We are a great shelter');
+INSERT INTO account VALUES(7, 'worker1@gmail.com','worker1', 'I work in a shelter');
+INSERT INTO account VALUES(8, 'worker2@gmail.com','worker2', 'I work in a shelter and love animals');
 
 -- Location
 INSERT INTO location VALUES(1, 'Amarante','Porto');
@@ -42,9 +42,10 @@ INSERT INTO breed VALUES(7,'Gato','Gato de pelo curto inglês');
 INSERT INTO breed VALUES(8,'Gato','Maine Coon');
 
 -- Pet
-INSERT INTO pet VALUES(1,'Abbie','female',2,35,'black',7,5,NULL);
-INSERT INTO pet VALUES(2,'Bambi','male',10,105,'light brown',3,6,NULL);
-INSERT INTO pet VALUES(3,'Cookie','male',4,54,'white',4,NULL,3);
+INSERT INTO pet VALUES(1,'Abbie', 'Im a friendly black dog', 'female',2,35,'black',7,5,NULL);
+INSERT INTO pet VALUES(2,'Bambi', 'My name is Bambi and I want to be adopted', 'male',10,105,'light brown',3,6,NULL);
+INSERT INTO pet VALUES(3,'Cookie', 'Hello, Im cookie', 'male',4,54,'white',4,NULL,3);
+INSERT INTO pet VALUES(4,'Bobi', 'I am a black dog that enjoying playing outside', 'female',3,50,'black',7,1,NULL);
 
 -- Favourite
 INSERT INTO favourite VALUES(1,1);
