@@ -1,6 +1,6 @@
 <?php
 
-    include_once('database/connection.php');
+    include_once('../database/connection.php');
 
     function verifyInput(){
         foreach($_POST as $input){
@@ -21,11 +21,11 @@
     }
     catch(PDOException $e){
         echo '<script>alert("Email already in use")</script>';
-        echo '<a href=register.php>Try again</a>';
+        echo '<a href=../pages/register.php>Try again</a>';
         die();
     }
 
     echo '<h1>You just registered</h1>';
-    echo '<a href=login.html>Sign In Here</a>';
+    echo '<a href=../pages/login.html>Sign In Here</a>';
     
 ?>
