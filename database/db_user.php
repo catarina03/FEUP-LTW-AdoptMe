@@ -60,4 +60,10 @@
         $stmt->execute(array($petID));
         return $stmt->fetch();
     }
+
+    function addAccount($email,$password){
+        global $db;
+        $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?,NULL)');
+        $stmt->execute(array($email,$password));
+    }
 ?>

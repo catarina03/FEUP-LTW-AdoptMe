@@ -1,6 +1,6 @@
 <?php
 
-    include_once('../database/connection.php');
+    include_once('../database/db_user.php');
 
     function verifyInput(){
         foreach($_POST as $input){
@@ -16,8 +16,7 @@
     }
 
     try{
-        $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?, NULL)');
-        $stmt->execute(array($_POST['email'],$_POST['password']));
+        addAccount($_POST['email'],$_POST['password']);
     }
     catch(PDOException $e){
         echo '<script>alert("Email already in use")</script>';
