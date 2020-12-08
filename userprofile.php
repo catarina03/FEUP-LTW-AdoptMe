@@ -21,6 +21,9 @@
 
     <?php drawAllPetPosts($pets); ?>
     
+    <form action="add-animal-adoption.php" method="post">
+        <input type="submit" value="Add animal to adoption" />
+    </form>
 
 <?php 
     include_once('templates/common/footer.php')
