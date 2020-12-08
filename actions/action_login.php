@@ -5,6 +5,8 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    var_dump($email);
+
     if (checkUserPassword($email, $password)) {
         $_SESSION['username'] = $email;
         header('Location: ../pages/userprofile.php');
