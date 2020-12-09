@@ -5,10 +5,10 @@
     function drawSearchForm(){ ?>
         <form action="action_search.php" method="post">
             <label>Name
-                <input type="search" name="name">
+                <input id="name" type="search" name="name">
             </label>
             <label>Location
-                <select name="location">
+                <select id= "location" name="location">
                     <?php $locations = getAllPetLocations();
                     foreach($locations as $location) {?>
                         <option value="<?php echo $location['location']; ?>"><?php echo $location['location']; ?></option>
