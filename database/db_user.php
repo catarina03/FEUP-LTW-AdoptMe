@@ -60,4 +60,17 @@
         $stmt->execute(array($petID));
         return $stmt->fetch();
     }
+
+    function getAllPetsPostsFromWebsite() { 
+        global $db;
+        $stmt = $db->prepare('SELECT DISTINCT P.id, P.name 
+                            FROM shelter S, person Per, pet P 
+                            WHERE Per.account_id = P.has_for_adoption or
+                                S.account_id = P.has_for_adoption'
+                            );
+        $stmt->execute();
+        $pets = $stmt->fetchAll();
+        
+        return $pets;
+    }
 ?>
