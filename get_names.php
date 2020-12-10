@@ -8,8 +8,8 @@
   // Get the countries that start with $name
   $stmt = $db->prepare("SELECT pet.name FROM pet WHERE upper(pet.name) LIKE upper(?) LIMIT 10");
   $stmt->execute(array("$name%"));
-  $names = $stmt->fetchAll();
+  $response = $stmt->fetchAll();
   
   // JSON encode them
-  echo json_encode($names);
+  echo json_encode($response);
 ?>

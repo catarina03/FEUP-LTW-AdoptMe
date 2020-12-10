@@ -1,36 +1,26 @@
 'use strict'
 
-let results = document.getElementById('search_results');
-let name_filter = document.querySelector('#search_filters input[name="name"]');
-let min_output = document.getElementById('location');
-
 let text = document.getElementById("name");
 console.log(text);
 text.addEventListener("keyup", nameChanged);
 
 let locationFilter = document.getElementById('location');
-//let locationFilter = document.querySelectorAll('#location *');
 console.log(locationFilter);
-//locationFilter.option[locationFilter.selectedIndex].addEventListener("click", locationChanged);
 locationFilter.addEventListener("change", locationChanged);
 
-//let locationFilter = document.querySelector('#search_filters select[name="location"]');
-//locationFilter.addEventListener("keyup", locationChanged);
+let speciesFilter = document.getElementById('species');
+console.log(speciesFilter);
+speciesFilter.addEventListener("change", speciesChanged);
 
-//let check_out_filter = document.querySelector('#search_filters input[name="check_out"]');
-//let min_output = document.getElementById('min_output');
-//let max_output = document.getElementById('max_output');
-//let min_price = document.querySelector('#filters input[name="min_price"]');
-//let max_price = document.querySelector('#filters input[name="max_price"]');
+let breedFilter = document.getElementById('breed');
+console.log(breedFilter);
+breedFilter.addEventListener("change", breedChanged);
 
-//let get_url = window.location.search.substr(1);
-//let get_url_parsed = get_url.split('&');
-//let get_params = {};
-//let filter_values = {};
-//let expected_requests = 0, current_requests = 0;
-//let last_request;
+let colorFilter = document.getElementById('color');
+console.log(colorFilter);
+colorFilter.addEventListener("change", colorChanged);
 
-//name_filter.addEventListener('change', () => name_filter.type = 'search');
+
 
 // Handler for change event on text input
 function nameChanged(event) {
@@ -82,6 +72,88 @@ function locationsReceived(){
         list.appendChild(item);
     }
 }
+
+
+function speciesChanged(event){
+    let text = event.target;
+    console.log(text);
+  
+    let request = new XMLHttpRequest();
+    request.addEventListener("load", speciesReceived);
+    request.open("get", "get_species.php?species=" + text.value, true);
+    request.send();
+}
+
+function speciesReceived(){
+    console.log(this.responseText);
+    let allSpecies = JSON.parse(this.responseText);
+    let list = document.getElementById("search_results");
+    list.innerHTML = ""; // Clean current 
+
+    // Add new suggestions
+    for (species in allSpecies) {
+        let item = document.createElement("li");
+        item.innerHTML = allSpecies[species].name;
+        list.appendChild(item);
+    }
+}
+
+
+function breedChanged(event){
+    let text = event.target;
+    console.log(text);
+  
+    let request = new XMLHttpRequest();
+    request.addEventListener("load", breedReceived);
+    request.open("get", "get_breed.php?breed=" + text.value, true);
+    request.send();
+}
+
+function breedReceived(){
+    console.log(this.responseText);
+    let breeds = JSON.parse(this.responseText);
+    let list = document.getElementById("search_results");
+    list.innerHTML = ""; // Clean current 
+
+    // Add new suggestions
+    for (breed in breeds) {
+        let item = document.createElement("li");
+        item.innerHTML = breeds[breed].name;
+        list.appendChild(item);
+    }
+}
+
+
+function colorChanged(event){
+    let text = event.target;
+    console.log(text);
+  
+    let request = new XMLHttpRequest();
+    request.addEventListener("load", breedReceived);
+    request.open("get", "get_color.php?color=" + text.value, true);
+    request.send();
+}
+
+function colorReceived(){
+    console.log(this.responseText);
+    let colors = JSON.parse(this.responseText);
+    let list = document.getElementById("search_results");
+    list.innerHTML = ""; // Clean current 
+
+    // Add new suggestions
+    for (color in colors) {
+        let item = document.createElement("li");
+        item.innerHTML = colors[color].name;
+        list.appendChild(item);
+    }
+}
+
+
+
+
+
+
+
 
 
 

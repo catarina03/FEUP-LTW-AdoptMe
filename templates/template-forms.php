@@ -16,7 +16,7 @@
                 </select>
             </label>
             <label>Species
-                <select name="species">
+                <select id="species" name="species">
                     <?php $all_species = getAllPetSpecies();
                     foreach($all_species as $species) {?>
                         <option value="<?php echo $species['species']; ?>"><?php echo $species['species']; ?></option>
@@ -24,7 +24,7 @@
                 </select>
             </label>
             <label>Breed
-                <select name="breed">
+                <select id="breed" name="breed">
                     <?php $breeds = getAllPetBreeds();
                     foreach($breeds as $breed) {?>
                         <option value="<?php echo $breed['breed']; ?>"><?php echo $breed['breed']; ?></option>
@@ -32,7 +32,7 @@
                 </select>
             </label>
             <label>Color
-                <select name="color">
+                <select id="color" name="color">
                     <?php $colors = getAllPetColors();
                     foreach($colors as $color) {?>
                         <option value="<?php echo $color['color']; ?>"><?php echo $color['color']; ?></option>

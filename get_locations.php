@@ -20,8 +20,8 @@
     INNER JOIN location ON location.id = shelter.location_id
     WHERE location.city = (?)");
   $stmt->execute(array("$location", "$location"));
-  $names = $stmt->fetchAll();
+  $response = $stmt->fetchAll();
   
   // JSON encode them
-  echo json_encode($names);
+  echo json_encode($response);
 ?>
