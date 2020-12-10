@@ -1,14 +1,14 @@
 <?php 
-    include_once('templates/common/header.php');
-    include_once('includes/init.php');
-    include_once('database/db_user.php');
-
+    include_once('../includes/init.php');
+    include_once('../database/db_user.php');
+    include_once('../templates/common/header.php');
+    
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
 
 ?>
 
-<form action="action-add-animal-adoption.php" method="get">
+<form action="actions/action-add-animal-adoption.php" method="get">
     <label>Name:
         <input type="text" name="name" required>
     </label>
@@ -32,5 +32,5 @@
 </form>
 
 <?php 
-    include_once('templates/common/footer.php');
+    include('../templates/common/footer.php');
 ?>
