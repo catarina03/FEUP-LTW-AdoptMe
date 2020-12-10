@@ -1,27 +1,21 @@
 'use strict'
 
 let text = document.getElementById("name");
-console.log(text);
-text.addEventListener("keyup", nameChanged);
+text.addEventListener("keyup", filterPets);
 
 let locationFilter = document.getElementById('location');
-console.log(locationFilter);
-locationFilter.addEventListener("change", locationChanged);
+locationFilter.addEventListener("change", filterPets);
 
 let speciesFilter = document.getElementById('species');
-console.log(speciesFilter);
-speciesFilter.addEventListener("change", speciesChanged);
+speciesFilter.addEventListener("change", filterPets);
 
 let breedFilter = document.getElementById('breed');
-console.log(breedFilter);
-breedFilter.addEventListener("change", breedChanged);
+breedFilter.addEventListener("change", filterPets);
 
 let colorFilter = document.getElementById('color');
-console.log(colorFilter);
-colorFilter.addEventListener("change", colorChanged);
+colorFilter.addEventListener("change", filterPets);
 
-
-
+/*
 // Handler for change event on text input
 function nameChanged(event) {
     let text = event.target;
@@ -148,7 +142,61 @@ function colorReceived(){
     }
 }
 
+*/
 
+
+
+
+let filter_values = {};
+
+
+function updateResults() {
+    console.log("Responde text: " + this.responseText);
+    let pets = JSON.parse(this.responseText);
+    
+    //console.log(pets);
+
+    /*
+    results.innerHTML = '';
+
+    houses.forEach(function (house) {
+        results.innerHTML += printHouse(house);
+    });
+
+    add_card_links();
+    */
+}
+
+
+function encode_for_ajax(data) {
+    return Object.keys(data).map(function(k){
+      return k + '=' + data[k]
+    }).join('&');
+}
+
+function filterPets() {
+    let inputs = document.querySelectorAll('input');
+    let selects = document.querySelectorAll('select');
+    let request = new XMLHttpRequest();
+
+    inputs.forEach(function (input) {
+        let name = input.attributes.name.value;
+        filter_values[name] = input.value;
+    });
+
+    selects.forEach(function (select) {
+        let name = select.attributes.name.value;
+        filter_values[name] = select.value;
+    });
+
+    console.log(filter_values);
+
+    request.onload = updateResults;
+    //request.open('get', 'ajax/filter_pets.php?' + encode_for_ajax(filter_values), true);
+    request.open('get', 'filter_pets.php?' + encode_for_ajax(filter_values), true);
+    request.send();
+
+}
 
 
 
