@@ -1,0 +1,76 @@
+#main {
+    background-color: #FFF8CD;
+    padding-bottom: 100%;
+    width: 100%;
+    position: relative;
+    top: -11px;
+    display: inline-flex;
+}
+
+#user_profile {
+    position: relative;
+    top: 120px;
+    margin: 80px;
+}
+
+#posts {
+    position: relative;
+    top: 120px;
+    margin: 80px;
+}
+
+footer>h3 {
+    display: inline;
+}
+
+footer>h3:nth-child(2) {
+    margin-left: 10px;
+}
+
+footer>a {
+    display: block;
+    margin-left: 0;
+    padding-right: 0;
+}
+
+#user_profile {
+    position: relative;
+    left: 10%;
+    margin-left: 30px;
+    margin-bottom: 25px;
+}
+
+#user_profile>header>img {
+    margin-left: 65px;
+    border-radius: 50%;
+}
+
+
+#posts img {
+    float: left;
+    margin-right: 20px;
+}
+
+#posts h2,
+#posts p {
+    position: relative;
+    top: 7px;
+    padding-left: 10px;
+}
+
+#posts>article {
+    margin-bottom: 40px;
+}
+
+input[type="submit"]{
+    margin-left: 30px;
+    border:none;
+    padding: 10px 15px;
+    background-color: #FFF8CD;
+    font-size: 20px;
+}
+input[type="submit"]:hover{    
+    color: #FFF8CD;
+    background-color: #ff8829;    
+    border-radius: 10%;
+}

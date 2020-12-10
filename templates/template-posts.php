@@ -1,6 +1,6 @@
 <?php 
-    include_once('includes/init.php');
-    include_once('database/db_user.php');
+    include_once('../includes/init.php');
+    include_once('../database/db_user.php');
 
     if (!isset($_SESSION['username']))
         die(header('Location: login.html'));
@@ -11,7 +11,7 @@
     <?php function drawPetPost($post){ ?>
         <article>
             <h2><?php echo $post['name'] ?></h2>
-            <img src="images/dog1.jpg" alt="dog profile picture" width="80">
+            <img src="../images/dog1.jpg" alt="dog profile picture" width="80">
             <p><?php echo $post['bio'] ?></p>
         </article>
     <?php } ?>
@@ -26,4 +26,6 @@
 
         </section>
     <?php } ?>
+
+    
 
