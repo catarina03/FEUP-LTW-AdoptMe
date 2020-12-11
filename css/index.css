@@ -1,0 +1,16 @@
+#main{
+    background-color: #FFF8CD;
+    padding-bottom: 100%;
+}
+#main > article{
+    margin: 30px;
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 0 10px;
+}
+
+article > h3{
+    text-align: center;
+}
