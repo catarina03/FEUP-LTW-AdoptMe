@@ -17,11 +17,16 @@
         return $color === '' || ($pet_color === $color);
     }
 
+    function checkStatus($pet_status, $status){
+        return $status === '' || ($pet_status === NULL && $status === "adopted") || ($pet_status !== NULL && $status === "for adoption");
+    }
+
     $name = '';
     $location = '';
     $species = '';
     $breed = '';
     $color = '';
+    $status = '';
 
     if(isset($_GET['name']))
         $name = $_GET['name'];
@@ -33,6 +38,8 @@
         $breed = $_GET['breed'];
     if(isset($_GET['color']))
         $color = $_GET['color'];
+    if(isset($_GET['status']))
+        $status = $_GET['status'];
 
     $filtered_pets = array();
 
@@ -47,14 +54,16 @@
         if(checkLocation($pet['location'], $location) 
             && checkSpecies($pet['species'], $species) 
             && checkBreed($pet['breed'], $breed)
-            && checkColor($pet['color'], $color)){
-            //$rating_info = getRatingOfHouse($house['houseID']);
-            //$house_photo = getHouseThumbnail($house['houseID']);
-            //$photo = array('photo' => $house_photo);
-            //$info = array_merge($house, $rating_info, $photo);
+            && checkColor($pet['color'], $color)
+            && checkStatus($pet['status'], $status)){
+
             array_push($filtered_pets, $pet);
         }
     }
+
+    usort($filtered_pets, function ($a, $b) {
+        return $a['name'] <=> $b['name'];
+    });
 
     echo json_encode($filtered_pets);
 

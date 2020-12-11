@@ -15,6 +15,9 @@ breedFilter.addEventListener("change", filterPets);
 let colorFilter = document.getElementById('color');
 colorFilter.addEventListener("change", filterPets);
 
+let statusFilter = document.getElementById('status');
+statusFilter.addEventListener("change", filterPets);
+
 let results = document.getElementById('search_results');
 
 let filter_values = {};
@@ -28,6 +31,7 @@ function writePet(pet){
                 pet['name'] +
             '</a>' +
             '<section class="info">' +
+                '<img src="images/original/' + pet['id'] + '.jpg" alt="pet image" width="130">' + 
                 '<ul>' +
                     '<li>Location: ' + pet['location'] + '</li>' +
                     '<li>Species: ' + pet['species'] + '</li>' +
@@ -44,9 +48,6 @@ function writePet(pet){
 function updateResults() {
     console.log("Responde text: " + this.responseText);
     let pets = JSON.parse(this.responseText);
-    
-    //console.log(pets);
-
     
     results.innerHTML = '';
 
@@ -79,6 +80,8 @@ function filterPets() {
         filter_values[name] = select.value;
     });
 
+    //filter_values[]
+
     console.log(filter_values);
 
     request.onload = updateResults;
@@ -91,60 +94,3 @@ function filterPets() {
 
 
 
-
-
-
-
-/*
-let filter_values = {};
-
-function encode_for_ajax(data) {
-    return Object.keys(data).map(function(k){
-      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-    }).join('&');
-}
-
-function updateResults() {
-    let houses = JSON.parse(this.responseText);
-    
-    results.innerHTML = '';
-
-    houses.forEach(function (house) {
-        console.log(house);
-    //    results.innerHTML += printHouse(house);
-    });
-
-    //add_card_links();
-}
-
-function filter() {
-    let inputs = document.querySelectorAll('#search_filters input');
-    let request = new XMLHttpRequest();
-
-    inputs.forEach(function (input) {
-        let name = input.attributes.name.value;
-
-        console.log(name);
-        console.log(input.attributes.name.value);
-
-        filter_values[decodeURIComponent(name)] = decodeURIComponent(input.value);
-    });
-
-    console.log(filter_values);
-    //request.onload = updateResults;
-    request.open('get', '../ajax/filter_houses.php?' + encode_for_ajax(filter_values), true);
-    request.send();
-}
-
-
-name_filter.addEventListener('change', function(){
-    console.log(name_filter);
-    filter();
-});
-
-
-console.log(name_filter);
-//console.log(min_output.value);
-
-filter();
-*/

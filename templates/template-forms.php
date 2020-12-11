@@ -43,8 +43,13 @@
                     <?php } ?>
                 </select>
             </label>
-            <input type="radio" name="sort" value="alphabetical" checked="checked">Sort by alphabetical order
-            <input type="radio" name="sort" value="most recent">Sort by most recent
+            <label>Status
+                <select id="status" name="status">
+                    <option value=""></option>
+                    <option value="for adoption">For adoption</option>
+                    <option value="adopted">Adopted</option>
+                </select>
+            </label>
         </form>
     <?php } 
 
