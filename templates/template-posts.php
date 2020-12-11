@@ -11,7 +11,7 @@
     <?php function drawPetPost($post){ ?>
         <article>
             <h2><?php echo $post['name'] ?></h2>
-            <img src="../images/<?=$pet['id']?>.jpg" alt="dog profile picture" width="80">
+            <img src="../images/<?=$post['id']?>.jpg" alt="dog profile picture" width="80">
             <p><?php echo $post['bio'] ?></p>
         </article>
     <?php } ?>
