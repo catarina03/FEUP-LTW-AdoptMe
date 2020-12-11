@@ -36,7 +36,7 @@ CREATE TABLE person (
 
 CREATE TABLE breed(
   id INTEGER PRIMARY KEY,
-  type TEXT NOT NULL,
+  species TEXT NOT NULL,
   name TEXT NOT NULL
 );
 
