@@ -25,6 +25,7 @@
                 <a href="../pages/register.php">Sign up</a>
         </nav>
         
+        <a class="loggedIn" href="../actions/action_logout.php">Log out</a>
         <a class="loggedIn" href="../pages/userprofile.php">
                 <img alt="User profile" src="../images/profile_photo.jpg" width="40" height="40">
         </a>
