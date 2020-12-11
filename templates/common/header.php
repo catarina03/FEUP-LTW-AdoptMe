@@ -15,7 +15,7 @@
             <i class="fas fa-bars"></i>
         </label>
         
-        <a class="logo" href="index.html">
+        <a class="logo" href="index.php">
             <img alt="logo image" src="../images/logo.png" width="80">
         </a>
         <h1 class="siteName" >ADOPT ME!</h1>

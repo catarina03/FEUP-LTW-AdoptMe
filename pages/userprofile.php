@@ -21,6 +21,9 @@
         <form action="edit_profile.php">
             <input type="submit" value="Edit Profile">
         </form>
+        <form action="add-animal-adoption.php">
+            <input type="submit" value="Add Animal">
+        </form>
     </aside>
 
     <?php drawAllPetPosts($pets); ?>

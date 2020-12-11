@@ -61,9 +61,16 @@
         return $stmt->fetch();
     }
 
-    function addAccount($email,$password){
+    function getAllPetsPostsFromWebsite() { 
         global $db;
-        $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?,NULL)');
-        $stmt->execute(array($email,$password));
+        $stmt = $db->prepare('SELECT DISTINCT P.id, P.name 
+                            FROM shelter S, person Per, pet P 
+                            WHERE Per.account_id = P.has_for_adoption or
+                                S.account_id = P.has_for_adoption'
+                            );
+        $stmt->execute();
+        $pets = $stmt->fetchAll();
+        
+        return $pets;
     }
 ?>
