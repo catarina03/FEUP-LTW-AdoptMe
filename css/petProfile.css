@@ -1,0 +1,58 @@
+    #main {
+        background-color: #FFF8CD;
+        padding-bottom: 100%;
+        position: relative;
+        top: -11px;
+        display: inline-flex;
+        width: 100%;
+    }
+    
+    #pet_adoption {
+        position: relative;
+        top: 120px;
+        margin: 80px;
+        margin-left: 10%;
+        margin-bottom: 25px;
+       
+    }
+    
+    #pet_adoption button{
+        margin-left: 15px;
+        font-size: 30px;
+        font-weight: 600;
+        border: none;
+        color:#535353;
+        background-color: #FFF8CD;
+    }
+    #pet_adoption button:hover{
+        padding: 2px 5px;
+        color:#FFF8CD;
+        background-color: #ff8829;
+    }
+
+    #description {
+        position: relative;
+        top: 120px;
+        margin-top: 80px;
+        margin-right: 80px;
+    }
+    
+    #pet_adoption>img {
+        margin-left: 30px;
+        border-radius: 10%;
+        display: block;
+    }
+    
+    .visually-hidden {
+        margin-bottom: 30px;
+        display: none;
+    }
+    
+    #description h2, #description h3, #description p {
+        position: relative;
+        top: 7px;
+        padding-left: 10px;
+    }
+    
+
+   

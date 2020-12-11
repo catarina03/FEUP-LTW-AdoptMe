@@ -1,5 +1,5 @@
 <?php 
-    include_once('database/db_pet.php');
+    include_once('../database/db_pet.php');
 
     function checkLocation($pet_location, $location){
         return $location === '' || ($pet_location === $location);

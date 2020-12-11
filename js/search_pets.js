@@ -31,7 +31,7 @@ function writePet(pet){
                 pet['name'] +
             '</a>' +
             '<section class="info">' +
-                '<img src="images/original/' + pet['id'] + '.jpg" alt="pet image" width="130">' + 
+                '<img src="../images/pets/original/' + pet['id'] + '.jpg" alt="pet image" width="130">' + 
                 '<ul>' +
                     '<li>Location: ' + pet['location'] + '</li>' +
                     '<li>Species: ' + pet['species'] + '</li>' +
@@ -66,8 +66,8 @@ function encode_for_ajax(data) {
 }
 
 function filterPets() {
-    let inputs = document.querySelectorAll('input');
-    let selects = document.querySelectorAll('select');
+    let inputs = document.querySelectorAll('#search_form input');
+    let selects = document.querySelectorAll('#search_form select');
     let request = new XMLHttpRequest();
 
     inputs.forEach(function (input) {
@@ -84,7 +84,7 @@ function filterPets() {
 
     request.onload = updateResults;
     //request.open('get', 'ajax/filter_pets.php?' + encode_for_ajax(filter_values), true);
-    request.open('get', 'filter_pets.php?' + encode_for_ajax(filter_values), true);
+    request.open('get', '../ajax/filter_pets.php?' + encode_for_ajax(filter_values), true);
     request.send();
 
 }

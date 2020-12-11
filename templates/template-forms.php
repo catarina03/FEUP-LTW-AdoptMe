@@ -1,9 +1,9 @@
 <?php
-    include_once('database/db_pet.php');
+    include_once('../database/db_pet.php');
 
 
     function drawSearchForm(){ ?>
-        <form>
+        <form id="search_form">
             <label>Name
                 <input id="name" type="search" name="name">
             </label>
