@@ -25,6 +25,9 @@ body>header {
     padding: 0 5px;
     margin-left: 30px;
 }
+.logo:hover {
+    top: -10px;
+}
 
 h1.siteName,
 div.menu {
@@ -44,7 +47,7 @@ h1.siteName {
     margin-right: 30px;
 }
 
-a {
+header > a, nav > a {
     font-size: 18px;
     color: inherit;
     margin: 0 5px;
@@ -53,7 +56,7 @@ a {
     border-radius: 10px;
 }
 
-a:hover {
+nav > a:hover {
     transition: .2s;
     background: #ff8829;
     color: #FFE05D;
@@ -68,10 +71,17 @@ a:hover {
 .loggedIn img {
     border-radius: 50%;
 }
+.loggedIn img:hover{
+    border-radius: 10px;
+}
 
 .search {
-    margin-top: 10px;
+    position: relative;
+    top: 15px;
     float: right;
+}
+.search:hover{
+    top: 10px;
 }
 
 hr {
@@ -101,12 +111,6 @@ hr {
 }
 
 @media(max-width: 858px) {
-    .logo {
-        top: -15px;
-    }
-    hr {
-        top: -35px;
-    }
     .checkbtn {
         display: block;
     }
@@ -120,14 +124,14 @@ hr {
         text-align: center;
         transition: all 0.5s;
     }
-    a {
+    nav > a {
         font-size: 20px;
         color: #FFF8CD;
         display: block;
         margin: 10px;
         line-height: 30px;
     }
-    a:hover {
+    nav > a:hover {
         background: #FFF8CD;
         color: #ff8829;
     }
