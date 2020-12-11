@@ -8,7 +8,7 @@
         <aside id="search_filters">
             <?php drawSearchForm(); ?>
         <aside>
-        <section id="search-results">
+        <section id="search_results">
             <h2 class="visually-hidden">Search</h2>
 
         </section>

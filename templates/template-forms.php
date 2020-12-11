@@ -3,7 +3,7 @@
 
 
     function drawSearchForm(){ ?>
-        <form action="action_search.php" method="post">
+        <form>
             <label>Name
                 <input id="name" type="search" name="name">
             </label>
@@ -45,7 +45,6 @@
             </label>
             <input type="radio" name="sort" value="alphabetical" checked="checked">Sort by alphabetical order
             <input type="radio" name="sort" value="most recent">Sort by most recent
-            <input type="submit" name="Search" value="Search">
         </form>
     <?php } 
 

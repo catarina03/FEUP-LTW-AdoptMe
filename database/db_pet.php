@@ -3,7 +3,7 @@
 
     function getAllPets(){
         global $db;
-        $stmt = $db->prepare('SELECT pet.name AS name, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color
+        $stmt = $db->prepare('SELECT pet.id AS id, pet.name AS name, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color
             FROM pet INNER JOIN breed ON pet.breed_id = breed.id
             INNER JOIN person ON (pet.has_for_adoption = person.person_id OR pet.adopted = person.person_id)
             INNER JOIN location ON person.location_id = location.id;');
@@ -77,7 +77,7 @@
 
     function getPetsByName($name){
         global $db;
-        $stmt = $db->prepare("SELECT pet.name AS name, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color
+        $stmt = $db->prepare("SELECT pet.id AS id, pet.name AS name, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color
             FROM pet INNER JOIN breed ON pet.breed_id = breed.id
             INNER JOIN person ON (pet.has_for_adoption = person.person_id OR pet.adopted = person.person_id)
             INNER JOIN location ON person.location_id = location.id

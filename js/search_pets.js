@@ -15,139 +15,30 @@ breedFilter.addEventListener("change", filterPets);
 let colorFilter = document.getElementById('color');
 colorFilter.addEventListener("change", filterPets);
 
-/*
-// Handler for change event on text input
-function nameChanged(event) {
-    let text = event.target;
-    console.log(text);
-  
-    let request = new XMLHttpRequest();
-    request.addEventListener("load", namesReceived);
-    request.open("get", "get_names.php?name=" + text.value, true);
-    request.send();
-  }
-  
-// Handler for ajax response received
-function namesReceived() {
-    console.log(this.responseText);
-    let names = JSON.parse(this.responseText);
-    let list = document.getElementById("search_results");
-    list.innerHTML = ""; // Clean current 
-
-    // Add new suggestions
-    for (name in names) {
-        let item = document.createElement("li");
-        item.innerHTML = names[name].name;
-        list.appendChild(item);
-    }
-}
-
-
-function locationChanged(event){
-    let text = event.target;
-    console.log(text);
-  
-    let request = new XMLHttpRequest();
-    request.addEventListener("load", locationsReceived);
-    request.open("get", "get_locations.php?location=" + text.value, true);
-    request.send();
-}
-
-function locationsReceived(){
-    console.log(this.responseText);
-    let locations = JSON.parse(this.responseText);
-    let list = document.getElementById("search_results");
-    list.innerHTML = ""; // Clean current 
-
-    // Add new suggestions
-    for (location in locationss) {
-        let item = document.createElement("li");
-        item.innerHTML = locations[location].name;
-        list.appendChild(item);
-    }
-}
-
-
-function speciesChanged(event){
-    let text = event.target;
-    console.log(text);
-  
-    let request = new XMLHttpRequest();
-    request.addEventListener("load", speciesReceived);
-    request.open("get", "get_species.php?species=" + text.value, true);
-    request.send();
-}
-
-function speciesReceived(){
-    console.log(this.responseText);
-    let allSpecies = JSON.parse(this.responseText);
-    let list = document.getElementById("search_results");
-    list.innerHTML = ""; // Clean current 
-
-    // Add new suggestions
-    for (species in allSpecies) {
-        let item = document.createElement("li");
-        item.innerHTML = allSpecies[species].name;
-        list.appendChild(item);
-    }
-}
-
-
-function breedChanged(event){
-    let text = event.target;
-    console.log(text);
-  
-    let request = new XMLHttpRequest();
-    request.addEventListener("load", breedReceived);
-    request.open("get", "get_breed.php?breed=" + text.value, true);
-    request.send();
-}
-
-function breedReceived(){
-    console.log(this.responseText);
-    let breeds = JSON.parse(this.responseText);
-    let list = document.getElementById("search_results");
-    list.innerHTML = ""; // Clean current 
-
-    // Add new suggestions
-    for (breed in breeds) {
-        let item = document.createElement("li");
-        item.innerHTML = breeds[breed].name;
-        list.appendChild(item);
-    }
-}
-
-
-function colorChanged(event){
-    let text = event.target;
-    console.log(text);
-  
-    let request = new XMLHttpRequest();
-    request.addEventListener("load", breedReceived);
-    request.open("get", "get_color.php?color=" + text.value, true);
-    request.send();
-}
-
-function colorReceived(){
-    console.log(this.responseText);
-    let colors = JSON.parse(this.responseText);
-    let list = document.getElementById("search_results");
-    list.innerHTML = ""; // Clean current 
-
-    // Add new suggestions
-    for (color in colors) {
-        let item = document.createElement("li");
-        item.innerHTML = colors[color].name;
-        list.appendChild(item);
-    }
-}
-
-*/
-
-
-
+let results = document.getElementById('search_results');
 
 let filter_values = {};
+
+
+function writePet(pet){
+    let content = 
+    '<article class="pet_card">' + 
+        '<section>' +
+            '<a href="petprofile.php?id=' + pet['id'] +'">' +
+                pet['name'] +
+            '</a>' +
+            '<section class="info">' +
+                '<ul>' +
+                    '<li>Location: ' + pet['location'] + '</li>' +
+                    '<li>Species: ' + pet['species'] + '</li>' +
+                    '<li>Breed: ' + pet['breed'] + '</li>' +
+                '</ul>' +
+            '</section>' +
+        '</section>' +
+    '</article>';
+
+    return content;
+}
 
 
 function updateResults() {
@@ -156,15 +47,14 @@ function updateResults() {
     
     //console.log(pets);
 
-    /*
+    
     results.innerHTML = '';
 
-    houses.forEach(function (house) {
-        results.innerHTML += printHouse(house);
+    pets.forEach(function (pet) {
+        results.innerHTML += writePet(pet);
     });
 
-    add_card_links();
-    */
+    //add_card_links();
 }
 
 
