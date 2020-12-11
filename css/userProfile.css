@@ -1,6 +1,6 @@
 #main {
     background-color: #FFF8CD;
-    padding-bottom: 100%;
+    padding-bottom: 19%;
     width: 100%;
     position: relative;
     top: -11px;
@@ -8,69 +8,73 @@
 }
 
 #user_profile {
-    position: relative;
-    top: 120px;
-    margin: 80px;
+    height: 400px;
+    width: 300px;
+    margin: 95px;
+    align-content: center;
 }
 
-#posts {
-    position: relative;
-    top: 120px;
-    margin: 80px;
-}
-
-footer>h3 {
-    display: inline;
-}
-
-footer>h3:nth-child(2) {
-    margin-left: 10px;
-}
-
-footer>a {
-    display: block;
-    margin-left: 0;
-    padding-right: 0;
-}
-
-#user_profile {
-    position: relative;
-    left: 10%;
-    margin-left: 30px;
-    margin-bottom: 25px;
-}
-
-#user_profile>header>img {
-    margin-left: 65px;
+header>img {
     border-radius: 50%;
+    width: 120px;
+    height: 120px;
 }
 
+#user_profile>header {
+    position: relative;
+    right: -20px;
+}
 
-#posts img {
+#user_info>p {
+    display: left;
+    margin-right: 20px;
+}
+
+#user_profile>form {
     float: left;
     margin-right: 20px;
 }
 
-#posts h2,
-#posts p {
-    position: relative;
-    top: 7px;
-    padding-left: 10px;
-}
-
-#posts>article {
-    margin-bottom: 40px;
-}
-
-input[type="submit"]{
-    margin-left: 30px;
-    border:none;
-    padding: 10px 15px;
-    background-color: #FFF8CD;
+#bio {
     font-size: 20px;
 }
-input[type="submit"]:hover{    
+
+#posts {
+    width: 600px;
+    display: inline;
+    margin: 95px;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+article>img {
+    float: left;
+    margin-right: 30px;
+    position: relative;
+    top: -10px;
+    width: 100px;
+    height: 70px;
+}
+
+footer {
+    position: relative;
+    top: -50px;
+}
+
+input[type="submit"] {
+    background-color: #ff8829;
     color: #FFF8CD;
-    background-color: #ff8829;    
+    font-size: 14px;
+    padding: 10px 20px;
+    text-decoration: none;
     border-radius: 10%;
+    border-style: none;
+}
+
+input[type=submit]:hover {
+    background-color: #737373;
+    border-radius: 10%;
+    color: #FFF8CD;
 }
