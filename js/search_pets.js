@@ -80,8 +80,6 @@ function filterPets() {
         filter_values[name] = select.value;
     });
 
-    //filter_values[]
-
     console.log(filter_values);
 
     request.onload = updateResults;
