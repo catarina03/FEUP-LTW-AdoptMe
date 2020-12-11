@@ -1,0 +1,44 @@
+#main{
+    background-color: #FFF8CD;
+    padding-bottom: 100%;
+}
+form{
+    display: inline-block;
+}
+
+form > label{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+label > input{
+    border:none;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom:20px;
+}
+label > select{
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom:10px;
+    background-color: white;
+}
+
+.pet_card{
+    margin-left: 5%;
+    margin-right: 5%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.pet_card > section > a{
+    font-size: 25px;
+}
