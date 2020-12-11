@@ -27,7 +27,7 @@
 
     function getAllPetsForAdoption($email){
         global $db;
-        $stmt = $db->prepare('SELECT pet.name AS name, pet.bio AS bio, pet.gender AS gender, pet.weight AS weight, 
+        $stmt = $db->prepare('SELECT pet.id AS id, pet.name AS name, pet.bio AS bio, pet.gender AS gender, pet.weight AS weight, 
         pet.height AS  height, pet.color AS color, breed.type AS type, breed.name AS breed
         FROM account 
         INNER JOIN pet 
