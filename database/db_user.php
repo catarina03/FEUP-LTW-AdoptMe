@@ -49,8 +49,9 @@
     function getPetInfo($petID){
         global $db;
         $stmt = $db->prepare(
-            'SELECT 
+            'SELECT
             pet.name AS name,
+            pet.bio AS bio,
             breed.name AS race,
             gender,weight,height,color
             FROM pet JOIN breed ON breed_id=breed.id
@@ -72,5 +73,16 @@
         $pets = $stmt->fetchAll();
         
         return $pets;
+    }
+
+    function userOwnsPet($email,$petID){
+        $pets = getAllPetsForAdoption($email);
+        
+        foreach($pets as $pet){
+            if($pet['id']===$petID)
+                return true;
+        }
+
+        return false;
     }
 ?>
