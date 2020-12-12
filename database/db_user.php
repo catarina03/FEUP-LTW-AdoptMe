@@ -50,6 +50,7 @@
         global $db;
         $stmt = $db->prepare(
             'SELECT 
+            pet.id AS id,
             pet.name AS name,
             breed.name AS race,
             gender,weight,height,color

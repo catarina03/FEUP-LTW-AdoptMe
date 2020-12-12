@@ -39,6 +39,21 @@
         return $stmt->fetchAll(); 
     }
 
+    function getAllPetComments($pet_id){
+        global $db;
+        $stmt = $db->prepare("SELECT pet.id AS pet_id, 
+            questions.question AS question, 
+            questions.made_by AS made_by, 
+            questions.question_date AS question_date, 
+            questions.response AS response, 
+            questions.answered_by AS answered_by, 
+            questions.answer_date AS answer_date FROM pet
+            INNER JOIN questions ON pet.id = questions.about
+            WHERE pet.id = (?)");
+        $stmt->execute(array("$pet_id"));
+        return $stmt->fetchAll();
+    }
+
     function getPetsByBreed($breed){
         global $db;
         $stmt = $db->prepare("SELECT pet.name AS name

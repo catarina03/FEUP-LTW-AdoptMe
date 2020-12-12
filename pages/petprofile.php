@@ -1,6 +1,8 @@
 <?php 
     include_once('../database/db_user.php');
+    include_once('../database/db_pet.php');
     include_once('../templates/common/header.php');
+    include_once('../templates/template-pets.php');
 
     $pet = getPetInfo($_GET['id']);
 ?>
@@ -21,5 +23,8 @@
         </article>
         <button>ADOPT ME!</button>
     </section>
+
+    <?php $comments = getAllPetComments($pet['id']);
+    drawAllPetComments($comments); ?>
 
 <?php include_once('../templates/common/footer.php'); ?>
