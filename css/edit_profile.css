@@ -1,0 +1,66 @@
+#main {
+    background-color: #FFF8CD;
+    padding-bottom: 100%;
+    margin-top: 15px;
+    display: block;
+}
+#user_profile {
+    padding-top: 10px;
+    padding-left: 40%;
+}
+
+#user_profile>header>img {
+    margin-left: 65px;
+    border-radius: 50%;
+    width: 150px;
+}
+
+#user_profile > header > h2{
+    margin-left: 30px;
+}
+
+#user_profile > footer > h3{
+    display: inline;
+    margin-left: 20px;
+}
+#user_profile > footer{
+    margin-top: 20px;
+}
+#user_profile>header{
+    margin-bottom: 20px;
+}
+#user_profile > p{
+    margin-left: 40px;
+}
+
+#edit{
+    padding-left: 40%;
+}
+
+#edit > h3{
+    margin-left: 30px;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+label,input[type="submit"]{
+    padding: 10px 15px;
+    background-color: #737373;
+    color: #FFF8CD;
+    font-size: 16px;
+    border-radius: 10px;
+}
+label:hover, input[type="submit"]:hover{
+    background-color: #ff8829;
+}
+
+label{
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+input[type="submit"]{
+    border: none;
+}
