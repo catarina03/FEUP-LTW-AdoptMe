@@ -12,7 +12,7 @@
 
     $user = getUser($_SESSION['username']);
     $pets = getAllPetsForAdoption($_SESSION['username']);
-    $proposals = getProposals();
+    $proposals = getProposals($user['id']);
 
 ?>
 <div id="main">

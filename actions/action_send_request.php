@@ -7,6 +7,8 @@
 
     send_request();
 
+    header('Location: ../pages/userprofile.php')
+
 ?>
 
 <?php

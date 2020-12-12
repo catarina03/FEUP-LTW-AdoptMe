@@ -18,7 +18,7 @@
     <ul>
     <?php foreach($proposals as $proposal) { ?>
         <li>
-            <p><?=$proposal['date']?><?=getPetInfo($proposal['pet_id'])['name']?></p>
+            <p><?=$proposal['date']?><?=' ==> '. getPetInfo($proposal['pet_id'])['name']?></p>
         </li>
     <?php } ?>
     </ul>

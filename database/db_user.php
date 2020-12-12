@@ -87,10 +87,10 @@
         return $user_id;
     }
 
-    function getProposals() {
+    function getProposals($account_id) {
         global $db;
-        $stmt = $db->prepare('SELECT DISTINCT p.id, p.date, p.pet_id FROM proposal p');
-        $stmt->execute();
+        $stmt = $db->prepare('SELECT * FROM proposal p WHERE p.recv_adoption_proposal = ?');
+        $stmt->execute(array($account_id));
         $proposals = $stmt->fetchAll();
 
         return $proposals;
