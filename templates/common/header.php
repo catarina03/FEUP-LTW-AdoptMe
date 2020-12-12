@@ -1,8 +1,10 @@
+<?php include_once("../database/db_user.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 
 <head>
-    <title>ONLINE ANIMAL ADOPTION</title>
+    <title>Adopt Me!</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/header.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -20,14 +22,20 @@
         </a>
         <h1 class="siteName" >ADOPT ME!</h1>
 
-        <nav class='loggedOut'>
-                <a href="../pages/login.html">Log in</a>
-                <a href="../pages/register.php">Sign up</a>
-        </nav>
+        <?php if(!isset($_SESSION['username'])){ ?>
+            <nav class='loggedOut'>
+                    <a href="../pages/login.php">Log in</a>
+                    <a href="../pages/register.php">Sign up</a>
+            </nav>
+        <?php } ?>
         
-        <a class="loggedIn" href="../pages/userprofile.php">
-                <img alt="User profile" src="../images/profile_photo.jpg" width="40" height="40">
-        </a>
+        <?php if(isset($_SESSION['username'])){ 
+            $user = getUser($_SESSION['username']); ?>
+            <a class="loggedIn" href="../pages/userprofile.php">
+                    <img alt="User profile" src="../images/accounts/small/<?php echo $user['id'] ?>.jpg" width="40" height="40">
+            </a>
+        <?php } ?>
+
         <a href="searchresults.php">
             <img alt="search" src="../images/search_icon.png" width="30">
         </a>

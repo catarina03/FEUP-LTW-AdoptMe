@@ -10,7 +10,6 @@
         <aside>
         <section id="search_results">
             <h2 class="visually-hidden">Search</h2>
-
         </section>
     </section>
 

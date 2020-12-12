@@ -3,7 +3,7 @@
     include_once('../database/db_user.php');
 
     if (!isset($_SESSION['username']))
-        die(header('Location: login.html'));
+        die(header('Location: login.php'));
  
     $posts = getAllPetsForAdoption($_SESSION['username']); 
 ?>
@@ -35,20 +35,20 @@
             <p><?php echo $comment['question'] ?><p>
             <p class="date"><?php echo $comment['question_date'] ?><p>
             <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
-            <p><?php echo $comment['response'] ?><p>
-            <p class="date"><?php echo $comment['answer_date'] ?><p>
+            <?php if($comment['response'] !== NULL){ ?>
+                <p><?php echo $comment['response'] ?><p>
+                <p class="date"><?php echo $comment['answer_date'] ?><p>
+            <?php }
+            else{ ?>
+                <p>This questions hasn't been answered yet<p>
+            <?php } ?>
         </article>
     <?php } ?>
 
 
-    <?php function drawAllPetComments($comments) { ?>
-        <section id="comments">
-            <h2 class="visually-hidden">Pet comments</h2>
-            
+    <?php function drawAllPetComments($comments) { ?>            
             <?php foreach($comments as $comment)
                 drawPetComment($comment); ?>
-
-        </section>
     <?php } ?>
 
 

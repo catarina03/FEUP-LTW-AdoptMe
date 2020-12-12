@@ -51,6 +51,13 @@
                 </select>
             </label>
         </form>
-    <?php } 
+    <?php } ?>
 
-?>
+    <?php function addComment(){ ?>
+        <form id='add_comment'>
+            <label>Question:
+                <textarea name="question" rows="4" cols="50"></textarea>
+            <label>
+            <input type="submit" value="Send">
+        </form>
+    <?php } ?>

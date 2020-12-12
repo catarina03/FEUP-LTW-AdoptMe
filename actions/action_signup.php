@@ -25,6 +25,6 @@
     }
 
     echo '<h1>You just registered</h1>';
-    echo '<a href=../pages/login.html>Sign In Here</a>';
+    echo '<a href=../pages/login.php>Sign In Here</a>';
     
 ?>
