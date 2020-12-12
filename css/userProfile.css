@@ -1,9 +1,7 @@
 #main {
     background-color: #FFF8CD;
-    padding-bottom: 19%;
+    padding-bottom: 100%;
     width: 100%;
-    position: relative;
-    top: -11px;
     display: inline-flex;
 }
 
@@ -20,17 +18,14 @@ header>img {
     height: 120px;
 }
 
-#user_profile>header {
+#user_profile {
     position: relative;
     right: -20px;
 }
 
-#user_info>p {
-    display: left;
-    margin-right: 20px;
-}
-
 #user_profile>form {
+    position: relative;
+    left: -5px;
     float: left;
     margin-right: 20px;
 }
@@ -77,4 +72,13 @@ input[type=submit]:hover {
     background-color: #737373;
     border-radius: 10%;
     color: #FFF8CD;
+}
+
+#user_info{
+    position: relative;
+    left: -10px;
+    display:inline-flex;
+}
+#user_info>h3{
+    margin: 5px 10px;
 }
