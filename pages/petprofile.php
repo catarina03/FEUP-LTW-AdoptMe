@@ -19,7 +19,11 @@
 
             <p>iognerwogn onerougnweornpgwenrgnregn erughre guerwhguehru ghreuogh rehuoewrhguowheurog rehg uehru hewruhgeur huerh</p>
         </article>
-        <button>ADOPT ME!</button>
+        <form method="get" action="../actions/action_send_request.php">
+            <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
+            <input type="hidden" name="user_id" value=<?=getUser()?>>
+            <input type="submit" value="ADOPT ME">
+        </form>
     </section>
 
 <?php include_once('../templates/common/footer.php'); ?>
