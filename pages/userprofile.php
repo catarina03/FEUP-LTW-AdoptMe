@@ -12,6 +12,9 @@
 
     $user = getUser($_SESSION['username']);
     $pets = getAllPetsForAdoption($_SESSION['username']);
+    
+
+
 ?>
 <div id="main">
 
@@ -27,6 +30,7 @@
     </aside>
 
     <?php drawAllPetPosts($pets); ?>
+    <?php drawProposals($proposals); ?>
         
  </div>
     <?php 

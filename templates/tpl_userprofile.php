@@ -12,3 +12,15 @@
         </div>
 
 <?php } ?>
+
+<?php function drawProposals($proposals) { ?>
+   
+    <ul>
+    <?php foreach($proposals as $proposal) { ?>
+        <li>
+            <p><?=$proposal['date']?><?=getPetInfo($proposal['pet_id'])['name']?></p>
+        </li>
+    <?php } ?>
+    </ul>
+
+<?php } ?>

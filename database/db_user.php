@@ -73,4 +73,27 @@
         
         return $pets;
     }
+
+    function getUserHavePetForAdoption($pet_id) {
+        global $db;
+        $stmt = $db->prepare('SELECT has_for_adoption FROM pet WHERE pet.id = ?');
+        $stmt->execute(array($pet_id));
+        $values = $stmt->fetch();
+
+        foreach ($values as $value) {
+            $user_id = $value;
+        }
+
+        return $user_id;
+    }
+
+    function getProposals() {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM proposal');
+        $stmt->execute();
+        $proposals = $stmt->fetchAll();
+
+        return $proposals;
+    }
+
 ?>

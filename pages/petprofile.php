@@ -1,6 +1,10 @@
 <?php 
     include_once('../database/db_user.php');
     include_once('../templates/common/header.php');
+    include_once('../includes/init.php');
+
+    if (!isset($_SESSION['username']))
+        die(header('Location: ../pages/login.php'));
 
     $pet = getPetInfo($_GET['id']);
 ?>
@@ -21,7 +25,7 @@
         </article>
         <form method="get" action="../actions/action_send_request.php">
             <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
-            <input type="hidden" name="user_id" value=<?=getUser()?>>
+            <input type="hidden" name="user_id" value=<?=getUser($_SESSION['username'])['id']?>>
             <input type="submit" value="ADOPT ME">
         </form>
     </section>
