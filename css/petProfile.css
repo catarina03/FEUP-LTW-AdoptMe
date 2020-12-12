@@ -3,74 +3,77 @@
         padding-bottom: 100%;
         width: 100%;
         position: relative;
-        top:11px;
+        top: 11px;
     }
-
-    #main > div{
+    
+    #main>div {
         display: inline-flex;
         margin-top: 50px;
         margin-left: 25%;
     }
-
-    #description{
-        margin-left:50px;
+    
+    #description {
+        margin-left: 50px;
     }
-
-   #description h2{
+    
+    #description h2 {
         font-size: 35px;
     }
-
-   #main> div >img {
+    
+    #main>div>img {
         margin-top: 30px;
         margin-right: 10px;
         border-radius: 10%;
     }
-
     /* para o pet profile*/
-    #main > button{
+    
+    #main>button {
         display: block;
         position: relative;
         margin-left: 24%;
-        top:-50px;
+        top: -50px;
+        right: -20px;
         font-size: 30px;
         font-weight: 600;
         border: none;
-        color:#535353;
+        color: #535353;
         background-color: #FFF8CD;
-   }
-
-    #main > button:hover{
+    }
+    
+    #main>button:hover {
         padding: 2px 5px;
-        color:#FFF8CD;
+        color: #FFF8CD;
         background-color: #ff8829;
     }
-
     /*para o edit pet profile*/
-    #main > form{
+    
+    #main>form {
         margin-left: 23%;
     }
-    #main > form > label >input[type="file"]{
+    
+    #main>form>label>input[type="file"] {
         display: none;
     }
-
     
-    #main > form > label,#main > form > input[type="submit"]{
+    #main>form>label,
+    #main>form>input[type="submit"] {
         padding: 10px 15px;
         background-color: #737373;
         color: #FFF8CD;
         font-size: 16px;
         border-radius: 10px;
     }
-    #main > form > label:hover, #main > form > input[type="submit"]:hover{
+    
+    #main>form>label:hover,
+    #main>form>input[type="submit"]:hover {
         background-color: #ff8829;
     }
     
-    #main > form > label{
+    #main>form>label {
         margin-left: 30px;
         margin-right: 10px;
     }
     
-    #main > form > input[type="submit"]{
+    #main>form>input[type="submit"] {
         border: none;
     }
-  

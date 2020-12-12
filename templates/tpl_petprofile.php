@@ -1,7 +1,7 @@
 <?php function drawPetProfile($pet,$petID) { ?>
     <div>
     <h2 class="visually-hidden">Pet profile</h2>
-    <img src="../images/pets/original/<?=$petID?>.jpg" alt="dog image " width="130" height="180" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
+    <img src="../images/pets/original/<?=$petID?>.jpg" alt="dog image " width="160" height="180" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
     <article id="description">
                 
         <h2><?=$pet['name']?></h2>
