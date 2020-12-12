@@ -89,7 +89,7 @@
 
     function getProposals() {
         global $db;
-        $stmt = $db->prepare('SELECT * FROM proposal');
+        $stmt = $db->prepare('SELECT DISTINCT p.id, p.date, p.pet_id FROM proposal p');
         $stmt->execute();
         $proposals = $stmt->fetchAll();
 
