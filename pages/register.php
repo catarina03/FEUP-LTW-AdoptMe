@@ -29,7 +29,7 @@
                 <input type="password" name="password" required>
             </label>
             <label>Repeat Password:
-                <input type="password" name="password" required>
+                <input type="password" name="password_check" required>
             </label>
             <div>
                 <legend>I am a:</legend>

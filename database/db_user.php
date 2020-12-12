@@ -1,15 +1,31 @@
 <?php
     include_once('../database/connection.php');
 
-    /**
-     * Verifies if a certain username, password combination
-     * exists in the database. Use the sha1 hashing function.
-     */
     function checkUserPassword($email, $password) {
         global $db;
         $stmt = $db->prepare('SELECT * FROM account WHERE email = ? AND password = ?');
         $stmt->execute(array($email, $password)); //sha1($password))
         return $stmt->fetch()?true:false; // return true if a line exists
+    }
+
+    function checkUser($email) {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM account WHERE email = ?');
+        $stmt->execute(array($email));
+        return $stmt->fetch()?true:false; 
+    }
+
+    function addAccount($email, $password) {
+        global $db;
+        if (checkUser($email)){
+            throw new PDO('Email already in use');
+            return false;
+        }
+        else {
+            $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?, NULL)');
+            $stmt->execute(array($email, $password));
+            return true;
+        }
     }
 
     function getUser($email){
