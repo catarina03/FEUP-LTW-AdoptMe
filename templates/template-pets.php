@@ -5,13 +5,14 @@
     if (!isset($_SESSION['username']))
         die(header('Location: login.html'));
  
-    $posts = getAllPetsForAdoption($_SESSION['username']); 
+    $posts = getAllPetsForAdoption($_SESSION['username']);
 ?>
 
     <?php function drawPetPost($post){ ?>
         <article>
-            <img src="../images/dog1.jpg" alt="dog profile picture" width="80">
             <h2><?php echo $post['name'] ?></h2>
+            <a href="edit_pet_profile.php?id=<?=$post['id']?>">
+            <img src="../images/pets/original/<?=$post['id']?>.jpg" alt="dog profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
             <p><?php echo $post['bio'] ?></p>
         </article>
     <?php } ?>
