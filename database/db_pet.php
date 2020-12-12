@@ -113,11 +113,11 @@
     }
 
     function addComment($pet_id, $question, $user_id){
-        $date = date("Y-m-d h:i:s");
+        $date = date("Y-m-d H:i:s");
 
         global $db;
-        stmt = $db->prepare("INSERT INTO questions (question, question_date, made_by, about) VALUES (?, ?, ?, ?)");
-        stmt->execute(array("$question", "$date", "$made_by", "$pet_id"));
+        $stmt = $db->prepare("INSERT INTO questions (question, question_date, made_by, about) VALUES (?, ?, ?, ?)");
+        $stmt->execute(array("$question", "$date", "$user_id", "$pet_id"));
         return $stmt->fetchAll();
     }
 

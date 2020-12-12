@@ -29,12 +29,11 @@
         <h1>Any questions? Ask them down below</h1>
     </section>
 
-    
     <section id="comments">
         <h2 class="visually-hidden">Pet comments</h2>
         <?php $comments = getAllPetComments($pet['id']);
         drawAllPetComments($comments); 
-        addComment(); ?>
+        commentForm(); ?>
     </section>
 
 

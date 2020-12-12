@@ -53,11 +53,12 @@
         </form>
     <?php } ?>
 
-    <?php function addComment(){ ?>
-        <form id='add_comment'>
+    <?php function commentForm(){ ?>
+        <form id='add_comment' action="../actions/action_comment.php" method="post">
             <label>Question:
                 <textarea name="question" rows="4" cols="50"></textarea>
             <label>
+            <input type="hidden" name="pet_id" value="<?php echo $_GET['id'] ?>">
             <input type="submit" value="Send">
         </form>
     <?php } ?>
