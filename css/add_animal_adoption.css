@@ -1,0 +1,38 @@
+#main {
+    background-color: #FFF8CD;
+    padding-bottom: 100%;
+    margin-top: 15px;
+}
+form{
+    padding-top: 20px;
+}
+form > label{
+    display: block;
+    font-size: 20px;
+    text-align: center;
+}
+
+label > input{
+    display: block;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom:20px;
+}
+
+button[type="submit"]{
+    display: flex;
+    border: none;
+    padding: 10px 15px;
+    background-color: #737373;
+    color: #FFF8CD;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+button[type="submit"]:hover{
+    background-color: #ff8829;
+}
