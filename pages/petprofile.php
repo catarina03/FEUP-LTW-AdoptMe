@@ -1,7 +1,7 @@
 <?php 
     include_once('../database/db_user.php');
     include_once('../templates/common/header.php');
-
+ 
     $pet = getPetInfo($_GET['id']);
 ?>
 
@@ -19,11 +19,7 @@
 
             <p>iognerwogn onerougnweornpgwenrgnregn erughre guerwhguehru ghreuogh rehuoewrhguowheurog rehg uehru hewruhgeur huerh</p>
         </article>
-        <form method="get" action="../actions/action_send_request.php">
-            <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
-            <input type="hidden" name="user_id" value=<?=getUser()?>>
-            <input type="submit" value="ADOPT ME">
-        </form>
+        <button>ADOPT ME!</button>
     </section>
 
 <?php include_once('../templates/common/footer.php'); ?>
