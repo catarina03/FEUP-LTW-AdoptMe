@@ -5,7 +5,6 @@
     <title>ONLINE ANIMAL ADOPTION</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/index.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 

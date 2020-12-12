@@ -27,14 +27,16 @@
 
     function getAllPetsForAdoption($email){
         global $db;
-        $stmt = $db->prepare('SELECT pet.name AS name, pet.bio AS bio, pet.gender AS gender, pet.weight AS weight, 
+        $stmt = $db->prepare('SELECT pet.id AS id, pet.name AS name, pet.bio AS bio, pet.gender AS gender, pet.weight AS weight,
             pet.height AS  height, pet.color AS color, breed.species AS species, breed.name AS breed
             FROM account 
             INNER JOIN pet 
             ON account.id = pet.has_for_adoption
             INNER JOIN breed
             ON pet.breed_id = breed.id
-            WHERE account.email = ?');
+            WHERE account.email = ?'
+        );
+
         $stmt->execute(array($email)); 
         return $stmt->fetchAll(); 
     }
@@ -49,8 +51,9 @@
     function getPetInfo($petID){
         global $db;
         $stmt = $db->prepare(
-            'SELECT 
+            'SELECT
             pet.name AS name,
+            pet.bio AS bio,
             breed.name AS race,
             gender,weight,height,color
             FROM pet JOIN breed ON breed_id=breed.id
@@ -72,5 +75,16 @@
         $pets = $stmt->fetchAll();
         
         return $pets;
+    }
+
+    function userOwnsPet($email,$petID){
+        $pets = getAllPetsForAdoption($email);
+        
+        foreach($pets as $pet){
+            if($pet['id']===$petID)
+                return true;
+        }
+
+        return false;
     }
 ?>
