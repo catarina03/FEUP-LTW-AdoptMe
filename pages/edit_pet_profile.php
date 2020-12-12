@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../css/petProfile.css" > 
+
 <?php
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
@@ -17,14 +19,15 @@
 
 <section id='main'>
     <?php drawPetProfile($pet,$petID); ?>
-</section>
 
-<h3>Insert new pet picture</h3>
+
     <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
-        <input type="file" name="image">
-        <input type="submit" value="Upload">
+            <label>Insert new pet picture:
+                <input type="file" name="image">
+            </label>
+            <input type="submit" value="Upload">
     </form>
-</h3>
+</section>
 
 <?php include_once('../templates/common/footer.php')?>
     

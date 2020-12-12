@@ -1,58 +1,76 @@
     #main {
         background-color: #FFF8CD;
         padding-bottom: 100%;
-        position: relative;
-        top: -11px;
-        display: inline-flex;
         width: 100%;
-    }
-    
-    #pet_adoption {
         position: relative;
-        top: 120px;
-        margin: 80px;
-        margin-left: 10%;
-        margin-bottom: 25px;
-       
+        top:11px;
     }
-    
-    #pet_adoption button{
-        margin-left: 15px;
+
+    #main > div{
+        display: inline-flex;
+        margin-top: 50px;
+        margin-left: 25%;
+    }
+
+    #description{
+        margin-left:50px;
+    }
+
+   #description h2{
+        font-size: 35px;
+    }
+
+   #main> div >img {
+        margin-top: 30px;
+        margin-right: 10px;
+        border-radius: 10%;
+    }
+
+    /* para o pet profile*/
+    #main > button{
+        display: block;
+        position: relative;
+        margin-left: 24%;
+        top:-50px;
         font-size: 30px;
         font-weight: 600;
         border: none;
         color:#535353;
         background-color: #FFF8CD;
-    }
-    #pet_adoption button:hover{
+   }
+
+    #main > button:hover{
         padding: 2px 5px;
         color:#FFF8CD;
         background-color: #ff8829;
     }
 
-    #description {
-        position: relative;
-        top: 120px;
-        margin-top: 80px;
-        margin-right: 80px;
+    /*para o edit pet profile*/
+    #main > form{
+        margin-left: 23%;
     }
-    
-    #pet_adoption>img {
-        margin-left: 30px;
-        border-radius: 10%;
-        display: block;
-    }
-    
-    .visually-hidden {
-        margin-bottom: 30px;
+    #main > form > label >input[type="file"]{
         display: none;
     }
+
     
-    #description h2, #description h3, #description p {
-        position: relative;
-        top: 7px;
-        padding-left: 10px;
+    #main > form > label,#main > form > input[type="submit"]{
+        padding: 10px 15px;
+        background-color: #737373;
+        color: #FFF8CD;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+    #main > form > label:hover, #main > form > input[type="submit"]:hover{
+        background-color: #ff8829;
     }
     
-
-   
+    #main > form > label{
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+    
+    #main > form > input[type="submit"]{
+        border: none;
+    }
+  
