@@ -1,81 +1,81 @@
-*{
-    color: #535353;
-}
-#main{
-    background-color: #FFF8CD;
-    padding-bottom: 100%;
-}
-
-#main > h2 {
-    text-align: center;
-    font-size: 45px;
-}
-
-section {
-    position: relative;
-    top: 10px;
-    background-color: #FFF8CD;
-    align-self: center;
-    padding-bottom: 135px;
-}
-
-form {
-    position: relative;
-    top: -30px;
-    padding-top: 50px;
-    margin: 0 auto;
-    width:250px;
-    left: 20px;
-}
-
-input {
-    display: block;
-}
-
-form > label {
-    font-size: 20px;
-}
-
-label > input {
-    border-style: none;
-    margin-top: 0;
-    margin-bottom: 15px;
-    width: 220px;
-    height: 25px;
-}
-
-input[type="submit"] {
-    position: relative;
-    top: 20px;
-    left: 65px;
-    background-color: #ff8829;
-    color: #FFF8CD;
-    font-size: 14px;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 10%;
-    border-style: none;
-}
-
-input[type=submit]:hover{
-    background-color: #737373;
-    border-radius: 10%;
-    color: #FFF8CD;
-}
-#main > p{
-    text-align: center;
-}
-
-#main > p > a:hover{
-    background-color: #FFF8CD;
-    color: #ff8829
-}
-
-@media(max-width: 858px){
-
-    #main > p > a{
-        padding: 0;
+    * {
         color: #535353;
     }
- 
- }
+    
+    #main {
+        background-color: #FFF8CD;
+        padding-bottom: 100%;
+    }
+    
+    #main>h2 {
+        text-align: center;
+        font-size: 45px;
+    }
+    
+    section {
+        position: relative;
+        top: 10px;
+        background-color: #FFF8CD;
+        align-self: center;
+        padding-bottom: 135px;
+    }
+    
+    form {
+        position: relative;
+        top: -30px;
+        padding-top: 50px;
+        margin: 0 auto;
+        width: 250px;
+        left: 20px;
+    }
+    
+    input {
+        display: block;
+    }
+    
+    form>label {
+        font-size: 20px;
+    }
+    
+    label>input {
+        border-style: none;
+        margin-top: 0;
+        margin-bottom: 15px;
+        width: 220px;
+        height: 25px;
+    }
+    
+    input[type="submit"] {
+        position: relative;
+        top: 20px;
+        left: 65px;
+        background-color: #ff8829;
+        color: #FFF8CD;
+        font-size: 14px;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 10%;
+        border-style: none;
+    }
+    
+    input[type=submit]:hover {
+        background-color: #737373;
+        border-radius: 10%;
+        color: #FFF8CD;
+    }
+    
+    #main>p {
+        text-align: center;
+    }
+    
+    #main>p>a:hover {
+        background-color: #FFF8CD;
+        color: #ff8829
+    }
+    
+    @media(max-width: 858px) {
+        #main>p>a {
+            padding: 0;
+            color: #535353;
+        }
+    }

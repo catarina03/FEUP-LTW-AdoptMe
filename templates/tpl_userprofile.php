@@ -5,8 +5,4 @@
     </header>
     <p id="bio"><?php echo $user['bio'] ?></p>
     <p id="location"><?php echo $user['city'] ?></p>
-    <footer>
-        <h3>XX followers</h4>
-        <h3>XX following</h4>
-    </footer>
 <?php } ?>

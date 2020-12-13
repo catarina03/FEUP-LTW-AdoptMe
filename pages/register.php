@@ -6,6 +6,7 @@
     include_once('../database/db_user.php');
 
     $cities = getAllCities();
+
 ?>
 
     <section id="signup">

@@ -31,7 +31,7 @@ function writePet(pet){
                 pet['name'] +
             '</a>' +
             '<section class="info">' +
-                '<img src="../images/pets/original/' + pet['id'] + '.jpg" alt="pet image" width="130">' + 
+                '<img src="../images/pets/original/' + pet['id'] + '.jpg" alt="pet image" width="150" height="150">' + 
                 '<ul>' +
                     '<li>Location: ' + pet['location'] + '</li>' +
                     '<li>Species: ' + pet['species'] + '</li>' +

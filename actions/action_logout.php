@@ -1,5 +1,5 @@
 <?php
     include_once('../includes/session.php');
     session_destroy();
-    header('Location: ../pages/index.html');
+    header('Location: ../pages/pages_index.php');
 ?>

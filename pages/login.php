@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="../css/login.css">
 
-<?php include_once('../templates/common/header.php'); ?>
+<?php 
+include_once('../includes/init.php');
+include_once('../templates/common/header.php'); 
+?>
 
     <section id="main">
         <h2>Log in</h2>

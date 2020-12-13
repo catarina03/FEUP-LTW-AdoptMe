@@ -1,6 +1,15 @@
+<link rel="stylesheet" href="../css/search.css" > 
+
 <?php 
+    include_once('../includes/init.php');
     include_once('../templates/common/header.php');
     include_once('../templates/template-forms.php');
+
+
+    if(isset($_SESSION['username'])){
+        echo '<script>console.log("Logged in");</script>';
+    }
+
 ?>
 
     <script src="../js/search_pets.js" defer=""></script>
@@ -12,6 +21,7 @@
             <h2 class="visually-hidden">Search</h2>
         </section>
     </section>
+</section>
 
 <?php 
     include_once('../templates/common/footer.php');

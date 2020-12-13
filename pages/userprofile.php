@@ -8,7 +8,7 @@
     include_once('../templates/tpl_userprofile.php');
 
     if (!isset($_SESSION['username']))
-        die(header('Location: login.php'));
+        die(header('Location: ../pages/login.php'));
 
     $user = getUser($_SESSION['username']);
     $pets = getAllPetsForAdoption($_SESSION['username']);
