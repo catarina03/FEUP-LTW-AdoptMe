@@ -29,6 +29,7 @@
             <form action="../actions/action_upload_profile_pic.php" method="post" enctype="multipart/form-data">
                 <label>Insert image:
                     <input type="file" name="image">
+                    <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                 </label>
                 <input type="submit" value="Upload">
             </form>

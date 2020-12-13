@@ -24,6 +24,7 @@
     <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
             <label>Insert new pet picture:
                 <input type="file" name="image">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
             </label>
             <input type="submit" value="Upload">
     </form>
