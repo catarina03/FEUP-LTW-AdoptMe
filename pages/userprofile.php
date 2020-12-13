@@ -18,29 +18,31 @@
 
 ?>
 <div id="main">
+    <div id="userAndPosts">
+        <aside id="user_profile">
+            <?php drawUserProfile($user); ?>
 
-    <aside id="user_profile">
-        <?php drawUserProfile($user); ?>
+            <form action="edit_profile.php">
+                <input type="submit" value="Edit Profile">
+            </form>
+            <form action="add-animal-adoption.php">
+                <input type="submit" value="Add Animal">
+            </form>
+        </aside>
 
-        <form action="edit_profile.php">
-            <input type="submit" value="Edit Profile">
-        </form>
-        <form action="add-animal-adoption.php">
-            <input type="submit" value="Add Animal">
-        </form>
-    </aside>
+        <?php drawAllPetPosts($pets); ?>
+    </div>   
 
-    <?php drawAllPetPosts($pets); ?>
-    
     <!--Só mostra caso a lista de favoritos não seja nula-->
-    <?php if($favs!=NULL){?>
-        <h2>Favourites</h2>
-        <?php foreach($favs as $favID) { 
-            $favInfo = getPetInfo($favID['pet_id']);
-            drawPetPhotoName($favInfo,$favID['pet_id']);
-        }?>
-    <?php }?>
-        
+    <div id="favourite">
+        <?php if($favs!=NULL){?>
+            <h2>Favourites</h2>
+            <?php foreach($favs as $favID) { 
+                $favInfo = getPetInfo($favID['pet_id']);
+                drawPetPhotoName($favInfo,$favID['pet_id']);
+            }?>
+        <?php }?>
+    </div>   
  </div>
     <?php 
         include_once('../templates/common/footer.php')
