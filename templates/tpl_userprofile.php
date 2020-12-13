@@ -19,10 +19,10 @@
     <?php foreach($proposals as $proposal) { ?>
         <li>
             <p><?=$proposal['date']?><?=' ==> '. getPetInfo($proposal['pet_id'])['name']?></p>
-            <form action="../actions/action_accept_adoption_request" method="get">
-                <input type="submit" name="accept" value="Accept">
-                <input type="submit" name="refused" value="Refused">
-                <input type="hidden" name="proposal" value=$proposal>
+            <form action="../actions/action_accept_adoption_request.php" method="post">
+                <input type="submit" name="acceptance" value="Accept">
+                <input type="submit" name="acceptance" value="Refused">
+                <input type="hidden" name="proposal" value="<?php echo htmlentities(serialize($proposal)); ?>">
             </form>
         </li>
     <?php } ?>

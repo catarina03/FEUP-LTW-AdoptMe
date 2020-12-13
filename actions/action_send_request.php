@@ -21,6 +21,10 @@
 
         $account_id = getUserHavePetForAdoption($_GET['pet_id']);
 
+        if($account_id == getUser($_SESSION['username'])["id"]) {
+            header('Location: ../pages/pages_index.php');
+        }
+        
         $stmt = $db->prepare('INSERT into proposal VALUES(?, ?, ?, ?, ?, ?)');
         $stmt->execute(array(NULL, 1, $date, $_GET['pet_id'], $_GET['user_id'], $account_id));
     }
