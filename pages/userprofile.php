@@ -6,12 +6,15 @@
     include_once('../templates/common/header.php');
     include_once('../templates/template-pets.php');
     include_once('../templates/tpl_userprofile.php');
+    include_once('../templates/tpl_petprofile.php');
+
 
     if (!isset($_SESSION['username']))
         die(header('Location: login.html'));
 
     $user = getUser($_SESSION['username']);
     $pets = getAllPetsForAdoption($_SESSION['username']);
+    $favsID = getFavouritePets($user['id']);
 ?>
 <div id="main">
 
@@ -27,6 +30,15 @@
     </aside>
 
     <?php drawAllPetPosts($pets); ?>
+    
+    <!--Só mostra caso a lista de favoritos não seja nula-->
+    <?php if($favsID!=NULL){?>
+        <h2>Favourites</h2>
+        <?php foreach($favsID as $favID) { 
+            $favInfo = getPetInfo($favID);
+            drawPetPhotoName($favInfo,$favID);
+        }?>
+    <?php }?>
         
  </div>
     <?php 

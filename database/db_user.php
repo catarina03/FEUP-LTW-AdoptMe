@@ -87,4 +87,22 @@
 
         return false;
     }
+    function addAccount($email,$password){
+        global $db;
+        $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?,NULL)');
+        $stmt->execute(array($email,$password));
+    }
+
+    function addFavouritePet($petID,$userID){
+        global $db;
+        $stmt = $db->prepare('INSERT INTO favourite VALUES(?,?)');
+        $stmt->execute(array($petID,$userID));
+    }
+
+    function getFavouritePets($userID){
+        global $db;
+        $stmt = $db->prepare('SELECT pet_id FROM favourite WHERE person_id= ?');
+        $stmt->execute(array($userID)); 
+        return $stmt->fetchAll(); 
+    }
 ?>
