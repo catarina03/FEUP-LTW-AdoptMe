@@ -33,7 +33,8 @@
         <h2 class="visually-hidden">Pet comments</h2>
         <?php $comments = getAllPetComments($pet['id']);
         drawAllPetComments($comments); 
-        commentForm(); ?>
+
+?>
     </section>
 
 

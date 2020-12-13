@@ -62,3 +62,14 @@
             <input type="submit" value="Send">
         </form>
     <?php } ?>
+
+    <?php function replyForm($question_id){ ?>
+        <form class='reply_comment' action="../actions/action_reply.php" method="post">
+            <label>Question:
+                <input name="reply" type="text">
+            <label>
+            <input type="hidden" name="pet_id" value="<?php echo $_GET['id'] ?>">
+            <input type="hidden" name="question_id" value="<?php echo $question_id ?>">
+            <input type="submit" value="Submit">
+        </form>
+    <?php } ?>

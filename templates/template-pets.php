@@ -1,11 +1,10 @@
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
-
-    if (!isset($_SESSION['username']))
-        die(header('Location: login.php'));
  
-    $posts = getAllPetsForAdoption($_SESSION['username']); 
+    if(isset($_SESSION['username'])){
+        $user = getUser($_SESSION['username']); 
+    }
 ?>
 
     <?php function drawPetPost($post){ ?>
@@ -34,17 +33,25 @@
             <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40">
             <p><?php echo $comment['question'] ?><p>
             <p class="date"><?php echo $comment['question_date'] ?><p>
-            <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
+
             <?php if($comment['response'] !== NULL){ ?>
+                <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
                 <p><?php echo $comment['response'] ?><p>
                 <p class="date"><?php echo $comment['answer_date'] ?><p>
             <?php }
-            else{ ?>
-                <p>This questions hasn't been answered yet<p>
-            <?php } ?>
+            else{ 
+                $owner = getPetOwner($comment['pet_id']);
+                if(isset($_SESSION['username'])){
+                    if($owner['owner_email'] === $_SESSION['username']){
+                        replyForm($comment['question_id']);
+                    }
+                }
+                else{ ?>
+                    <p>This questions hasn't been answered yet<p>
+                <?php } 
+            } ?>
         </article>
     <?php } ?>
-
 
     <?php function drawAllPetComments($comments) { ?>            
             <?php foreach($comments as $comment)

@@ -7,7 +7,6 @@
         die(header('Location: ../pages/login.php'));
     else{
         $user = getUser($_SESSION['username']);
-        echo $user['id'];
         $pet_id = $_POST['pet_id'];
         $question = $_POST['question'];
 

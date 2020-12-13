@@ -47,7 +47,8 @@
             questions.question_date AS question_date, 
             questions.response AS response, 
             questions.answered_by AS answered_by, 
-            questions.answer_date AS answer_date FROM pet
+            questions.answer_date AS answer_date,
+            questions.id AS question_id FROM pet
             INNER JOIN questions ON pet.id = questions.about
             WHERE pet.id = (?)");
         $stmt->execute(array("$pet_id"));
@@ -112,6 +113,21 @@
         return $stmt->fetchAll();
     }
 
+    function getPetOwner($pet){
+        global $db;
+        $stmt = $db->prepare("SELECT account.email AS owner_email 
+            FROM pet INNER JOIN account ON pet.adopted = account.id
+            WHERE pet.id = (?)
+            
+            UNION
+            
+            SELECT account.email AS owner_email 
+            FROM pet INNER JOIN account ON pet.has_for_adoption = account.id
+            WHERE pet.id = (?)");
+        $stmt->execute(array("$pet", "$pet"));
+        return $stmt->fetch();
+    }
+
     function addComment($pet_id, $question, $user_id){
         $date = date("Y-m-d H:i:s");
 
@@ -119,6 +135,14 @@
         $stmt = $db->prepare("INSERT INTO questions (question, question_date, made_by, about) VALUES (?, ?, ?, ?)");
         $stmt->execute(array("$question", "$date", "$user_id", "$pet_id"));
         return $stmt->fetchAll();
+    }
+
+    function addReply($question_id, $reply){
+        $date = date("Y-m-d H:i:s");
+
+        global $db;
+        $stmt = $db->prepare("UPDATE questions SET response = ?, answer_date = ? WHERE id = ?;");
+        return $stmt->execute(array("$reply", "$date", "$question_id"));
     }
 
 
