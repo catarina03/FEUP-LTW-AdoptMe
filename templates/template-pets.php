@@ -2,8 +2,10 @@
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
 
+
     if (!isset($_SESSION['username']))
-        die(header('Location: login.html'));
+        die(header('Location: ../pages/login.html'));
+
  
     $posts = getAllPetsForAdoption($_SESSION['username']);
 ?>

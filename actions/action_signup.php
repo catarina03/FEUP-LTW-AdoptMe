@@ -15,8 +15,10 @@
         die();
     }
 
+    $hashedPassword = password_hash($_POST['password'],PASSWORD_DEFAULT);
+
     try{
-        addAccount($_POST['email'],$_POST['password']);
+        addAccount($_POST['email'],$hashedPassword);
     }
     catch(PDOException $e){
         echo '<script>alert("Email already in use")</script>';

@@ -7,9 +7,14 @@
      */
     function checkUserPassword($email, $password) {
         global $db;
-        $stmt = $db->prepare('SELECT * FROM account WHERE email = ? AND password = ?');
-        $stmt->execute(array($email, $password)); //sha1($password))
-        return $stmt->fetch()?true:false; // return true if a line exists
+        $stmt = $db->prepare('SELECT password FROM account WHERE email = ?');
+        $stmt->execute(array($email));
+        $fetched = $stmt->fetch();
+   
+        if($fetched!==false)
+            return password_verify($password,$fetched['password']);
+        
+        return false;
     }
 
     function getUser($email){
@@ -23,6 +28,12 @@
             WHERE account.email = ?');
         $stmt->execute(array($email)); 
         return $stmt->fetch(); 
+    }
+
+    function addAccount($email,$password){
+        global $db;
+        $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?,NULL)');
+        $stmt->execute(array($email,$password));
     }
 
     function getAllPetsForAdoption($email){
