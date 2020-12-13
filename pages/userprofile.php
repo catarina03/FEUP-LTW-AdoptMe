@@ -14,7 +14,8 @@
 
     $user = getUser($_SESSION['username']);
     $pets = getAllPetsForAdoption($_SESSION['username']);
-    $favsID = getFavouritePets($user['id']);
+    $favs = getFavouritePets($user['id']);
+
 ?>
 <div id="main">
 
@@ -32,11 +33,11 @@
     <?php drawAllPetPosts($pets); ?>
     
     <!--Só mostra caso a lista de favoritos não seja nula-->
-    <?php if($favsID!=NULL){?>
+    <?php if($favs!=NULL){?>
         <h2>Favourites</h2>
-        <?php foreach($favsID as $favID) { 
-            $favInfo = getPetInfo($favID);
-            drawPetPhotoName($favInfo,$favID);
+        <?php foreach($favs as $favID) { 
+            $favInfo = getPetInfo($favID['pet_id']);
+            drawPetPhotoName($favInfo,$favID['pet_id']);
         }?>
     <?php }?>
         
