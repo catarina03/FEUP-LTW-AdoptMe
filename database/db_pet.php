@@ -137,12 +137,12 @@
         return $stmt->fetchAll();
     }
 
-    function addReply($question_id, $reply){
+    function addReply($question_id, $reply, $user_id){
         $date = date("Y-m-d H:i:s");
 
         global $db;
-        $stmt = $db->prepare("UPDATE questions SET response = ?, answer_date = ? WHERE id = ?;");
-        return $stmt->execute(array("$reply", "$date", "$question_id"));
+        $stmt = $db->prepare("UPDATE questions SET response = ?, answer_date = ?, answered_by = ? WHERE id = ?;");
+        return $stmt->execute(array("$reply", "$date", "$user_id", "$question_id"));
     }
 
 

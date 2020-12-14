@@ -65,7 +65,7 @@
 
     <?php function replyForm($question_id){ ?>
         <form class='reply_comment' action="../actions/action_reply.php" method="post">
-            <label>Question:
+            <label>Reply:
                 <input name="reply" type="text">
             <label>
             <input type="hidden" name="pet_id" value="<?php echo $_GET['id'] ?>">

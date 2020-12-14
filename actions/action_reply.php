@@ -11,8 +11,9 @@
         $reply = $_POST['reply'];
 
         $owner = getPetOwner($pet_id);
+        $user = getUser($owner['owner_email']);
         if($_SESSION['username'] === $owner['owner_email']){
-            addReply($question_id, $reply);
+            addReply($question_id, $reply, $user['id']);
             echo '<script>alert("Added reply!"); location.replace("../pages/petprofile.php?id=' . $pet_id . '");</script>';
         }
         else{

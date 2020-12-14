@@ -8,12 +8,14 @@
         return $stmt->fetch()?true:false; // return true if a line exists
     }
 
+
     function checkUser($email) {
         global $db;
         $stmt = $db->prepare('SELECT * FROM account WHERE email = ?');
         $stmt->execute(array($email));
         return $stmt->fetch()?true:false; 
     }
+
 
     function addAccount($email, $password) {
         global $db;
@@ -28,6 +30,7 @@
         }
     }
 
+
     function getUser($email){
         global $db;
         $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city 
@@ -41,6 +44,7 @@
         return $stmt->fetch(); 
     }
 
+
     function getAllPetsForAdoption($email){
         global $db;
         $stmt = $db->prepare('SELECT pet.id AS id, pet.name AS name, pet.bio AS bio, pet.gender AS gender, pet.weight AS weight,
@@ -52,10 +56,10 @@
             ON pet.breed_id = breed.id
             WHERE account.email = ?'
         );
-
         $stmt->execute(array($email)); 
         return $stmt->fetchAll(); 
     }
+
 
     function getAllCities(){
         global $db;
@@ -63,6 +67,7 @@
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
 
     function getPetInfo($petID){
         global $db;
@@ -81,6 +86,7 @@
         return $stmt->fetch();
     }
 
+
     function getAllPetsPostsFromWebsite() { 
         global $db;
         $stmt = $db->prepare('SELECT DISTINCT P.id, P.name 
@@ -90,10 +96,10 @@
                             );
         $stmt->execute();
         $pets = $stmt->fetchAll();
-        
         return $pets;
     }
 
+    
     function userOwnsPet($email,$petID){
         $pets = getAllPetsForAdoption($email);
         
