@@ -19,7 +19,12 @@
         $pets = getAllPetsForAdoption($_SESSION['username']);
     }
 
+    $user = getUser($_SESSION['username']);
+    $pets = getAllPetsForAdoption($_SESSION['username']);
+    $proposals = getProposals($user['id']);
+
 ?>
+
 <div id="main">
 
     <aside id="user_profile">
@@ -39,8 +44,9 @@
     </aside>
 
     <?php drawAllPetPosts($pets); ?>
-        
- </div>
+    <?php drawProposals($proposals); ?>
+    
+</div>
     <?php 
         include_once('../templates/common/footer.php')
     ?>
