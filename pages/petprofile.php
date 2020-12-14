@@ -15,17 +15,20 @@
 
     <section id='main'>
         <?php drawPetProfile($pet,$petID);
-        if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { ?>
-            <button>ADOPT ME!</button>
-        <?php } 
-        else { ?>
-            <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
-                <label>Insert new pet picture:
-                    <input type="file" name="image">
-                </label>
-                <input type="submit" value="Upload">
-            </form>
-        <?php } ?>
+
+        if(isset($_SESSION['username'])){
+            if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { ?>
+                <button>ADOPT ME!</button>
+            <?php } 
+            else { ?>
+                <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
+                    <label>Insert new pet picture:
+                        <input type="file" name="image">
+                    </label>
+                    <input type="submit" value="Upload">
+                </form>
+            <?php } 
+        } ?>
     </section>
 
     <section id='divider'>
@@ -34,13 +37,18 @@
 
     <section id="comments">
         <h2 class="visually-hidden">Pet comments</h2>
+
         <?php $comments = getAllPetComments($pet['id']);
         drawAllPetComments($comments); 
 
-        if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { 
-            commentForm();
-        } ?>
+        if(isset($_SESSION['username'])){
+            if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { 
+                commentForm();
+            } 
+        } 
+        else { ?>
+            <p>Want to ask a question? <a href='login.php'>Log in</a></p>
+        <?php } ?>
     </section>
-
 
 <?php include_once('../templates/common/footer.php'); ?>

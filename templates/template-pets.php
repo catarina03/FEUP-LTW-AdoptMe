@@ -31,12 +31,16 @@
     <?php function drawPetComment($comment){ ?>
         <article>
             <!-- redirects to the profile?   <a href="../pages/userprofile"  -->
-            <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40">
+            <a href="../pages/userprofile.php?id=<?php echo $comment['made_by']?>">
+                <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40">
+            </a>
             <p><?php echo $comment['question'] ?><p>
             <p class="date"><?php echo $comment['question_date'] ?><p>
 
             <?php if($comment['response'] !== NULL){ ?>
-                <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
+                <a href="../pages/userprofile.php?id=<?php echo $comment['answered_by']?>">
+                    <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
+                </a>
                 <p><?php echo $comment['response'] ?><p>
                 <p class="date"><?php echo $comment['answer_date'] ?><p>
             <?php }

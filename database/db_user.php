@@ -33,7 +33,7 @@
 
     function getUser($email){
         global $db;
-        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city 
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
             FROM account 
             INNER JOIN person 
             ON account.id = person.account_id
@@ -41,6 +41,20 @@
             ON location.id = person.location_id
             WHERE account.email = ?');
         $stmt->execute(array($email)); 
+        return $stmt->fetch(); 
+    }
+
+
+    function getUserById($user_id){
+        global $db;
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
+            FROM account 
+            INNER JOIN person 
+            ON account.id = person.account_id
+            INNER JOIN location
+            ON location.id = person.location_id
+            WHERE account.id = ?');
+        $stmt->execute(array($user_id)); 
         return $stmt->fetch(); 
     }
 
@@ -99,7 +113,7 @@
         return $pets;
     }
 
-    
+
     function userOwnsPet($email,$petID){
         $pets = getAllPetsForAdoption($email);
         
