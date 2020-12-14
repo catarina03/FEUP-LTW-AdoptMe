@@ -3,12 +3,12 @@
     include_once('../database/db_user.php');
 
     if (!isset($_SESSION['username']))
-        die(header('Location: ../pages/login.html'));
+        die(header('Location: ../pages/login.php'));
 
     $petID = $_GET['id'];
 
     if(!userOwnsPet($_SESSION['username'],$petID))
-        die(header('Location: ../pages/login.html'));
+        die(header('Location: ../pages/login.php'));
     
     $originalFileName = "../images/pets/original/$petID.jpg";
     $smallFileName = "../images/pets/small/$petID.jpg";

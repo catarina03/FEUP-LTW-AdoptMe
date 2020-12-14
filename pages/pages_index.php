@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="../css/index.css" > 
 
 <?php
-    include('../database/db_user.php');
+    include_once('../includes/init.php');
+    include_once('../database/db_user.php');
     include_once('../templates/common/header.php');
     include_once('../templates/tpl_petprofile.php');
 

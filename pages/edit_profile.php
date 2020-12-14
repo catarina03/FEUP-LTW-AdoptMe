@@ -12,7 +12,7 @@
     include_once('../templates/tpl_userprofile.php');
 
     if (!isset($_SESSION['username']))
-        die(header('Location: login.html'));
+        die(header('Location: login.php'));
 
     $user = getUser($_SESSION['username']);
 ?>

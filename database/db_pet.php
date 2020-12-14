@@ -39,6 +39,22 @@
         return $stmt->fetchAll(); 
     }
 
+    function getAllPetComments($pet_id){
+        global $db;
+        $stmt = $db->prepare("SELECT pet.id AS pet_id, 
+            questions.question AS question, 
+            questions.made_by AS made_by, 
+            questions.question_date AS question_date, 
+            questions.response AS response, 
+            questions.answered_by AS answered_by, 
+            questions.answer_date AS answer_date,
+            questions.id AS question_id FROM pet
+            INNER JOIN questions ON pet.id = questions.about
+            WHERE pet.id = (?)");
+        $stmt->execute(array("$pet_id"));
+        return $stmt->fetchAll();
+    }
+
     function getPetsByBreed($breed){
         global $db;
         $stmt = $db->prepare("SELECT pet.name AS name
@@ -95,6 +111,38 @@
             WHERE breed.species = (?)");
         $stmt->execute(array("$species"));
         return $stmt->fetchAll();
+    }
+
+    function getPetOwner($pet){
+        global $db;
+        $stmt = $db->prepare("SELECT account.email AS owner_email 
+            FROM pet INNER JOIN account ON pet.adopted = account.id
+            WHERE pet.id = (?)
+            
+            UNION
+            
+            SELECT account.email AS owner_email 
+            FROM pet INNER JOIN account ON pet.has_for_adoption = account.id
+            WHERE pet.id = (?)");
+        $stmt->execute(array("$pet", "$pet"));
+        return $stmt->fetch();
+    }
+
+    function addComment($pet_id, $question, $user_id){
+        $date = date("Y-m-d H:i:s");
+
+        global $db;
+        $stmt = $db->prepare("INSERT INTO questions (question, question_date, made_by, about) VALUES (?, ?, ?, ?)");
+        $stmt->execute(array("$question", "$date", "$user_id", "$pet_id"));
+        return $stmt->fetchAll();
+    }
+
+    function addReply($question_id, $reply, $user_id){
+        $date = date("Y-m-d H:i:s");
+
+        global $db;
+        $stmt = $db->prepare("UPDATE questions SET response = ?, answer_date = ?, answered_by = ? WHERE id = ?;");
+        return $stmt->execute(array("$reply", "$date", "$user_id", "$question_id"));
     }
 
 

@@ -9,8 +9,8 @@
     include_once('../templates/tpl_petprofile.php');
 
 
-    if (!isset($_SESSION['username']))
-        die(header('Location: login.html'));
+    if(!isset($_SESSION['username']))
+        die(header('Location: ../pages/login.php'));
 
     $user = getUser($_SESSION['username']);
     $pets = getAllPetsForAdoption($_SESSION['username']);
@@ -31,7 +31,7 @@
         </aside>
 
         <?php drawAllPetPosts($pets); ?>
-    </div>   
+</div>   
 
     <!--Só mostra caso a lista de favoritos não seja nula-->
     <div id="favourite">

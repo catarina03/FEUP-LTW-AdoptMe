@@ -1,10 +1,6 @@
 <?php
     include_once('../database/connection.php');
 
-    /**
-     * Verifies if a certain username, password combination
-     * exists in the database. Use the sha1 hashing function.
-     */
     function checkUserPassword($email, $password) {
         global $db;
         $stmt = $db->prepare('SELECT * FROM account WHERE email = ? AND password = ?');
@@ -12,9 +8,32 @@
         return $stmt->fetch()?true:false; // return true if a line exists
     }
 
+
+    function checkUser($email) {
+        global $db;
+        $stmt = $db->prepare('SELECT * FROM account WHERE email = ?');
+        $stmt->execute(array($email));
+        return $stmt->fetch()?true:false; 
+    }
+
+
+    function addAccount($email, $password) {
+        global $db;
+        if (checkUser($email)){
+            throw new PDO('Email already in use');
+            return false;
+        }
+        else {
+            $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?, NULL)');
+            $stmt->execute(array($email, $password));
+            return true;
+        }
+    }
+
+
     function getUser($email){
         global $db;
-        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city 
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
             FROM account 
             INNER JOIN person 
             ON account.id = person.account_id
@@ -24,6 +43,21 @@
         $stmt->execute(array($email)); 
         return $stmt->fetch(); 
     }
+
+
+    function getUserById($user_id){
+        global $db;
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
+            FROM account 
+            INNER JOIN person 
+            ON account.id = person.account_id
+            INNER JOIN location
+            ON location.id = person.location_id
+            WHERE account.id = ?');
+        $stmt->execute(array($user_id)); 
+        return $stmt->fetch(); 
+    }
+
 
     function getAllPetsForAdoption($email){
         global $db;
@@ -36,10 +70,10 @@
             ON pet.breed_id = breed.id
             WHERE account.email = ?'
         );
-
         $stmt->execute(array($email)); 
         return $stmt->fetchAll(); 
     }
+
 
     function getAllCities(){
         global $db;
@@ -48,10 +82,12 @@
         return $stmt->fetchAll();
     }
 
+
     function getPetInfo($petID){
         global $db;
         $stmt = $db->prepare(
-            'SELECT
+            'SELECT 
+            pet.id AS id,
             pet.name AS name,
             pet.bio AS bio,
             breed.name AS race,
@@ -64,6 +100,7 @@
         return $stmt->fetch();
     }
 
+
     function getAllPetsPostsFromWebsite() { 
         global $db;
         $stmt = $db->prepare('SELECT DISTINCT P.id, P.name 
@@ -73,9 +110,9 @@
                             );
         $stmt->execute();
         $pets = $stmt->fetchAll();
-        
         return $pets;
     }
+
 
     function userOwnsPet($email,$petID){
         $pets = getAllPetsForAdoption($email);
@@ -86,11 +123,6 @@
         }
 
         return false;
-    }
-    function addAccount($email,$password){
-        global $db;
-        $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?,NULL)');
-        $stmt->execute(array($email,$password));
     }
 
     function addFavouritePet($petID,$userID){
