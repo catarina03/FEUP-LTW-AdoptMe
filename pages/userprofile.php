@@ -21,11 +21,13 @@
         <aside id="user_profile">
             <?php drawUserProfile($user); ?>
 
-            <form action="edit_profile.php">
+            <form action="edit_profile.php" method="post">
                 <input type="submit" value="Edit Profile">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
             </form>
-            <form action="add-animal-adoption.php">
+            <form action="add-animal-adoption.php" method="post">
                 <input type="submit" value="Add Animal">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
             </form>
         </aside>
 

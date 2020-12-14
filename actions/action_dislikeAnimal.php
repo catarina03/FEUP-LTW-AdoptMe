@@ -4,7 +4,7 @@
 
     
     //verifiva que a pessoa tem o login feito
-    if (!isset($_SESSION['username']))
+    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
         die(header('Location: ../pages/login.html'));
 
     // obtem o user e o petID

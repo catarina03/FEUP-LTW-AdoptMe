@@ -28,10 +28,12 @@
                 <?php 
                 if(!userLikesPet($user['id'],$petID)){?>
                     <form action="../actions/action_likeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                         <button type="submit"><i class="far fa-heart"></i></button>
                     </form>
                 <?php } else { ?>
                     <form action="../actions/action_dislikeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                         <button type="submit"><i class="fas fa-heart"></i></button>
                     </form>
                 <?php } ?>
@@ -40,6 +42,7 @@
                 <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
                     <label>Insert new pet picture:
                         <input type="file" name="image">
+                        <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                     </label>
                     <input type="submit" value="Upload">
                 </form>

@@ -2,13 +2,8 @@
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
 
-<<<<<<< HEAD
     if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
         die(header('Location: ../pages/login.html'));
-=======
-    if (!isset($_SESSION['username']))
-        die(header('Location: ../pages/login.php'));
->>>>>>> main
 
     $petID = $_GET['id'];
 

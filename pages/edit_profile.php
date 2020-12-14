@@ -11,8 +11,8 @@
     include_once('../database/db_user.php');
     include_once('../templates/tpl_userprofile.php');
 
-    if (!isset($_SESSION['username']))
-        die(header('Location: login.php'));
+    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
+        die(header('Location: ../pages/login.php'));
 
     $user = getUser($_SESSION['username']);
 ?>
