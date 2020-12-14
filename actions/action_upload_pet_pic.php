@@ -5,12 +5,13 @@
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
 
-    $user = getUser($_SESSION['username']);
+    $petID = $_GET['id'];
 
-    $id = $user['id'];
+    if(!userOwnsPet($_SESSION['username'],$petID))
+        die(header('Location: ../pages/login.php'));
     
-    $originalFileName = "../images/accounts/original/$id.jpg";
-    $smallFileName = "../images/accounts/small/$id.jpg";
+    $originalFileName = "../images/pets/original/$petID.jpg";
+    $smallFileName = "../images/pets/small/$petID.jpg";
 
     move_uploaded_file($_FILES['image']['tmp_name'],$originalFileName);
 

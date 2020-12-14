@@ -83,7 +83,6 @@ function filterPets() {
     console.log(filter_values);
 
     request.onload = updateResults;
-    //request.open('get', 'ajax/filter_pets.php?' + encode_for_ajax(filter_values), true);
     request.open('get', '../ajax/filter_pets.php?' + encode_for_ajax(filter_values), true);
     request.send();
 
