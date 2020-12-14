@@ -1,5 +1,4 @@
 <?php
-
     include_once('../database/db_user.php');
 
     function verifyInput(){
@@ -7,12 +6,13 @@
             if(!isset($input) || $input === '')
                 return false;
         }
-        return true;
+        if($_POST['password'] === $_POST['password_check'])
+            return true;
+        return false;
     }
 
     if(!verifyInput()){
-        echo '<h1>Invalid input</h1>';
-        die();
+        echo '<script>alert("Invalid Input!"); location.replace("../pages/register.php");</script>'; 
     }
 
     $hashedPassword = password_hash($_POST['password'],PASSWORD_DEFAULT);
@@ -21,12 +21,8 @@
         addAccount($_POST['email'],$hashedPassword);
     }
     catch(PDOException $e){
-        echo '<script>alert("Email already in use")</script>';
-        echo '<a href=../pages/register.php>Try again</a>';
-        die();
+        echo '<script>alert("Email already in use"); location.replace("../pages/register.php");</script>';
     }
 
-    echo '<h1>You just registered</h1>';
-    echo '<a href=../pages/login.html>Sign In Here</a>';
-    
+    echo '<script>alert("You registered successfully"); location.replace("../pages/userprofile.php");</script>';    
 ?>

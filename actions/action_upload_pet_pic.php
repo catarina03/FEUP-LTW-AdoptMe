@@ -2,13 +2,18 @@
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
 
+<<<<<<< HEAD
     if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
         die(header('Location: ../pages/login.html'));
+=======
+    if (!isset($_SESSION['username']))
+        die(header('Location: ../pages/login.php'));
+>>>>>>> main
 
     $petID = $_GET['id'];
 
     if(!userOwnsPet($_SESSION['username'],$petID))
-        die(header('Location: ../pages/login.html'));
+        die(header('Location: ../pages/login.php'));
     
     $originalFileName = "../images/pets/original/$petID.jpg";
     $smallFileName = "../images/pets/small/$petID.jpg";

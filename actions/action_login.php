@@ -10,7 +10,7 @@
         $_SESSION['username'] = $email;
         header('Location: ../pages/userprofile.php');
       } else {
-        header('Location: ../pages/login.html');
+        header('Location: ../pages/login.php');
     }
 
 ?>
