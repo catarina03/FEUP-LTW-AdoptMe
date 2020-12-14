@@ -10,20 +10,21 @@
     include_once('../templates/tpl_petprofile.php');
     include_once('../includes/init.php');
 
-
-    $user = getUser($_SESSION['username']);
+    if(isset($_SESSION['username']))
+        $user = getUser($_SESSION['username']);
+    
     $petID = $_GET['id'];
     $pet = getPetInfo($petID);
 ?>
 
     <section id='main'>
         <?php drawPetProfile($pet,$petID); ?>
+
+        <button>ADOPT ME!</button>
         
         <?php
-
         if(isset($_SESSION['username'])){
-            if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { ?>
-                <button>ADOPT ME!</button>
+            if (!userOwnsPet($_SESSION['username'],$petID)) { ?>
                 <?php 
                 if(!userLikesPet($user['id'],$petID)){?>
                     <form action="../actions/action_likeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
@@ -53,11 +54,11 @@
     <section id="comments">
         <h2 class="visually-hidden">Pet comments</h2>
 
-        <?php $comments = getAllPetComments($pet['id']);
+        <?php $comments = getAllPetComments($petID);
         drawAllPetComments($comments); 
 
         if(isset($_SESSION['username'])){
-            if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { 
+            if (!userOwnsPet($_SESSION['username'],$petID)) { 
                 commentForm();
             } 
         } 
