@@ -13,16 +13,35 @@
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
 
+    if(isset($_SESSION['username']))
+        $user = getUser($_SESSION['username']);
+    
     $petID = $_GET['id'];
     $pet = getPetInfo($petID);
 ?>
 
     <section id='main'>
-        <?php drawPetProfile($pet,$petID);
+        <?php drawPetProfile($pet,$petID); ?>
 
+        <form method="get" action="../actions/action_send_request.php">
+            <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
+            <input type="hidden" name="user_id" value=<?=getUser($_SESSION['username'])['id']?>>
+            <input type="submit" value="ADOPT ME">
+        </form>
+        
+        <?php
         if(isset($_SESSION['username'])){
-            if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { ?>
-                <button>ADOPT ME!</button>
+            if (!userOwnsPet($_SESSION['username'],$petID)) { ?>
+                <?php 
+                if(!userLikesPet($user['id'],$petID)){?>
+                    <form action="../actions/action_likeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
+                        <button type="submit"><i class="far fa-heart"></i></button>
+                    </form>
+                <?php } else { ?>
+                    <form action="../actions/action_dislikeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
+                        <button type="submit"><i class="fas fa-heart"></i></button>
+                    </form>
+                <?php } ?>
             <?php } 
             else { ?>
                 <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
@@ -42,11 +61,11 @@
     <section id="comments">
         <h2 class="visually-hidden">Pet comments</h2>
 
-        <?php $comments = getAllPetComments($pet['id']);
+        <?php $comments = getAllPetComments($petID);
         drawAllPetComments($comments); 
 
         if(isset($_SESSION['username'])){
-            if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { 
+            if (!userOwnsPet($_SESSION['username'],$petID)) { 
                 commentForm();
             } 
         } 
@@ -66,11 +85,6 @@
 
             <p>iognerwogn onerougnweornpgwenrgnregn erughre guerwhguehru ghreuogh rehuoewrhguowheurog rehg uehru hewruhgeur huerh</p>
         </article>
-        <form method="get" action="../actions/action_send_request.php">
-            <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
-            <input type="hidden" name="user_id" value=<?=getUser($_SESSION['username'])['id']?>>
-            <input type="submit" value="ADOPT ME">
-        </form>
     </section>
 
 <?php include_once('../templates/common/footer.php'); ?>
