@@ -3,7 +3,7 @@
     include_once('../database/db_user.php');
 
     if (!isset($_SESSION['username']))
-        die(header('Location: ../pages/login.html'));
+        die(header('Location: ../pages/login.php'));
 
     $user = getUser($_SESSION['username']);
 
