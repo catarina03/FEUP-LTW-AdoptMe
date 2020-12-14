@@ -57,19 +57,6 @@
         else { ?>
             <p>Want to ask a question? <a href='login.php'>Log in</a></p>
         <?php } ?>
-        <h2 class="visually-hidden">Pet profile</h2>
-        <img src="../images/pets/original/<?=$_GET['id']?>.jpg" alt="dog image " width="130" height="180">
-        <article id="pet">
-                
-            <h2><?=$pet['name']?></h2>
-            <h3><?=$pet['race']?></h3>
-            <h3><?=$pet['color']?></h3>
-            <h3><?=$pet['weight']?> kg</h3>
-            <h3><?=$pet['height']?> cm</h3>
-            <h3><?=$pet['gender']?></h3>
-
-            <p>iognerwogn onerougnweornpgwenrgnregn erughre guerwhguehru ghreuogh rehuoewrhguowheurog rehg uehru hewruhgeur huerh</p>
-        </article>
     </section>
 
 <?php include_once('../templates/common/footer.php'); ?>
