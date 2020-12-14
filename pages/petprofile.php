@@ -23,7 +23,7 @@
 
             <p>iognerwogn onerougnweornpgwenrgnregn erughre guerwhguehru ghreuogh rehuoewrhguowheurog rehg uehru hewruhgeur huerh</p>
         </article>
-        <form method="get" action="../actions/action_accept_adoption_request.php">
+        <form method="get" action="../actions/action_send_request.php">
             <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
             <input type="hidden" name="user_id" value=<?=getUser($_SESSION['username'])['id']?>>
             <input type="submit" value="ADOPT ME">

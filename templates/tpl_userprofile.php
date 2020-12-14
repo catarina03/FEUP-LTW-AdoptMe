@@ -14,14 +14,15 @@
 <?php } ?>
 
 <?php function drawProposals($proposals) { ?>
-   
+
     <ul>
     <?php foreach($proposals as $proposal) { ?>
+        <?php $user_name = getUserById($proposal['made_adoption_proposal'])['name'] ?> 
         <li>
-            <p><?=$proposal['date']?><?=' ==> '. getPetInfo($proposal['pet_id'])['name']?></p>
-            <form action="../actions/action_accept_adoption_request.php" method="post">
+            <p><?=$user_name?><?=' ==> '. getPetInfo($proposal['pet_id'])['name']?></p>
+            <form action="../actions/action_accept_adoption_request.php" method="get">
                 <input type="submit" name="acceptance" value="Accept">
-                <input type="submit" name="acceptance" value="Refused">
+                <input type="submit" name="acceptance" value="Refuse">
                 <input type="hidden" name="proposal" value="<?php echo htmlentities(serialize($proposal)); ?>">
             </form>
         </li>

@@ -25,6 +25,16 @@
         return $stmt->fetch(); 
     }
 
+    function getUserById($user_id) {
+        global $db;
+        
+        $stmt = $db->prepare('SELECT p.name FROM person p, shelter s WHERE p.person_id = ? or s.shelter_id = ?');
+        $stmt->execute(array($user_id));
+
+        return $stmt->fetch(); 
+    }
+
+
     function getAllPetsForAdoption($email){
         global $db;
         $stmt = $db->prepare('SELECT pet.name AS name, pet.bio AS bio, pet.gender AS gender, pet.weight AS weight, 
@@ -89,6 +99,7 @@
 
     function getProposals($account_id) {
         global $db;
+        
         $stmt = $db->prepare('SELECT * FROM proposal p WHERE p.recv_adoption_proposal = ?');
         $stmt->execute(array($account_id));
         $proposals = $stmt->fetchAll();

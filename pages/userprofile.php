@@ -15,6 +15,7 @@
     $proposals = getProposals($user['id']);
 
 ?>
+
 <div id="main">
 
     <aside id="user_profile">
@@ -29,7 +30,7 @@
     </aside>
 
     <?php drawAllPetPosts($pets); ?>
-    <?php drawProposals($proposals)?>
+    <?php drawProposals($proposals); ?>
     
 </div>
     <?php 

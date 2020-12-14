@@ -4,12 +4,12 @@
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/userprofile.php'));
     
-    $proposal = unserialize($_POST['proposal']);
+    $proposal = unserialize($_GET['proposal']);
 
-    if($_POST['acceptance'] === 'Accept') {
+    if($_GET['acceptance'] === 'Accept') {
         acceptRequest($proposal);
         deleteProposal($proposal);
-    }else {
+    }else if($_GET['acceptance'] == "Refuse") {
         deleteProposal($proposal);
     }
     

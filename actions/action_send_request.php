@@ -5,7 +5,9 @@
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
 
-    send_request();
+    $session_user = getUser($_SESSION['username']);
+    
+    send_request($session_user['id']);
 
     header('Location: ../pages/userprofile.php')
 
@@ -13,7 +15,7 @@
 
 <?php
 
-    function send_request() {
+    function send_request($owner_of_pet) {
         global $db;
 
         date_default_timezone_set('Europe/Lisbon');
@@ -21,10 +23,10 @@
 
         $account_id = getUserHavePetForAdoption($_GET['pet_id']);
 
-        if($account_id == getUser($_SESSION['username'])["id"]) {
-            header('Location: ../pages/pages_index.php');
+        if($account_id == $owner_of_pet) {
+            die(header('Location: ../pages/pages_index.php'));
         }
-        
+
         $stmt = $db->prepare('INSERT into proposal VALUES(?, ?, ?, ?, ?, ?)');
         $stmt->execute(array(NULL, 1, $date, $_GET['pet_id'], $_GET['user_id'], $account_id));
     }
