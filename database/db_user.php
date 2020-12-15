@@ -43,18 +43,13 @@
         $stmt->execute(array($email)); 
         return $stmt->fetch(); 
     }
-
-
-    function getUserById($user_id){
+    
+    function getUserById($user_id) {
         global $db;
-        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
-            FROM account 
-            INNER JOIN person 
-            ON account.id = person.account_id
-            INNER JOIN location
-            ON location.id = person.location_id
-            WHERE account.id = ?');
-        $stmt->execute(array($user_id)); 
+        
+        $stmt = $db->prepare('SELECT p.name FROM person p, shelter s WHERE p.person_id = ? or s.shelter_id = ?');
+        $stmt->execute(array($user_id));
+
         return $stmt->fetch(); 
     }
 
@@ -113,8 +108,7 @@
         return $pets;
     }
 
-
-    function userOwnsPet($email,$petID){
+    function userOwnsPet($email,$petID) {
         $pets = getAllPetsForAdoption($email);
         
         foreach($pets as $pet){
@@ -124,33 +118,28 @@
 
         return false;
     }
-
-    function addFavouritePet($petID,$userID){
+    
+    function getUserHavePetForAdoption($pet_id) {
         global $db;
-        $stmt = $db->prepare('INSERT INTO favourite VALUES(?,?)');
-        $stmt->execute(array($petID,$userID));
-    } 
-    function removeFavouritePet($petID,$userID){
-        global $db;
-        $stmt = $db->prepare('DELETE FROM favourite WHERE pet_id=? AND person_id=?');
-        $stmt->execute(array($petID,$userID));
-    }  
+        $stmt = $db->prepare('SELECT has_for_adoption FROM pet WHERE pet.id = ?');
+        $stmt->execute(array($pet_id));
+        $values = $stmt->fetch();
 
-    function getFavouritePets($userID){
-        global $db;
-        $stmt = $db->prepare('SELECT pet_id FROM favourite WHERE person_id= ?');
-        $stmt->execute(array($userID)); 
-        return $stmt->fetchAll(); 
-    }
-
-    function userLikesPet($userID,$petID){
-        $pets = getFavouritePets($userID);
-        
-        foreach($pets as $pet){
-            if($pet['pet_id']===$petID)
-                return true;
+        foreach ($values as $value) {
+            $user_id = $value;
         }
 
-        return false;
+        return $user_id;
     }
+
+    function getProposals($account_id) {
+        global $db;
+        
+        $stmt = $db->prepare('SELECT * FROM proposal p WHERE p.recv_adoption_proposal = ?');
+        $stmt->execute(array($account_id));
+        $proposals = $stmt->fetchAll();
+
+        return $proposals;
+    }
+
 ?>
