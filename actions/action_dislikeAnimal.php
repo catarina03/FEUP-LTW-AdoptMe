@@ -1,6 +1,10 @@
 <?php
     include_once('../database/db_user.php');
     include_once('../includes/init.php');
+    include_once('../includes/validate_input.php');
+
+    if(!validInput())
+        die(header('Location: ../pages/login.php'));
 
     
     //verifiva que a pessoa tem o login feito

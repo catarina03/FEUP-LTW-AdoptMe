@@ -1,5 +1,9 @@
 <?php 
     include_once('../includes/init.php');
+    include_once('../includes/validate_input.php');
+
+    if(!validInput())
+        die(header('Location: ../pages/userprofile.php'));
 
     if (!isset($_SESSION['username']) || $_SESSION['token']!==$_GET['csrf'])
         die(header('Location: ../pages/userprofile.php'));

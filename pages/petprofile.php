@@ -25,6 +25,7 @@
                 <form method="get" action="../actions/action_send_request.php">
                     <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
                     <input type="hidden" name="user_id" value=<?=getUser($_SESSION['username'])['id']?>>
+                    <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                     <input type="submit" value="ADOPT ME">
                 </form>
             </form>

@@ -5,12 +5,16 @@
     include_once('../database/db_user.php');
     include_once('../templates/common/header.php');
     include_once('../templates/tpl_petprofile.php');
+    include_once('../includes/validate_input.php');
+
+    if(!validInput())
+        die(header('Location: ../pages/login.php'));
 
     if (!isset($_SESSION['username']))
-        die(header('Location: login.html'));
+        die(header('Location: ../pages/login.php'));
 
     if(!userOwnsPet($_SESSION['username'],$_GET['id']))
-        die(header('Location: ../pages/login.html'));
+        die(header('Location: ../pages/login.php'));
 
     $petID = $_GET['id'];
     $pet = getPetInfo($petID);

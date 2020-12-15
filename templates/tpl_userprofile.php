@@ -21,7 +21,8 @@
             <form action="../actions/action_accept_adoption_request.php" method="get">
                 <input type="submit" name="acceptance" value="Accept">
                 <input type="submit" name="acceptance" value="Refuse">
-                <input type="hidden" name="proposal" value="<?php echo htmlentities(serialize($proposal)); ?>">
+                <input type="hidden" name="proposal" value="<?php echo urlencode(serialize($proposal)); ?>">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
             </form>
         </li>
     <?php } ?>

@@ -7,6 +7,10 @@
     include_once('../templates/template-pets.php');
     include_once('../templates/tpl_userprofile.php'); 
     include_once('../templates/tpl_petprofile.php');
+    include_once('../includes/validate_input.php');
+
+    if(!validInput())
+        die(header('Location: ../pages/userprofile.php'));
 
     
     if(!isset($_SESSION['username']))

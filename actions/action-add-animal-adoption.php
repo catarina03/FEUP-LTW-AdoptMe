@@ -2,6 +2,10 @@
     include_once('../templates/common/header.php');
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
+    include_once('../includes/validate_input.php');
+
+    if(!validInput())
+        die(header('Location: ../pages/login.php'));
 
     if (!isset($_SESSION['username']) || $_SESSION['token']!==$_GET['csrf'])
         die(header('Location: ../pages/login.php'));
