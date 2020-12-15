@@ -1,7 +1,7 @@
 <?php 
     include_once('../includes/init.php');
 
-    if (!isset($_SESSION['username']))
+    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_GET['csrf'])
         die(header('Location: ../pages/userprofile.php'));
     
     $proposal = unserialize($_GET['proposal']);

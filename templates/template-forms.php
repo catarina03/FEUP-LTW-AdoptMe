@@ -59,6 +59,7 @@
                 <textarea name="question" rows="4" cols="50"></textarea>
             <label>
             <input type="hidden" name="pet_id" value="<?php echo $_GET['id'] ?>">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
             <input type="submit" value="Send">
         </form>
     <?php } ?>
@@ -70,6 +71,7 @@
             <label>
             <input type="hidden" name="pet_id" value="<?php echo $_GET['id'] ?>">
             <input type="hidden" name="question_id" value="<?php echo $question_id ?>">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
             <input type="submit" value="Submit">
         </form>
     <?php } ?>

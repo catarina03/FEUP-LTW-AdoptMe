@@ -2,7 +2,7 @@
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
 
-    if (!isset($_SESSION['username']))
+    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_GET['csrf'])
         die(header('Location: ../pages/login.php'));
 
     $session_user = getUser($_SESSION['username']);
