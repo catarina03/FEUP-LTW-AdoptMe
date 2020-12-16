@@ -148,4 +148,34 @@
         return $proposals;
     }
 
+
+    function addFavouritePet($petID,$userID){
+        global $db;
+        $stmt = $db->prepare('INSERT INTO favourite VALUES(?,?)');
+        $stmt->execute(array($petID,$userID));
+    } 
+    function removeFavouritePet($petID,$userID){
+        global $db;
+        $stmt = $db->prepare('DELETE FROM favourite WHERE pet_id=? AND person_id=?');
+        $stmt->execute(array($petID,$userID));
+    }  
+
+    function getFavouritePets($userID){
+        global $db;
+        $stmt = $db->prepare('SELECT pet_id FROM favourite WHERE person_id= ?');
+        $stmt->execute(array($userID)); 
+        return $stmt->fetchAll(); 
+    }
+
+    function userLikesPet($userID,$petID){
+        $pets = getFavouritePets($userID);
+        
+        foreach($pets as $pet){
+            if($pet['pet_id']===$petID)
+                return true;
+        }
+
+        return false;
+    }
+
 ?>

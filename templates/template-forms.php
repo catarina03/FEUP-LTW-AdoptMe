@@ -12,7 +12,7 @@
                     <option value=""></option>
                     <?php $locations = getAllPetLocations();
                     foreach($locations as $location) {?>
-                        <option value="<?php echo $location['location']; ?>"><?php echo $location['location']; ?></option>
+                        <option value="<?php echo htmlentities($location['location']); ?>"><?php echo $location['location']; ?></option>
                     <?php } ?>
                 </select>
             </label>
@@ -21,7 +21,7 @@
                     <option value=""></option>
                     <?php $all_species = getAllPetSpecies();
                     foreach($all_species as $species) {?>
-                        <option value="<?php echo $species['species']; ?>"><?php echo $species['species']; ?></option>
+                        <option value="<?php echo htmlentities($species['species']); ?>"><?php echo $species['species']; ?></option>
                     <?php } ?>
                 </select>
             </label>
@@ -30,7 +30,7 @@
                     <option value=""></option>
                     <?php $breeds = getAllPetBreeds();
                     foreach($breeds as $breed) {?>
-                        <option value="<?php echo $breed['breed']; ?>"><?php echo $breed['breed']; ?></option>
+                        <option value="<?php echo htmlentities($breed['breed']); ?>"><?php echo $breed['breed']; ?></option>
                     <?php } ?>
                 </select>
             </label>
@@ -39,7 +39,7 @@
                     <option value=""></option>
                     <?php $colors = getAllPetColors();
                     foreach($colors as $color) {?>
-                        <option value="<?php echo $color['color']; ?>"><?php echo $color['color']; ?></option>
+                        <option value="<?php echo htmlentities($color['color']); ?>"><?php echo $color['color']; ?></option>
                     <?php } ?>
                 </select>
             </label>

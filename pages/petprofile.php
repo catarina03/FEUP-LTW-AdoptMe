@@ -13,6 +13,7 @@
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
 
+    $user = getUser($_SESSION['username']);
     $petID = $_GET['id'];
     $pet = getPetInfo($petID);
 ?>

@@ -5,10 +5,10 @@
 
     <?php function drawPetPost($post){ ?>
         <article>
-            <h2><?php echo $post['name'] ?></h2>
+            <h2><?php echo htmlentities($post['name']) ?></h2>
             <a href="petprofile.php?id=<?=$post['id']?>">
             <img src="../images/pets/original/<?=$post['id']?>.jpg" alt="dog profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
-            <p><?php echo $post['bio'] ?></p>
+            <p><?php echo htmlentities($post['bio']) ?></p>
         </article>
     <?php } ?>
 
@@ -30,15 +30,15 @@
             <a href="../pages/userprofile.php?id=<?php echo $comment['made_by']?>">
                 <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40">
             </a>
-            <p><?php echo $comment['question'] ?><p>
-            <p class="date"><?php echo $comment['question_date'] ?><p>
+            <p><?php echo htmlentities($comment['question']) ?><p>
+            <p class="date"><?php echo htmlentities($comment['question_date']) ?><p>
 
             <?php if($comment['response'] !== NULL){ ?>
                 <a href="../pages/userprofile.php?id=<?php echo $comment['answered_by']?>">
                     <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
                 </a>
-                <p><?php echo $comment['response'] ?><p>
-                <p class="date"><?php echo $comment['answer_date'] ?><p>
+                <p><?php echo htmlentities($comment['response']) ?><p>
+                <p class="date"><?php echo htmlentities($comment['answer_date']) ?><p>
             <?php }
             else{ 
                 $owner = getPetOwner($comment['pet_id']);
