@@ -21,6 +21,7 @@
 
     if(!verifyInput() ){
         echo '<script>alert("Invalid Input!"); location.replace("../pages/register.php");</script>'; 
+        die();
     }
 
     $hashedPassword = password_hash($_POST['password'],PASSWORD_DEFAULT);
