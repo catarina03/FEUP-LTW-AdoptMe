@@ -1,9 +1,5 @@
 <?php
     include_once('../database/db_user.php');
-    include_once('../includes/validate_input.php');
-
-    if(!validInput())
-        die(header('Location: ../pages/register.php'));
 
     function verifyInput(){
         foreach($_POST as $input){
