@@ -59,6 +59,15 @@
                 drawPetComment($comment); ?>
     <?php } ?>
 
+    <?php function drawPetPhotoName($pet,$petID){ ?>
+        <article>
+            <a href="petprofile.php?id=<?=$petID?>">
+                <img src="../images/pets/original/<?=$petID?>.jpg" alt="pet<?=$petID?>" width="150" height="150">
+            </a>
+            <h3><?=$pet['name']?></h3>
+        </article>
+    <?php }?>
+
 
     
 

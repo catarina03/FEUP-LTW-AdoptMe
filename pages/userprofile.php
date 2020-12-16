@@ -6,7 +6,6 @@
     include_once('../templates/common/header.php');
     include_once('../templates/template-pets.php');
     include_once('../templates/tpl_userprofile.php'); 
-    include_once('../templates/tpl_petprofile.php');
     include_once('../includes/validate_input.php');
 
     if(!validInput())
@@ -15,18 +14,10 @@
     
     if(!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
-    
-    if(isset($_GET['id'])) {
-        $user = getUserById($_GET['id']);
-        $pets = getAllPetsForAdoption($user['email']);
-    }
-    else {
-        $user = getUser($_SESSION['username']);
-        $pets = getAllPetsForAdoption($_SESSION['username']);
-    }
 
     $user = getUser($_SESSION['username']);
     $pets = getAllPetsForAdoption($_SESSION['username']);
+    $favs = getFavouritePets($user['id']);
     $proposals = getProposals($user['id']);
 
 ?>

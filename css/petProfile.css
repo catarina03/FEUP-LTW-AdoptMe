@@ -1,3 +1,4 @@
+
     #main {
         background-color: #FFF8CD;
         padding-bottom: 100%;
@@ -45,6 +46,24 @@
         color: #FFF8CD;
         background-color: #ff8829;
     }
+
+    /*love button*/
+    #main > form > button[type=submit]{
+        position: relative;
+        top:-70px;
+        margin-left: 80px;
+        border: none;
+        background-color: #FFF8CD;
+        font-size: 50px;
+    }
+    #main > form > button[type=submit]>i:hover{
+        transition: 0.3s;
+        position: relative;
+        top: -2px;
+        color:#ff8829;
+    }
+    
+
     /*para o edit pet profile*/
     
     #main>form {
