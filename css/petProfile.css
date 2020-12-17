@@ -32,31 +32,7 @@
         top:-50px;
     }
 
-/* para o pet profile*/
-       
-    /*love button*/
-    #main > form > button[type=submit]{
-        position: relative;
-        top:-75px;
-        right: -120px;
-        border: none;
-        background-color: #FFF8CD;
-        font-size: 50px;
-    }
-    #main > form > button[type=submit]>i:hover{
-        transition: 0.3s;
-        position: relative;
-        top: -2px;
-        color:#ff8829;
-    }
-    
-
-/*para o edit pet profile*/
         
-    #main>form>label>input[type="file"] {
-        display: none;
-    }
-    
     #main>form>label,
     #main>form>input[type="submit"], #send {
         padding: 10px 15px;
@@ -70,12 +46,7 @@
     #main>form>input[type="submit"]:hover, #send:hover {
         background-color: #ff8829;
     }
-    
-    #main>form>label {
-        margin-left: 30px;
-        margin-right: 10px;
-    }
-    
+       
     #main>form>input[type="submit"] {
         border: none;
     }

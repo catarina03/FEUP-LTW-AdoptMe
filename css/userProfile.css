@@ -8,6 +8,10 @@
     display: inline-flex;
 }
 
+p {
+    font-size: 18px;
+}
+
 #user_profile {
     height: 400px;
     width: 300px;
@@ -81,13 +85,17 @@ input[type=submit]:hover {
     margin: 5px 10px;
 }
 
+#fav,#proposal{
+    position: relative;
+    left: 5.5%;
+}
+
 /*favourites list*/
 #favourite{
     display: block;
 }
-#favourite > h2{
-    position: relative;
-    left: 5.5%;
+
+#fav{
     font-size: 30px;
 }
 
@@ -102,3 +110,12 @@ input[type=submit]:hover {
 #favourite > article > h3{
     text-align: center;
 }
+
+#proposal > ul {
+    margin-top: 20px;
+}
+
+#proposal > ul > li > form{
+    margin-left: 50px;
+}
+

@@ -23,6 +23,7 @@
 
         if(isset($_SESSION['username'])){
             if (!userOwnsPet($_SESSION['username'],$petID)) { ?>
+            <link rel="stylesheet" href="../css/petProfile_adopt.css"> 
                 <form method="get" action="../actions/action_send_request.php">
                     <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
                     <input type="hidden" name="user_id" value=<?=getUser($_SESSION['username'])['id']?>>
@@ -43,6 +44,7 @@
                 <?php } ?>
         <?php } 
             else { ?>
+                <link rel="stylesheet" href="../css/petProfile_edit.css"> 
                 <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
                     <label>Insert new pet picture:
                         <input type="file" name="image">
