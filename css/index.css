@@ -1,7 +1,10 @@
 #main{
     background-color: #FFF8CD;
     padding-bottom: 100%;
+    width: 100%;
+    display: inline-block;
 }
+
 #main > article{
     margin: 30px;
     vertical-align: top;

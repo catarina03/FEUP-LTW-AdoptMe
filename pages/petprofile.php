@@ -29,12 +29,11 @@
                     <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                     <input type="submit" value="ADOPT ME">
                 </form>
-            </form>
                 <?php 
                 if(!userLikesPet($user['id'],$petID)){?>
                     <form action="../actions/action_likeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
-                        <button type="submit"><i class="far fa-heart"></i></button>
+                       <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
+                       <button type="submit"><i class="far fa-heart"></i></button>
                     </form>
                 <?php } else { ?>
                     <form action="../actions/action_dislikeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
@@ -42,7 +41,7 @@
                         <button type="submit"><i class="fas fa-heart"></i></button>
                     </form>
                 <?php } ?>
-            <?php } 
+        <?php } 
             else { ?>
                 <form action="../actions/action_upload_pet_pic.php?id=<?=$petID?>" method="post" enctype="multipart/form-data">
                     <label>Insert new pet picture:
@@ -53,26 +52,28 @@
                 </form>
             <?php } 
         } ?>
+
+        <section id='questions'>
+            <h1>Any questions? Ask them down below</h1>
+      
+            <section id="comments">
+                <h2 class="visually-hidden">Pet comments</h2>
+
+                <?php $comments = getAllPetComments($pet['id']);
+                drawAllPetComments($comments); 
+
+                if(isset($_SESSION['username'])){
+                    if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { 
+                        commentForm();
+                    } 
+                } 
+                else { ?>
+                    <p>Want to ask a question? <a href='login.php'>Log in</a></p>
+                <?php } ?>
+            </section>
+        </section>
+
     </section>
 
-    <section id='divider'>
-        <h1>Any questions? Ask them down below</h1>
-    </section>
-
-    <section id="comments">
-        <h2 class="visually-hidden">Pet comments</h2>
-
-        <?php $comments = getAllPetComments($pet['id']);
-        drawAllPetComments($comments); 
-
-        if(isset($_SESSION['username'])){
-            if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { 
-                commentForm();
-            } 
-        } 
-        else { ?>
-            <p>Want to ask a question? <a href='login.php'>Log in</a></p>
-        <?php } ?>
-    </section>
 
 <?php include_once('../templates/common/footer.php'); ?>

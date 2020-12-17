@@ -55,10 +55,6 @@ article>img {
     height: 70px;
 }
 
-footer {
-    position: relative;
-    top: -50px;
-}
 
 input[type="submit"] {
     background-color: #ff8829;
