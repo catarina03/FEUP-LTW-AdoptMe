@@ -13,6 +13,9 @@
         <label>Name:
             <input type="text" name="name" required>
         </label>
+        <label>Bio:
+            <input type="text" name="bio" required>
+        </label>
         <label>Gender:
             <input type="text" name="gender" required>
         </label>
@@ -24,6 +27,9 @@
         </label>
         <label>Color:
             <input type="text" name="color" required>
+        </label>
+        <label>Species:
+            <input type="text" name="species" required>
         </label>
         <label>Breed:
             <input type="text" name="breed" required>

@@ -27,7 +27,7 @@
             <nav class='loggedOut'>
                 <a href="../pages/login.php">Log in</a>
                 <a href="../pages/register.php">Sign up</a>
-                <a href="../pages/searchresults.php">
+                <a href="../pages/search.php">
                     <img alt="search" src="../images/search_icon.png" width="30">
                 </a>
             </nav>
@@ -38,7 +38,7 @@
             <a class="loggedIn" href="../pages/userprofile.php">
                     <img alt="User profile" src="../images/accounts/small/<?php echo $user['id'] ?>.jpg" width="40" height="40">
             </a>
-            <a href="../pages/searchresults.php">
+            <a href="../pages/search.php">
                 <img alt="search" src="../images/search_icon.png" width="30">
             </a>
         <?php } ?>
