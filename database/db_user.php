@@ -76,6 +76,28 @@
     }
 
 
+    function getAllPetsFromUser($email) {
+        global $db;
+        $stmt = $db->prepare("SELECT pet.id AS id, pet.name AS name, pet.bio AS bio, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color, pet.has_for_adoption AS status
+            FROM pet INNER JOIN breed ON pet.breed_id = breed.id
+            INNER JOIN person ON pet.has_for_adoption = person.person_id
+            INNER JOIN account ON person.person_id = account.id
+            INNER JOIN location ON person.location_id = location.id
+            WHERE account.email = ?
+            
+            UNION            
+                    
+            SELECT pet.id AS id, pet.name AS name, pet.bio AS bio, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color, pet.has_for_adoption AS status
+                    FROM pet INNER JOIN breed ON pet.breed_id = breed.id
+                    INNER JOIN person ON pet.adopted = person.person_id
+                    INNER JOIN account ON person.person_id = account.id
+                    INNER JOIN location ON person.location_id = location.id
+                    WHERE account.email = ?");
+        $stmt->execute(array("$email", "$email"));
+        return $stmt->fetchAll();
+    }
+
+
     function getAllCities(){
         global $db;
         $stmt = $db->prepare('SELECT city FROM location');

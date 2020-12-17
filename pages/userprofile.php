@@ -16,7 +16,7 @@
         die(header('Location: ../pages/login.php'));
 
     $user = getUser($_SESSION['username']);
-    $pets = getAllPetsForAdoption($_SESSION['username']);
+    $pets = getAllPetsFromUser($_SESSION['username']);
     $favs = getFavouritePets($user['id']);
     $proposals = getProposals($user['id']);
 
