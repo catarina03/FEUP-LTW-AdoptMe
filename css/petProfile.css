@@ -14,7 +14,7 @@
     }
     
     #description {
-        margin-left: 50px;
+        margin-left: 80px;
     }
     
     #description h2 {
@@ -26,14 +26,19 @@
         margin-right: 10px;
         border-radius: 10%;
     }
+    #main>form {
+        margin-left: 25%;
+        position: relative;
+        top:-50px;
+    }
 
 /* para o pet profile*/
-    
+       
     /*love button*/
     #main > form > button[type=submit]{
         position: relative;
         top:-75px;
-        right: -140px;
+        right: -120px;
         border: none;
         background-color: #FFF8CD;
         font-size: 50px;
@@ -47,11 +52,7 @@
     
 
 /*para o edit pet profile*/
-    
-    #main>form {
-        margin-left: 23%;
-    }
-    
+        
     #main>form>label>input[type="file"] {
         display: none;
     }
@@ -80,20 +81,37 @@
     }
 
 /*Questions*/
+#main > hr{
+    left: -20%;
+    border: 2px solid #737373;
+    width:90%;
+    margin-bottom: 20px;
+    margin-left: 25%;
+}
 #questions{
-    margin-top: 50px;
     margin-left: 25%;
 }
 
-#comments > article > div{
-    display: inline-flex;   
+#questions > h1{
+
+    margin: 0;
+    position: relative;
+    left: 50px;
+    color: #ff8829;
+    font-size: 22px;
 }
-#comments > article > div > p{
+#comments > article > div{
+    display: inline; 
+    margin-right: 30px;
+}
+#comments > article > div > div{
+    display: inline-block;
+}
+#comments > article > div > div> p{
     text-align: center;
     align-self: flex-end;
     margin-left: 20px;
 }
-
 #add_comment {
     margin-top: 30px;
 }

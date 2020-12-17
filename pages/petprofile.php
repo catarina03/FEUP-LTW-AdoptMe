@@ -52,7 +52,7 @@
                 </form>
             <?php } 
         } ?>
-
+        <hr>
         <section id='questions'>
             <h1>Any questions? Ask them down below</h1>
       
