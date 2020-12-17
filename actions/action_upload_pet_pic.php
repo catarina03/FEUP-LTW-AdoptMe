@@ -1,9 +1,13 @@
 <?php
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
+    include_once('../includes/validate_input.php');
 
-    if (!isset($_SESSION['username']))
+    if(!validInput())
         die(header('Location: ../pages/login.php'));
+
+    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
+        die(header('Location: ../pages/login.html'));
 
     $petID = $_GET['id'];
 

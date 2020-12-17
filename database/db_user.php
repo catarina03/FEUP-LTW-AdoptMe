@@ -3,9 +3,15 @@
 
     function checkUserPassword($email, $password) {
         global $db;
-        $stmt = $db->prepare('SELECT * FROM account WHERE email = ? AND password = ?');
-        $stmt->execute(array($email, $password)); //sha1($password))
-        return $stmt->fetch()?true:false; // return true if a line exists
+        $stmt = $db->prepare('SELECT password FROM account WHERE email = ?');
+        $stmt->execute(array($email));
+
+
+        $fetched = $stmt->fetch();
+        if($fetched!==false)
+            return password_verify($password,$fetched['password']);
+
+        return false;
     }
 
 
@@ -67,6 +73,28 @@
         );
         $stmt->execute(array($email)); 
         return $stmt->fetchAll(); 
+    }
+
+
+    function getAllPetsFromUser($email) {
+        global $db;
+        $stmt = $db->prepare("SELECT pet.id AS id, pet.name AS name, pet.bio AS bio, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color, pet.has_for_adoption AS status
+            FROM pet INNER JOIN breed ON pet.breed_id = breed.id
+            INNER JOIN person ON pet.has_for_adoption = person.person_id
+            INNER JOIN account ON person.person_id = account.id
+            INNER JOIN location ON person.location_id = location.id
+            WHERE account.email = ?
+            
+            UNION            
+                    
+            SELECT pet.id AS id, pet.name AS name, pet.bio AS bio, location.city AS location, breed.species AS species, breed.name AS breed, pet.color AS color, pet.has_for_adoption AS status
+                    FROM pet INNER JOIN breed ON pet.breed_id = breed.id
+                    INNER JOIN person ON pet.adopted = person.person_id
+                    INNER JOIN account ON person.person_id = account.id
+                    INNER JOIN location ON person.location_id = location.id
+                    WHERE account.email = ?");
+        $stmt->execute(array("$email", "$email"));
+        return $stmt->fetchAll();
     }
 
 
@@ -140,6 +168,36 @@
         $proposals = $stmt->fetchAll();
 
         return $proposals;
+    }
+
+
+    function addFavouritePet($petID,$userID){
+        global $db;
+        $stmt = $db->prepare('INSERT INTO favourite VALUES(?,?)');
+        $stmt->execute(array($petID,$userID));
+    } 
+    function removeFavouritePet($petID,$userID){
+        global $db;
+        $stmt = $db->prepare('DELETE FROM favourite WHERE pet_id=? AND person_id=?');
+        $stmt->execute(array($petID,$userID));
+    }  
+
+    function getFavouritePets($userID){
+        global $db;
+        $stmt = $db->prepare('SELECT pet_id FROM favourite WHERE person_id= ?');
+        $stmt->execute(array($userID)); 
+        return $stmt->fetchAll(); 
+    }
+
+    function userLikesPet($userID,$petID){
+        $pets = getFavouritePets($userID);
+        
+        foreach($pets as $pet){
+            if($pet['pet_id']===$petID)
+                return true;
+        }
+
+        return false;
     }
 
 ?>

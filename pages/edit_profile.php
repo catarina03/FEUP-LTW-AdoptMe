@@ -11,8 +11,8 @@
     include_once('../database/db_user.php');
     include_once('../templates/tpl_userprofile.php');
 
-    if (!isset($_SESSION['username']))
-        die(header('Location: login.php'));
+    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
+        die(header('Location: ../pages/login.php'));
 
     $user = getUser($_SESSION['username']);
 ?>
@@ -29,6 +29,7 @@
             <form action="../actions/action_upload_profile_pic.php" method="post" enctype="multipart/form-data">
                 <label>Insert image:
                     <input type="file" name="image">
+                    <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                 </label>
                 <input type="submit" value="Upload">
             </form>

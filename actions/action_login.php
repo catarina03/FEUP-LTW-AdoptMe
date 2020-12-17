@@ -5,7 +5,9 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    var_dump($email);
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+      die(header('Location: ../pages/login.php'));
+
 
     if (checkUserPassword($email, $password)) {
         $_SESSION['username'] = $email;

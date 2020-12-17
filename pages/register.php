@@ -22,7 +22,7 @@
                 <select name="city" id="city">
                     <?php
                         foreach($cities as $city)
-                            echo '<option value="'.$city['city'].'">'.$city['city'].'</option>';
+                            echo '<option value="'.htmlentities($city['city']).'">'.htmlentities($city['city']).'</option>';
                     ?>
                 </select>
             </label>

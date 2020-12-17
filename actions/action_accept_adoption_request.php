@@ -1,19 +1,40 @@
 <?php 
     include_once('../includes/init.php');
+    include_once('../includes/validate_input.php');
 
-    if (!isset($_SESSION['username']))
-        die(header('Location: ../pages/userprofile.php'));
+    if (!isset($_SESSION['username'])){
+        echo '<script>alert("Session sets - username!"); location.replace("../pages/userprofile.php");</script>';
+    }
+    if (isset($_SESSION['token'])){
+        if ($_SESSION['token'] !== $_GET['csrf']){
+            echo '<script>alert("Session sets - token and crsf different!"); location.replace("../pages/userprofile.php");</script>';
+        }
+    }
+    else {
+        echo '<script>alert("Session sets - token crsf not set!"); location.replace("../pages/userprofile.php");</script>';
+    }
+    if (!isset($_GET['acceptance'])){
+        
+        echo '<script>alert("Session sets - acceptance!"); location.replace("../pages/userprofile.php");</script>';
+    }
     
-    $proposal = unserialize($_GET['proposal']);
+    $proposal = unserialize(urldecode($_GET['proposal']));
+
+    echo '<script>console.log("accept");</script>';
 
     if($_GET['acceptance'] === 'Accept') {
         acceptRequest($proposal);
         deleteProposal($proposal);
-    }else if($_GET['acceptance'] == "Refuse") {
+        echo '<script>alert("Accepted pet for adoption!"); location.replace("../pages/userprofile.php");</script>';
+    }else if($_GET['acceptance'] === "Refuse") {
         deleteProposal($proposal);
+        echo '<script>alert("Refused pet for adoption!"); location.replace("../pages/userprofile.php");</script>';
+    }
+    else {
+        echo '<script>alert("Invalid button input!"); location.replace("../pages/userprofile.php");</script>';
     }
     
-    header('Location: ../pages/userprofile.php')
+    //header('Location: ../pages/userprofile.php')
 
 ?>
 
