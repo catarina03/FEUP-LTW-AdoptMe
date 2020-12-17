@@ -5,67 +5,85 @@
     include_once('../includes/validate_input.php');
 
     if(!validInput())
-        die(header('Location: ../pages/login.php'));
+        echo '<script>alert("Invalid input!"); location.replace("../pages/userprofile.php");</script>';
+        //die(header('Location: ../pages/login.php'));
 
     if (!isset($_SESSION['username']) || $_SESSION['token']!==$_GET['csrf'])
-        die(header('Location: ../pages/login.php'));
+        echo '<script>alert("Sessions!"); location.replace("../pages/userprofile.php");</script>';
+        //die(header('Location: ../pages/login.php'));
     
     addAnimalToUser();
 
-    header('Location: ../pages/userprofile.php')
+    echo '<script>alert("Added new pet for adoption!"); location.replace("../pages/userprofile.php");</script>';
 
 ?>
 
 <?php
-    function getBigestId() {
+    function getBiggestPetId() {
         global $db;
-        $stmt = $db->prepare('SELECT P.id  FROM pet P 
-                            WHERE  P.id = 
-                                (
-                                    SELECT  max(id) FROM pet
-                                )');
+        $stmt = $db->prepare('SELECT max(id) AS id FROM pet');
         $stmt->execute();
         $id = $stmt->fetch();
 
-        return $id[key($id)];
+        return $id;
     }
 
-    function getBreedId($breed) {
+    function getBiggestSpeciesId() {
         global $db;
-        $stmt = $db->prepare('SELECT B.id FROM breed B where B.name = ?');
-        $stmt->execute(array($breed));
-        $breed_id = $stmt->fetch();
+        $stmt = $db->prepare('SELECT max(id) AS id FROM breed');
+        $stmt->execute();
+        $id = $stmt->fetch();
 
-        return $breed_id[key($breed_id)];
+        return $id;
+    }
+
+    function getBreedId($breed, $species) {
+        global $db;
+        $stmt = $db->prepare('SELECT id FROM breed where name = upper(?) AND species = upper(?)');
+        $stmt->execute(array("$breed", "$species"));
+        $result = $stmt->fetch()?true:false;
+
+        if ($result) {
+            $stmt = $db->prepare('SELECT id FROM breed where name = upper(?) AND species = upper(?)');
+            $stmt->execute(array($breed, $species));
+            $breed_id = $stmt->fetch();
+        }
+        else {
+            $lastSpeciesId = getBiggestSpeciesId();
+
+            var_dump($lastSpeciesId);
+            $breed_id = implode($lastSpeciesId) + 1;
+            var_dump($breed_id);
+            $stmt = $db->prepare('INSERT INTO breed VALUES (?, ?, ?)');
+            $stmt->execute(array("$breed_id", "$species", "$breed"));
+        }
+
+        return $breed_id;
     }
     
     function createArrayWithAnimalInfo() {
-        
-        $animal['id'] = getBigestId()+1;
+        $animal['id'] = (int)implode(getBiggestPetId()) + 1;
         $animal['name'] = $_GET['name'];
-        $animal['bio'] = 'none';
+        $animal['bio'] = $_GET['bio'];
         $animal['gender'] = $_GET['gender'];
         $animal['weight'] = $_GET['weight'];
         $animal['height'] = $_GET['height'];
         $animal['color'] = $_GET['color'];
-        $animal['breed'] = getBreedId($_GET['breed']);
+        $animal['breed'] = getBreedId($_GET['breed'], $_GET['species']);
+        var_dump($animal['breed']);
         $animal['has_for_adoption'] = getUser($_SESSION['username'])['id'];
         $animal['adopted'] = NULL;
-
-        
 
         return $animal;
     }
     
     function addAnimalToUser() {
-
         $animal = createArrayWithAnimalInfo();
         
         global $db;
         $stmt = $db->prepare('INSERT INTO pet VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $stmt->execute(array($animal['id'], $animal['name'], $animal['bio'], $animal['gender'], 
-                        $animal['weight'], $animal['height'], $animal['color'], $animal['breed'], $animal['has_for_adoption'], $animal['adopted']
-                    ));
-        
+        return $stmt->execute(array($animal['id'], $animal['name'], $animal['bio'], $animal['gender'], 
+            $animal['weight'], $animal['height'], $animal['color'], $animal['breed'], 
+            $animal['has_for_adoption'], $animal['adopted']));
     }
 ?>
