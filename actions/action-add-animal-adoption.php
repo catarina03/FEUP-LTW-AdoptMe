@@ -1,20 +1,22 @@
 <?php 
-    include_once('../templates/common/header.php');
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
     include_once('../includes/validate_input.php');
 
-    if(!validInput())
+    if(!validInput()){
         echo '<script>alert("Invalid input!"); location.replace("../pages/userprofile.php");</script>';
-        //die(header('Location: ../pages/login.php'));
+        die();
+    }
 
-    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_GET['csrf'])
+    if (!isset($_SESSION['username']) || $_SESSION['token']!==$_GET['csrf']){
         echo '<script>alert("Sessions!"); location.replace("../pages/userprofile.php");</script>';
-        //die(header('Location: ../pages/login.php'));
+        die();
+    }
     
     addAnimalToUser();
 
     echo '<script>alert("Added new pet for adoption!"); location.replace("../pages/userprofile.php");</script>';
+    die();
 
 ?>
 
@@ -51,9 +53,7 @@
         else {
             $lastSpeciesId = getBiggestSpeciesId();
 
-            var_dump($lastSpeciesId);
             $breed_id = implode($lastSpeciesId) + 1;
-            var_dump($breed_id);
             $stmt = $db->prepare('INSERT INTO breed VALUES (?, ?, ?)');
             $stmt->execute(array("$breed_id", "$species", "$breed"));
         }
@@ -70,7 +70,6 @@
         $animal['height'] = $_GET['height'];
         $animal['color'] = $_GET['color'];
         $animal['breed'] = getBreedId($_GET['breed'], $_GET['species']);
-        var_dump($animal['breed']);
         $animal['has_for_adoption'] = getUser($_SESSION['username'])['id'];
         $animal['adopted'] = NULL;
 

@@ -31,7 +31,9 @@
     }
     catch(PDOException $e){
         echo '<script>alert("Email already in use"); location.replace("../pages/register.php");</script>';
+        die();
     }
 
-    echo '<script>alert("You registered successfully"); location.replace("../pages/userprofile.php");</script>';    
+    echo '<script>alert("You registered successfully"); location.replace("../pages/userprofile.php");</script>'; 
+    die();   
 ?>
