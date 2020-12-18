@@ -1,3 +1,4 @@
+<title> Editing pet | Adopt Me!</title>
 
 <?php
     include_once('../includes/init.php');
