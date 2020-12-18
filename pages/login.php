@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="../css/login.css">
+<head>
+    <title> Log in | Adopt Me!</title>
+</head>
+
 <?php 
 include_once('../includes/init.php');
 include_once('../templates/common/header.php'); 

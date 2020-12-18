@@ -4,7 +4,6 @@
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
     include_once('../database/db_pet.php');
-    include_once('../templates/common/header.php');
     include_once('../templates/template-forms.php');
     include_once('../templates/tpl_petprofile.php');
     include_once('../includes/init.php');
@@ -17,6 +16,12 @@
     $petID = $_GET['id'];
     $pet = getPetInfo($petID);
 ?>
+
+<head>
+    <title> <?=$pet['name']?> | Adopt Me!</title>
+</head>
+
+<?php  include_once('../templates/common/header.php');?>
 
     <section id='main'>
         <?php drawPetProfile($pet,$petID);

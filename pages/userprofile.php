@@ -3,7 +3,6 @@
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
-    include_once('../templates/common/header.php');
     include_once('../templates/template-pets.php');
     include_once('../templates/tpl_userprofile.php'); 
     include_once('../includes/validate_input.php');
@@ -21,6 +20,12 @@
     $proposals = getProposals($user['id']);
 
 ?>
+<head>
+    <title> <?=$user['name']?> | Adopt Me!</title>
+</head>
+
+<?php  include_once('../templates/common/header.php');?>
+
 
 <div id="main">
     <div id="userAndPosts">
