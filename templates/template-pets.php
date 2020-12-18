@@ -9,13 +9,13 @@
                 <h2><?php echo htmlentities($post['name']) ?></h2>
                 <img src="../images/pets/original/<?=$post['id']?>.jpg" alt="dog profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
                 <p><?php echo htmlentities($post['bio']) ?></p>
+                <?php if(!isset($_GET['id'])){ ?>
+                    <a href="../actions/action_remove_pet.php?id=<?=$post['id']?>" >
+                        <img src="../images/trash.png" alt="trash icon" width="20">
+                    </a>
+                <?php } ?>
             </article>
         </a>
-        <?php if(!isset($_GET['id'])){ ?>
-            <a href="../actions/action_remove_pet.php?id=<?=$post['id']?>" >
-                <img src="../images/trash.png" alt="trash icon" width="20">
-            </a>
-        <?php } ?>
     <?php } ?>
 
 
