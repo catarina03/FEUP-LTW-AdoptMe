@@ -52,7 +52,9 @@
     </div>   
 
     <div id="proposal">
-    <?php drawProposals($proposals); ?>
+    <?php if($proposals!=NULL){
+        drawProposals($proposals); 
+    }?>
     </div>   
 
 </div>
