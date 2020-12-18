@@ -11,9 +11,11 @@
                 <p><?php echo htmlentities($post['bio']) ?></p>
             </article>
         </a>
-        <a href="../actions/action_remove_pet.php?id=<?=$post['id']?>" >
-            <img src="../images/trash.png" alt="trash icon" width="20">
-        </a>
+        <?php if(!isset($_GET['id'])){ ?>
+            <a href="../actions/action_remove_pet.php?id=<?=$post['id']?>" >
+                <img src="../images/trash.png" alt="trash icon" width="20">
+            </a>
+        <?php } ?>
     <?php } ?>
 
 
@@ -39,6 +41,13 @@
                     <p><?php echo htmlentities($comment['question']) ?><p>
                     <p class="date"><?php echo htmlentities($comment['question_date']) ?><p>
                 </div>
+            <!--
+                <?php // if ($user['id'] === $comment['made_by']) { ?>
+                    <a href="../actions/action_remove_comment?id=<?php echo $user['id'] ?>&made_by=<?php echo $comment['made_by']?>&question=<?php echo $comment['question'] ?>">
+                        <img src="../images/trash.jpg" alt="trash icon" width="20" >
+                    </a>
+                <?php // } ?>
+                -->
             </div>
 
             <?php if($comment['response'] !== NULL){ ?>

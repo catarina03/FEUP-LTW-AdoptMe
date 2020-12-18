@@ -39,7 +39,7 @@
 
     function getUser($email){
         global $db;
-        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email
             FROM account 
             INNER JOIN person 
             ON account.id = person.account_id
@@ -53,7 +53,7 @@
 
     function getUserById($user_id){
         global $db;
-        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email
             FROM account 
             INNER JOIN person 
             ON account.id = person.account_id
