@@ -12,7 +12,7 @@
     $user = getUser($_SESSION['username']);
 ?>
 <head>
-    <title> <?=$user['name']?>| Adopt Me!</title>
+    <title> <?=$user['name']?> | Adopt Me!</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/edit_profile.css" > 
 </head>

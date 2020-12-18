@@ -10,7 +10,7 @@
     
 ?>
 <head>
-    <title>  Adopt Me!</title>
+    <title>Adopt Me!</title>
 </head>
 
 <?php  include_once('../templates/common/header.php');?>
