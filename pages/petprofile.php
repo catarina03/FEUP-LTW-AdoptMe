@@ -51,6 +51,11 @@
                     </label>
                     <input type="submit" value="Upload">
                 </form>
+                <form action="../pages/edit_pet_profile.php" method="get">
+                    <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
+                    <input type="hidden" name="id" value="<?=$_GET['id']?>">
+                    <input type="submit" value="Edit pet" />
+                </form>
             <?php } 
         } ?>
     </section>

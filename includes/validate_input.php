@@ -1,14 +1,15 @@
 <?php
     function validInput(){
         foreach($_GET as $get){
-            echo '1 --- ' . urldecode($get);?><br><?php
+            //echo '1 --- ' . urldecode($get);?><br><?php
 
             if (!preg_match("/^[0-9a-zA-Z\s]+$/", urldecode($get)))
                return false;
         }
 
         foreach($_POST as $post){
-            echo urldecode($post);
+            //echo '2 --- ' . urldecode($post);?><br><?php
+
             if(!preg_match("/^[0-9a-zA-Z\s]+$/", urldecode($post)))
                 return false;
         }

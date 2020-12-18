@@ -113,7 +113,8 @@
             pet.id AS id,
             pet.name AS name,
             pet.bio AS bio,
-            breed.name AS race,
+            breed.name AS breed,
+            breed.species AS species,
             gender,weight,height,color
             FROM pet JOIN breed ON breed_id=breed.id
             WHERE pet.id=?'
@@ -137,7 +138,7 @@
     }
 
     function userOwnsPet($email,$petID) {
-        $pets = getAllPetsForAdoption($email);
+        $pets = getAllPetsFromUser($email);
         
         foreach($pets as $pet){
             if($pet['id']===$petID)
