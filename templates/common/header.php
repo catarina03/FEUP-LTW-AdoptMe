@@ -18,7 +18,7 @@
             <img alt="logo image" src="../images/logo.png" width="80">
         </a>
         <h1 class="siteName" >ADOPT ME!</h1>
-        <a href="../pages/searchresults.php">
+        <a href="../pages/search.php">
              <img class="search" alt="search" src="../images/search_icon.png" width="30">
         </a>
 
@@ -34,7 +34,7 @@
             $user = getUser($_SESSION['username']); ?>
              <nav class='loggedIn'>
                 <a href="../pages/userprofile.php">
-                        <img alt="User profile" src="../images/accounts/small/<?php echo $user['id'] ?>.jpg" width="40" height="40">
+                        <img alt="User profile" src="../images/accounts/small/<?php echo $user['id'] ?>.jpg" width="40" height="40" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
                 </a>
                 <a href="../actions/action_logout.php">Log out</a>
             </nav>

@@ -49,13 +49,18 @@
         $stmt->execute(array($email)); 
         return $stmt->fetch(); 
     }
-    
-    function getUserById($user_id) {
-        global $db;
-        
-        $stmt = $db->prepare('SELECT p.name FROM person p, shelter s WHERE p.person_id = ? or s.shelter_id = ?');
-        $stmt->execute(array($user_id));
 
+
+    function getUserById($user_id){
+        global $db;
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
+            FROM account 
+            INNER JOIN person 
+            ON account.id = person.account_id
+            INNER JOIN location
+            ON location.id = person.location_id
+            WHERE account.id = ?');
+        $stmt->execute(array($user_id)); 
         return $stmt->fetch(); 
     }
 

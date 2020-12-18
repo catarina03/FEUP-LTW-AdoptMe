@@ -29,7 +29,7 @@
             <!-- redirects to the profile?   <a href="../pages/userprofile"  -->
             <div>
                 <a href="../pages/userprofile.php?id=<?php echo $comment['made_by']?>">
-                    <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40">
+                    <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
                 </a>
                 <div>
                     <p><?php echo htmlentities($comment['question']) ?><p>
@@ -40,7 +40,7 @@
             <?php if($comment['response'] !== NULL){ ?>
                 <div>
                     <a href="../pages/userprofile.php?id=<?php echo $comment['answered_by']?>">
-                        <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
+                        <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
                     </a>
                     <div>
                     <p><?php echo htmlentities($comment['response']) ?><p>
