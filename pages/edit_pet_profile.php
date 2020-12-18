@@ -1,9 +1,7 @@
-<link rel="stylesheet" href="../css/petProfile.css" > 
 
 <?php
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
-    include_once('../templates/common/header.php');
     include_once('../templates/tpl_petprofile.php');
     include_once('../includes/validate_input.php');
 
@@ -27,6 +25,15 @@
     $pet = getPetInfo($petID);
     
 ?>
+<head>
+    <title> <?=$pet['name']?> | Adopt Me!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/petProfile.css" > 
+    <link rel="stylesheet" href="../css/edit_pet_profile.css" > 
+
+</head>
+
+<?php  include_once('../templates/common/header.php');?>
 
 <section id='main'>
     <img src="../images/pets/original/<?=$petID?>.jpg" alt="dog image " width="160" height="180" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">

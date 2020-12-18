@@ -1,0 +1,61 @@
+#main {
+    background-color: #FFF8CD;
+    padding-bottom: 25%;
+    margin-top: 15px;
+    display: block;
+}
+
+#main >img{
+    margin-left:47% ;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+#main > form{
+    position: relative;
+    top:1px;
+    left:17%
+}
+
+
+
+
+#description{
+    padding-left: 40%;
+}
+
+#description > h3{
+    margin-left: 30px;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+input[type="submit"]{
+    padding: 10px 15px;
+    background-color: #737373;
+    color: #FFF8CD;
+    font-size: 12px;
+    border-radius: 10px;
+}
+input[type="submit"]:hover{
+    background-color: #ff8829;
+}
+
+label{
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+input[type="submit"]{
+    border: none;
+}
+
+#description > form label{
+    display: block;
+
+}
+#description > form> input[type="submit"]{
+   margin-left: 100px;
+}
