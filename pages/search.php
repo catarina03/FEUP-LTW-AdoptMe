@@ -5,11 +5,6 @@
     include_once('../templates/common/header.php');
     include_once('../templates/template-forms.php');
 
-
-    if(isset($_SESSION['username'])){
-        echo '<script>console.log("Logged in");</script>';
-    }
-
 ?>
 
     <script src="../js/search_pets.js" defer=""></script>

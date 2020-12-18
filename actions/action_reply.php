@@ -15,9 +15,11 @@
         if($_SESSION['username'] === $owner['owner_email']){
             addReply($question_id, $reply, $user['id']);
             echo '<script>alert("Added reply!"); location.replace("../pages/petprofile.php?id=' . $pet_id . '");</script>';
+            die();
         }
         else{
             echo '<script>alert("Not allowed to reply!"); location.replace("../pages/petprofile.php?id=' . $pet_id . '");</script>';
+            die();
         }
     }
     

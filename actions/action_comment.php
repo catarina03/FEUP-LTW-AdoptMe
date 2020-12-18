@@ -13,6 +13,7 @@
         addComment($pet_id, $question, $user['id']);
 
         echo '<script>alert("Added comment!"); location.replace("../pages/petprofile.php?id=' . $pet_id . '");</script>';
+        die();
 
     }
     

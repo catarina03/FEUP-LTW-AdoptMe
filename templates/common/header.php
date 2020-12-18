@@ -27,6 +27,7 @@
             <nav class='loggedOut'>
                 <a href="../pages/login.php">Log in</a>
                 <a href="../pages/register.php">Sign up</a>
+
             </nav>
         <?php } 
         else { 
