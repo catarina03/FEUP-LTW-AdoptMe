@@ -1,13 +1,20 @@
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
-    include_once('../templates/common/header.php');
     
     if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
         die(header('Location: ../pages/login.php'));
 
 ?>
-<link rel="stylesheet" href="../css/add_animal_adoption.css" > 
+<head>
+    <title> Add animal | Adopt Me!</title>
+    <link rel="stylesheet" href="../css/add_animal_adoption.css" > 
+
+</head>
+
+<?php  include_once('../templates/common/header.php');?>
+
+
 <div id="main">
     <form action="../actions/action-add-animal-adoption.php" method="get">
         <label>Name:

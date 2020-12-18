@@ -3,7 +3,6 @@
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
-    include_once('../templates/common/header.php');
     include_once('../templates/template-pets.php');
     include_once('../templates/tpl_userprofile.php'); 
     include_once('../includes/validate_input.php');
@@ -21,6 +20,12 @@
     $proposals = getProposals($user['id']);
 
 ?>
+<head>
+    <title> <?=$user['name']?> | Adopt Me!</title>
+</head>
+
+<?php  include_once('../templates/common/header.php');?>
+
 
 <div id="main">
     <div id="userAndPosts">
@@ -43,7 +48,7 @@
     <!--Só mostra caso a lista de favoritos não seja nula-->
     <div id="favourite">
         <?php if($favs!=NULL){?>
-            <h2>Favourites</h2>
+            <h2 id="fav">Favourites</h2>
             <?php foreach($favs as $favID) { 
                 $favInfo = getPetInfo($favID['pet_id']);
                 drawPetPhotoName($favInfo,$favID['pet_id']);
@@ -51,7 +56,12 @@
         <?php }?>
     </div>   
 
-    <?php drawProposals($proposals); ?>
+    <div id="proposal">
+    <?php if($proposals!=NULL){
+        drawProposals($proposals); 
+    }?>
+    </div>   
+
 </div>
 
 <?php 

@@ -2,10 +2,14 @@
 
 <?php 
     include_once('../includes/init.php');
-    include_once('../templates/common/header.php');
     include_once('../templates/template-forms.php');
 
 ?>
+<head>
+    <title> Search | Adopt Me!</title>
+</head>
+
+<?php  include_once('../templates/common/header.php');?>
 
     <script src="../js/search_pets.js" defer=""></script>
     <section id="main">

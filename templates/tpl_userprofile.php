@@ -8,7 +8,7 @@
 <?php } ?>
 
 <?php function drawProposals($proposals) { ?>
-
+    <h2>Proposals</h2>
     <ul>
     <?php foreach($proposals as $proposal) { ?>
         <?php $user_name = getUserById($proposal['made_adoption_proposal'])['name'] ?> 

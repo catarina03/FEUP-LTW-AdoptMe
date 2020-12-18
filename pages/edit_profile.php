@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head>
-    <title>Profile</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/edit_profile.css" > 
-</head>
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
@@ -16,9 +11,16 @@
 
     $user = getUser($_SESSION['username']);
 ?>
+<head>
+    <title> <?=$user['name']?>| Adopt Me!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/edit_profile.css" > 
+</head>
+
+<?php  include_once('../templates/common/header.php');?>
+
 
 <body>
-    <?php include_once('../templates/common/header.php');?>
     <div id="main">
         <aside id="user_profile">
             <?php drawUserProfile($user); ?>

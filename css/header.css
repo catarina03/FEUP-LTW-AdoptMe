@@ -8,6 +8,7 @@
     font-family: 'Salsa', cursive;
     color: #737373;
 }
+
 .visually-hidden{
     display: none;
 }
@@ -29,8 +30,7 @@ body>header {
     top: -10px;
 }
 
-h1.siteName,
-div.menu {
+h1.siteName,div.menu {
     color: #737373;
 }
 
@@ -39,12 +39,6 @@ h1.siteName {
     padding: 0 10px;
     margin-top: 25px;
     float: left;
-}
-
-.loggedOut {
-    float: right;
-    margin-top: 31px;
-    margin-right: 30px;
 }
 
 header > a, nav > a {
@@ -56,28 +50,10 @@ header > a, nav > a {
     border-radius: 10px;
 }
 
-nav > a:hover {
-    transition: .2s;
-    background: #ff8829;
-    color: #FFE05D;
-}
-
-.loggedIn {
-    margin-top: 10px;
-    /*display: none;*/
-    float: right;
-}
-
-.loggedIn img {
-    border-radius: 50%;
-}
-.loggedIn img:hover{
-    border-radius: 10px;
-}
-
 .search {
     position: relative;
-    top: 15px;
+    top: 17px;
+    right: 20px;
     float: right;
 }
 .search:hover{
@@ -93,50 +69,37 @@ hr {
     width: 100%;
 }
 
+.loggedOut > a:hover, .loggedIn > a:nth-child(2):hover {
+    transition: .2s;
+    background: #ff8829;
+    color: #FFE05D;
+}
 
-/* puts a button when page width is too small*/
+/*When user has logged in*/
 
-.checkbtn {
-    font-size: 30px;
-    color: #ff8829;
+.loggedIn {
     float: right;
-    line-height: 60px;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
+    margin-right: 30px;
 }
 
-#check {
-    display: none;
+.loggedIn > a:nth-child(2){
+    position: relative;
+    top: -10px;
 }
 
-@media(max-width: 858px) {
-    .checkbtn {
-        display: block;
-    }
-    .loggedOut {
-        margin-right: 0;
-        position: fixed;
-        width: 100%;
-        background: #ff8829;
-        top: 75px;
-        right: -100%;
-        text-align: center;
-        transition: all 0.5s;
-    }
-    nav > a {
-        font-size: 20px;
-        color: #FFF8CD;
-        display: block;
-        margin: 10px;
-        line-height: 30px;
-    }
-    nav > a:hover {
-        background: #FFF8CD;
-        color: #ff8829;
-    }
-    #check:checked~.loggedOut {
-        right: 0;
-        margin-right: 0;
-    }
+.loggedIn img {
+    border-radius: 50%;
 }
+
+.loggedIn img:hover{
+    border-radius: 10px;
+}
+
+/*When user is logged out*/
+
+.loggedOut {
+    float: right;
+    margin-top: 31px;
+    margin-right: 30px;
+}
+

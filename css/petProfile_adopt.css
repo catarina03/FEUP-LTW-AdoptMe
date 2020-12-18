@@ -1,0 +1,18 @@
+/* para o pet profile quando adopta*/
+       
+    /*love button*/
+    #main > form > button[type=submit]{
+        position: relative;
+        top:-75px;
+        right: -120px;
+        border: none;
+        background-color: #FFF8CD;
+        font-size: 50px;
+    }
+    #main > form > button[type=submit]>i:hover{
+        transition: 0.3s;
+        position: relative;
+        top: -2px;
+        color:#ff8829;
+    }
+    
