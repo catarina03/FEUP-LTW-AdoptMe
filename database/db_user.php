@@ -142,6 +142,14 @@
         return $pets;
     }
 
+
+    function removePetPost($pet_id) {
+        global $db;
+        $stmt = $db->prepare('DELETE FROM pet WHERE pet.id = ?');
+        $stmt->execute(array($pet_id));
+    }
+
+
     function userOwnsPet($email,$petID) {
         $pets = getAllPetsFromUser($email);
         

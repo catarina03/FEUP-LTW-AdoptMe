@@ -1,15 +1,27 @@
 <link rel="stylesheet" href="../css/userProfile.css">
 
-<head>
-    <title> <?=$user['name']?> | Adopt Me!</title>
-</head>
-
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
+    include_once('../includes/validate_input.php');
+?>
+
+<?php     
+    if(isset($_GET['id'])) {
+        $user = getUserById($_GET['id']);
+    }
+    else {
+        $user = getUser($_SESSION['username']);
+    }
+?>
+
+<head>
+        <title> <?=$user['name']?> | Adopt Me!</title>
+</head>
+
+<?php
     include_once('../templates/template-pets.php');
     include_once('../templates/tpl_userprofile.php'); 
-    include_once('../includes/validate_input.php');
     include_once('../templates/common/header.php');
 
     if(!validInput())
@@ -49,7 +61,7 @@
             <?php } ?> 
         </aside>
 
-        <?php drawAllPetPosts($pets); ?>
+        <?php drawAllPetPosts($pets, $user); ?>
     </div>
 
     <!--Só mostra caso a lista de favoritos não seja nula-->

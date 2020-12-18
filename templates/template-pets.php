@@ -4,21 +4,25 @@
 ?>
 
     <?php function drawPetPost($post){ ?>
-        <article>
-            <h2><?php echo htmlentities($post['name']) ?></h2>
-            <a href="petprofile.php?id=<?=$post['id']?>">
-            <img src="../images/pets/original/<?=$post['id']?>.jpg" alt="dog profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
-            <p><?php echo htmlentities($post['bio']) ?></p>
-        </article>
+        <a href="petprofile.php?id=<?=$post['id']?>">
+            <article>
+                <h2><?php echo htmlentities($post['name']) ?></h2>
+                <img src="../images/pets/original/<?=$post['id']?>.jpg" alt="dog profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
+                <p><?php echo htmlentities($post['bio']) ?></p>
+            </article>
+        </a>
+        <a href="../actions/action_remove_pet.php?id=<?=$post['id']?>" >
+            <img src="../images/trash.png" alt="trash icon" width="20">
+        </a>
     <?php } ?>
 
 
-    <?php function drawAllPetPosts($posts) { ?>
+    <?php function drawAllPetPosts($posts, $user) { ?>
         <section id="posts">
             <h2 class="visually-hidden">User posts</h2>
             
             <?php foreach($posts as $post)
-                drawPetPost($post); ?>
+                drawPetPost($post, $user); ?>
 
         </section>
     <?php } ?>
