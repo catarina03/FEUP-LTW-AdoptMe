@@ -4,11 +4,6 @@
     include_once('../includes/init.php');
     include_once('../templates/template-forms.php');
 
-
-    if(isset($_SESSION['username'])){
-        echo '<script>console.log("Logged in");</script>';
-    }
-
 ?>
 <head>
     <title> Search | Adopt Me!</title>
