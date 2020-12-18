@@ -5,13 +5,6 @@
     include_once('../database/db_user.php');
     include_once('../templates/tpl_petprofile.php');
 
-    /*
-    if(!validInput()){
-        echo '<script>alert("Invalid input!"); location.replace("../pages/petprofile.php?id=' . $_GET['id'] . '");</script>';
-        die();
-        //die(header('Location: ../pages/login.php'));
-    }
-    */
 
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));

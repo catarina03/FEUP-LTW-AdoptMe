@@ -42,28 +42,28 @@
     <article id="description">
         <form action="../actions/action_edit_pet.php?id=<?=$petID?>" method="get">
             <label>Name
-                <input id="name" type="text" name="name" value="<?php echo $pet['name'] ?>">
+                <input id="name" type="text" name="name" value="<?php echo $pet['name'] ?>" pattern="[a-zA-Z\u00C0-\u00ff\s]+">
             </label>
             <label>Species
-                <input id="species" type="text" name="species" value="<?php echo $pet['species'] ?>">
+                <input id="species" type="text" name="species" value="<?php echo $pet['species'] ?>" pattern="[a-zA-Z\u00C0-\u00ff\s]+">
             </label>
             <label>Breed
-                <input id="breed" type="text" name="breed" value="<?php echo $pet['breed'] ?>">
+                <input id="breed" type="text" name="breed" value="<?php echo $pet['breed'] ?>" pattern="[a-zA-Z\u00C0-\u00ff\s]+">
             </label>
             <label>Color
-                <input id="color" type="text" name="color" value="<?php echo $pet['color'] ?>">
+                <input id="color" type="text" name="color" value="<?php echo $pet['color'] ?>" pattern="[a-zA-Z\u00C0-\u00ff\s]+">
             </label>
             <label>Weight
-                <input id="weight" type="text" name="weight" value="<?php echo $pet['weight'] ?>">
+                <input id="weight" type="text" name="weight" value="<?php echo $pet['weight'] ?>" pattern="^\d+(\.\d+)*$">
             </label>
             <label>Height
-                <input id="height" type="text" name="height" value="<?php echo $pet['height'] ?>">
+                <input id="height" type="text" name="height" value="<?php echo $pet['height'] ?>"  pattern="^\d+(\.\d+)*$">
             </label>
             <label>Gender
-                <input id="gender" type="text" name="gender" value="<?php echo $pet['gender'] ?>">
+                <input id="gender" type="text" name="gender" value="<?php echo $pet['gender'] ?>" pattern="[a-zA-Z\u00C0-\u00ff\s]+">
             </label>
             <label>Bio
-                <input id="bio" type="text" name="bio" value="<?php echo $pet['bio'] ?>">
+                <input id="bio" type="text" name="bio" value="<?php echo $pet['bio'] ?>" pattern="^[a-zA-Z\u00C0-\u00ff0-9,.!? ]*$">
             </label>
             <input type="hidden" name="id" value="<?=$_GET['id']?>">
             <input type="submit" value="Update">

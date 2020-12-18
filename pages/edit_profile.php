@@ -39,10 +39,10 @@
             
             <form action="../actions/action_edit_profile.php?id=<?=$user['id']?>" method="post">
                 <label>Name
-                    <input id="name" type="text" name="name" value="<?php echo $user['name'] ?>">
+                    <input id="name" type="text" name="name" value="<?php echo $user['name'] ?>" pattern="[a-zA-Z\u00C0-\u00ff\s]+">
                 </label>
                 <label>Bio
-                    <input id="bio" type="text" name="bio" value="<?php echo $user['bio'] ?>">
+                    <input id="bio" type="text" name="bio" value="<?php echo $user['bio'] ?>" pattern="^[a-zA-Z\u00C0-\u00ff0-9,.!? ]*$">
                 </label>
                 <label>Email
                     <input id="email" type="email" name="email" value="<?php echo $_SESSION['username'] ?>">
@@ -51,7 +51,7 @@
                     <input id="password" type="password" name="password" value="" requred>
                 </label>
                 <label>Location
-                    <input id="location" type="text" name="location" value="<?php echo $user['city'] ?>">
+                    <input id="location" type="text" name="location" value="<?php echo $user['city'] ?>" pattern="[a-zA-Z\u00C0-\u00ff\s]+">
                 </label>
                 <input type="hidden" name="id" value="<?=$user['id']?>">
                 <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
