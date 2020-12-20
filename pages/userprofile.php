@@ -1,35 +1,15 @@
-<link rel="stylesheet" href="../css/userProfile.css">
-
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
     include_once('../includes/validate_input.php');
-?>
-
-<?php     
-    if(isset($_GET['id'])) {
-        $user = getUserById($_GET['id']);
-    }
-    else {
-        $user = getUser($_SESSION['username']);
-    }
-?>
-
-<head>
-        <title> <?=$user['name']?> | Adopt Me!</title>
-</head>
-
-<?php
     include_once('../templates/template-pets.php');
     include_once('../templates/template-user.php'); 
-    include_once('../templates/common/header.php');
+    include_once('../templates/template-common.php');
 
     if(!validInput())
         die(header('Location: ../pages/userprofile.php'));
-
     if(!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
-
     if(isset($_GET['id'])) {
         $user = getUserById($_GET['id']);
         $pets = getAllPetsForAdoption($user['email']);
@@ -41,7 +21,10 @@
 
     $favs = getFavouritePets($user['id']);
     $proposals = getProposals($user['id']);
+    $title = "<title>" . $user['name'] . " | Adopt Me!</title>";
 
+    drawStyle("userProfile");
+    drawHeader($title); 
 ?>
 
 <div id="main">
@@ -57,5 +40,5 @@
 </div>
 
 <?php 
-    include_once('../templates/common/footer.php')
+drawFooter();
 ?>

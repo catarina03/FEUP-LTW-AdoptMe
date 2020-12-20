@@ -5,9 +5,10 @@
     </header>
     <p id="bio"><?php echo htmlentities($user['bio']) ?></p>
     <p id="location"><?php echo htmlentities($user['city']) ?></p>
-<?php } ?>
+<?php } 
 
-<?php function drawProposals($proposals) { ?>
+
+function drawProposals($proposals) { ?>
     <h2>Proposals</h2>
     <ul>
     <?php foreach($proposals as $proposal) { ?>
@@ -25,7 +26,6 @@
     </ul>
 
 <?php } 
-
 
 
 function drawUserActions() {
