@@ -1,4 +1,10 @@
 body > footer{
     position: relative;
     bottom: 100%;
+    display: flex;
+    padding: 1em 2em 1em 2em;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    background-color: #737373;
 }

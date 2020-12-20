@@ -1,11 +1,27 @@
 #main {
     background-color: #FFF8CD;
-    padding-bottom: 100%;
+    padding-bottom: 25%;
     width: 100%;
     display: inline-block;
 }
+
+#main > div{
+    margin-left: 15%;
+}
 #userAndPosts{
     display: inline-flex;
+}
+
+@media only screen and (max-width: 800px) {
+    #userAndPosts{
+        display: block;
+        align-items: center;
+    }
+}
+
+
+p {
+    font-size: 18px;
 }
 
 #user_profile {
@@ -38,12 +54,15 @@ header>img {
 }
 
 #posts {
-    width: 600px;
     margin: 95px;
 }
 
 article {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+article:hover {
+    background-color: #FFE05D;
 }
 
 article>img {
@@ -55,10 +74,6 @@ article>img {
     height: 70px;
 }
 
-footer {
-    position: relative;
-    top: -50px;
-}
 
 input[type="submit"] {
     background-color: #ff8829;
@@ -66,13 +81,13 @@ input[type="submit"] {
     font-size: 14px;
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 10%;
+    border-radius: 10px;
     border-style: none;
 }
 
 input[type=submit]:hover {
     background-color: #737373;
-    border-radius: 10%;
+    border-radius: 10px;
     color: #FFF8CD;
 }
 
@@ -85,13 +100,16 @@ input[type=submit]:hover {
     margin: 5px 10px;
 }
 
+#favourite > h2,#proposal > h2, #proposal > ul{
+    margin-left: 5%;
+}
+
 /*favourites list*/
 #favourite{
     display: block;
 }
+
 #favourite > h2{
-    position: relative;
-    left: 5.5%;
     font-size: 30px;
 }
 
@@ -101,8 +119,17 @@ input[type=submit]:hover {
     margin-left: 5%;
     margin-right: 5%;
     padding: 0 10px;
+    background-color: #FFF8CD;
 }
 
 #favourite > article > h3{
     text-align: center;
+}
+
+#proposal > ul {
+    margin-top: 20px;
+}
+
+#proposal > ul > li > form{
+    margin-left: 50px;
 }

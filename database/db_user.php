@@ -39,7 +39,7 @@
 
     function getUser($email){
         global $db;
-        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email 
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email
             FROM account 
             INNER JOIN person 
             ON account.id = person.account_id
@@ -49,13 +49,18 @@
         $stmt->execute(array($email)); 
         return $stmt->fetch(); 
     }
-    
-    function getUserById($user_id) {
-        global $db;
-        
-        $stmt = $db->prepare('SELECT p.name FROM person p, shelter s WHERE p.person_id = ? or s.shelter_id = ?');
-        $stmt->execute(array($user_id));
 
+
+    function getUserById($user_id){
+        global $db;
+        $stmt = $db->prepare('SELECT account.id AS id, name, account.bio AS bio, location.city AS city, account.email AS email
+            FROM account 
+            INNER JOIN person 
+            ON account.id = person.account_id
+            INNER JOIN location
+            ON location.id = person.location_id
+            WHERE account.id = ?');
+        $stmt->execute(array($user_id)); 
         return $stmt->fetch(); 
     }
 
@@ -113,7 +118,8 @@
             pet.id AS id,
             pet.name AS name,
             pet.bio AS bio,
-            breed.name AS race,
+            breed.name AS breed,
+            breed.species AS species,
             gender,weight,height,color
             FROM pet JOIN breed ON breed_id=breed.id
             WHERE pet.id=?'
@@ -136,8 +142,16 @@
         return $pets;
     }
 
+
+    function removePetPost($pet_id) {
+        global $db;
+        $stmt = $db->prepare('DELETE FROM pet WHERE pet.id = ?');
+        $stmt->execute(array($pet_id));
+    }
+
+
     function userOwnsPet($email,$petID) {
-        $pets = getAllPetsForAdoption($email);
+        $pets = getAllPetsFromUser($email);
         
         foreach($pets as $pet){
             if($pet['id']===$petID)

@@ -4,21 +4,27 @@
 ?>
 
     <?php function drawPetPost($post){ ?>
-        <article>
-            <h2><?php echo htmlentities($post['name']) ?></h2>
-            <a href="petprofile.php?id=<?=$post['id']?>">
-            <img src="../images/pets/original/<?=$post['id']?>.jpg" alt="dog profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
-            <p><?php echo htmlentities($post['bio']) ?></p>
-        </article>
+        <a href="petprofile.php?id=<?=$post['id']?>">
+            <article>
+                <h2><?php echo htmlentities($post['name']) ?></h2>
+                <img src="../images/pets/original/<?=$post['id']?>.jpg" alt="dog profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
+                <p><?php echo htmlentities($post['bio']) ?></p>
+                <?php if(!isset($_GET['id'])){ ?>
+                    <a href="../actions/action_remove_pet.php?id=<?=$post['id']?>" >
+                        <img src="../images/trash.png" alt="trash icon" width="20">
+                    </a>
+                <?php } ?>
+            </article>
+        </a>
     <?php } ?>
 
 
-    <?php function drawAllPetPosts($posts) { ?>
+    <?php function drawAllPetPosts($posts, $user) { ?>
         <section id="posts">
             <h2 class="visually-hidden">User posts</h2>
             
             <?php foreach($posts as $post)
-                drawPetPost($post); ?>
+                drawPetPost($post, $user); ?>
 
         </section>
     <?php } ?>
@@ -27,18 +33,33 @@
     <?php function drawPetComment($comment){ ?>
         <article>
             <!-- redirects to the profile?   <a href="../pages/userprofile"  -->
-            <a href="../pages/userprofile.php?id=<?php echo $comment['made_by']?>">
-                <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40">
-            </a>
-            <p><?php echo htmlentities($comment['question']) ?><p>
-            <p class="date"><?php echo htmlentities($comment['question_date']) ?><p>
+            <div>
+                <a href="../pages/userprofile.php?id=<?php echo $comment['made_by']?>">
+                    <img src="../images/accounts/small/<?php echo $comment['made_by']?>.jpg" alt="Profile picture of the user who made the question" width="40" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
+                </a>
+                <div>
+                    <p><?php echo htmlentities($comment['question']) ?><p>
+                    <p class="date"><?php echo htmlentities($comment['question_date']) ?><p>
+                </div>
+            <!--
+                <?php // if ($user['id'] === $comment['made_by']) { ?>
+                    <a href="../actions/action_remove_comment?id=<?php echo $user['id'] ?>&made_by=<?php echo $comment['made_by']?>&question=<?php echo $comment['question'] ?>">
+                        <img src="../images/trash.jpg" alt="trash icon" width="20" >
+                    </a>
+                <?php // } ?>
+                -->
+            </div>
 
             <?php if($comment['response'] !== NULL){ ?>
-                <a href="../pages/userprofile.php?id=<?php echo $comment['answered_by']?>">
-                    <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40">
-                </a>
-                <p><?php echo htmlentities($comment['response']) ?><p>
-                <p class="date"><?php echo htmlentities($comment['answer_date']) ?><p>
+                <div>
+                    <a href="../pages/userprofile.php?id=<?php echo $comment['answered_by']?>">
+                        <img src="../images/accounts/small/<?php echo $comment['answered_by']?>.jpg" alt="Profile picture of the user who answered the question" width="40" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
+                    </a>
+                    <div>
+                    <p><?php echo htmlentities($comment['response']) ?><p>
+                    <p class="date"><?php echo htmlentities($comment['answer_date']) ?><p>
+                    </div>
+                </div>
             <?php }
             else{ 
                 $owner = getPetOwner($comment['pet_id']);

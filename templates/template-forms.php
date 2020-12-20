@@ -60,7 +60,7 @@
             <label>
             <input type="hidden" name="pet_id" value="<?php echo $_GET['id'] ?>">
             <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
-            <input type="submit" value="Send">
+            <input id="send" type="submit" value="Send">
         </form>
     <?php } ?>
 

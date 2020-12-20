@@ -137,6 +137,14 @@
         return $stmt->fetchAll();
     }
 
+
+    function removeComment($id, $question, $made_by){
+        global $db;
+        $stmt = $db->prepare("DELETE FROM questions WHERE question = ?, made_by = ?, about = ?");
+        $stmt->execute(array($question, $made_by, $id));
+    }
+
+
     function addReply($question_id, $reply, $user_id){
         $date = date("Y-m-d H:i:s");
 
