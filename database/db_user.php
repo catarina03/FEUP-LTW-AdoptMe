@@ -121,7 +121,7 @@
 
     function getAllCities(){
         global $db;
-        $stmt = $db->prepare('SELECT city FROM location');
+        $stmt = $db->prepare('SELECT DISTINCT city FROM location');
         $stmt->execute();
         return $stmt->fetchAll();
     }
