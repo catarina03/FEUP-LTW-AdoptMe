@@ -120,7 +120,6 @@
                     <p><?php echo htmlentities($comment['question']) ?><p>
                     <p class="date"><?php echo htmlentities($comment['question_date']) ?><p>
                 </div>
-
             </div>
 
             <?php if($comment['response'] !== NULL){ ?>

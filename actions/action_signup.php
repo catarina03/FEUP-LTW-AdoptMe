@@ -13,7 +13,7 @@
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
             return false;
 
-        if(!preg_match('/^[0-9a-zA-Z_]$/',$_POST['username']))
+        if(!preg_match('/^[0-9a-zA-Z_]+$/',$_POST['username']))
             return false;
 
         return true;
