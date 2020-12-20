@@ -75,3 +75,69 @@
             <input type="submit" value="Submit">
         </form>
     <?php } ?>
+
+<?php function drawAddAnimalForm() { ?>
+    <form action="../actions/action-add-animal-adoption.php" method="get">
+        <label>Name:
+            <input type="text" name="name" pattern="[a-zA-Z\u00C0-\u00ff\s]+" required>
+        </label>
+        <label>Bio:
+            <input type="text" name="bio" pattern="^[a-zA-Z\u00C0-\u00ff0-9,.!? ]*$" required>
+        </label>
+        <label>Gender:
+            <input type="text" name="gender" pattern="[a-zA-Z\u00C0-\u00ff\s]+" required>
+        </label>
+        <label>Weight:
+            <input type="text" name="weight" pattern="^\d+(\.\d+)*$" required>
+        </label>
+        <label>Height:
+            <input type="text" name="height" pattern="^\d+(\.\d+)*$" required>
+        </label>
+        <label>Color:
+            <input type="text" name="color" pattern="[a-zA-Z\u00C0-\u00ff\s]+" required>
+        </label>
+        <label>Species:
+            <input type="text" name="species" pattern="[a-zA-Z\u00C0-\u00ff\s]+" required>
+        </label>
+        <label>Breed:
+            <input type="text" name="breed" pattern="[a-zA-Z\u00C0-\u00ff\s]+" required>
+        </label>
+        <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
+        <button type="submit"value="Submit">Submit</button>
+    </form>
+<?php } ?>
+
+
+<?php function drawRegisterForm($cities) { ?>
+    <section id="signup">
+        <h2>Create Account</h2>
+        <form action="../actions/action_signup.php" method="post">
+            <label>Username:
+                <input type="text" name="username" required>
+            </label>
+            <label>Email:
+                <input type="text" name="email" required>
+            </label>
+            <label for="city">City:
+                <select name="city" id="city">
+                    <?php
+                        foreach($cities as $city)
+                            echo '<option value="'.htmlentities($city['city']).'">'.htmlentities($city['city']).'</option>';
+                    ?>
+                </select>
+            </label>
+            <label>Password:
+                <input type="password" name="password" required>
+            </label>
+            <label>Repeat Password:
+                <input type="password" name="password_check" required>
+            </label>
+            <div>
+                <legend>I am a:</legend>
+                <input type="radio" name="type" value="User" checked>User
+                <input type="radio" name="type" value="Shelter">Shelter
+            </div>
+            <input type="submit" value="Send">
+        </form>
+    </section>
+<?php } ?>
