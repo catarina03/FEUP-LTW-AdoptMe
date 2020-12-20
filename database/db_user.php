@@ -23,15 +23,31 @@
     }
 
 
-    function addAccount($email, $password) {
+    function getBiggestAccountId() {
         global $db;
-        if (checkUser($email)){
+        $stmt = $db->prepare('SELECT max(id) AS id FROM account');
+        $stmt->execute();
+        $id = $stmt->fetch();
+
+        return $id;
+    }
+
+
+    function addAccount($data, $password) {
+        global $db;
+        if (checkUser($data['email'])){
             throw new PDO('Email already in use');
             return false;
         }
         else {
-            $stmt = $db->prepare('INSERT INTO account VALUES(NULL,?,?, NULL)');
-            $stmt->execute(array($email, $password));
+            $newId = implode(getBiggestAccountId()) + 1;
+            $stmt = $db->prepare('INSERT INTO account VALUES(?,?,?, NULL)');
+            $stmt->execute(array($newId, $data['email'], $password));
+
+            $locationId = getLocationId($data['city']);
+
+            $stmt = $db->prepare('INSERT INTO person VALUES(NULL, ?, ?, ?, NULL)');
+            $stmt->execute(array($data['username'], $newId, $locationId));
             return true;
         }
     }
@@ -212,6 +228,39 @@
         }
 
         return false;
+    }
+
+
+    
+    function getBiggestLocationId() {
+        global $db;
+        $stmt = $db->prepare('SELECT max(id) AS id FROM location');
+        $stmt->execute();
+        $id = $stmt->fetch();
+
+        return $id;
+    }
+
+    function getLocationId($location) {
+        global $db;
+        $stmt = $db->prepare('SELECT id FROM location where city = upper(?)');
+        $stmt->execute(array("$location"));
+        $result = $stmt->fetch()?true:false;
+
+        if ($result) {
+            $stmt = $db->prepare('SELECT id FROM location where city = upper(?)');
+            $stmt->execute(array("$location"));
+            $location_id = $stmt->fetch();
+        }
+        else {
+            $lastLocationId = getBiggestLocationId();
+
+            $location_id = implode($lastLocationId) + 1;
+            $stmt = $db->prepare('INSERT INTO location VALUES (?, ?, ?)');
+            $stmt->execute(array("$location_id", "$location", "NULL"));
+        }
+
+        return $location_id;
     }
 
 ?>

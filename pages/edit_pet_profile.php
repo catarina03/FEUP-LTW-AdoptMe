@@ -3,7 +3,6 @@
 <?php
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
-    include_once('../templates/tpl_petprofile.php');
     include_once('../includes/validate_input.php');
 
     if(!validInput()){

@@ -3,7 +3,6 @@
     include_once('../includes/validate_input.php');
     include_once('../database/db_pet.php');
     include_once('../database/db_user.php');
-    include_once('../templates/tpl_petprofile.php');
 
 
     if (!isset($_SESSION['username']))
@@ -26,38 +25,6 @@
     echo '<script>alert("Updated user information!"); location.replace("../pages/userprofile.php");</script>';
     die();   
 
-
-
-    function getBiggestLocationId() {
-        global $db;
-        $stmt = $db->prepare('SELECT max(id) AS id FROM location');
-        $stmt->execute();
-        $id = $stmt->fetch();
-
-        return $id;
-    }
-
-    function getLocationId($location) {
-        global $db;
-        $stmt = $db->prepare('SELECT id FROM location where city = upper(?)');
-        $stmt->execute(array("$location"));
-        $result = $stmt->fetch()?true:false;
-
-        if ($result) {
-            $stmt = $db->prepare('SELECT id FROM location where city = upper(?)');
-            $stmt->execute(array("$location"));
-            $location_id = $stmt->fetch();
-        }
-        else {
-            $lastLocationId = getBiggestLocationId();
-
-            $location_id = implode($lastLocationId) + 1;
-            $stmt = $db->prepare('INSERT INTO location VALUES (?, ?, ?)');
-            $stmt->execute(array("$location_id", "$location", "NULL"));
-        }
-
-        return $location_id;
-    }
 
     
     function createArrayWithUserInfo() {

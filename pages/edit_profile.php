@@ -4,7 +4,7 @@
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
-    include_once('../templates/tpl_userprofile.php');
+    include_once('../templates/template-user.php');
 
     if (!isset($_SESSION['username']) || $_SESSION['token']!==$_POST['csrf'])
         die(header('Location: ../pages/login.php'));
@@ -22,14 +22,15 @@
 
 <body>
     <div id="main">
+        
         <aside id="user_profile">
-            <?php drawUserProfile($user); ?>
+            <img src="../images/accounts/small/<?=$user['id']?>.jpg" alt="profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
         </aside>
 
         <div id="edit">
-            <h3>Insert new profile picture</h3>
+            <h3 class="visually-hidden">Insert new profile picture</h3>
             <form action="../actions/action_upload_profile_pic.php?id=<?=$user['id']?>" method="post" enctype="multipart/form-data">
-                    <label>Insert new pet picture:
+                    <label>Insert new profile picture:
                         <input type="file" name="image">
                         <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
                     </label>

@@ -5,15 +5,14 @@
     include_once('../database/db_user.php');
     include_once('../database/db_pet.php');
     include_once('../templates/template-forms.php');
-    include_once('../templates/tpl_petprofile.php');
     include_once('../includes/init.php');
     include_once('../templates/template-pets.php');
 
     if (!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
 
-    $user = getUser($_SESSION['username']);
     $petID = $_GET['id'];
+    $user = getUser($_SESSION['username']);
     $pet = getPetInfo($petID);
 ?>
 
@@ -24,62 +23,12 @@
 <?php  include_once('../templates/common/header.php');?>
 
     <section id='main'>
-        <?php drawPetProfile($pet,$petID);
+        <?php drawPetProfile($pet,$petID); 
+        drawPetActions($petID, $user); ?>
 
-        if(isset($_SESSION['username'])){
-            if (!userOwnsPet($_SESSION['username'],$petID)) { ?>
-                <link rel="stylesheet" href="../css/petProfile_adopt.css"> 
-                <form method="get" action="../actions/action_send_request.php">
-                    <input type="hidden" name="pet_id" value=<?=$_GET['id']?>>
-                    <input type="hidden" name="user_id" value=<?=getUser($_SESSION['username'])['id']?>>
-                    <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
-                    <input type="submit" value="ADOPT ME">
-                </form>
-                <?php 
-                if(!userLikesPet($user['id'],$petID)){?>
-                    <form action="../actions/action_likeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
-                       <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
-                       <button type="submit"><i class="far fa-heart"></i></button>
-                    </form>
-                <?php } else { ?>
-                    <form action="../actions/action_dislikeAnimal.php?petId=<?=$petID?>" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
-                        <button type="submit"><i class="fas fa-heart"></i></button>
-                    </form>
-                <?php } ?>
-            <?php } 
-            else { ?>
-                <link rel="stylesheet" href="../css/petProfile_edit.css"> 
-
-                <form action="../pages/edit_pet_profile.php" method="get">
-                    <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
-                    <input type="hidden" name="id" value="<?=$_GET['id']?>">
-                    <input type="submit" value="Edit pet" />
-                </form>
-            <?php } 
-        } ?>
-        
         <hr>
-        <section id='questions'>
-            <h1>Any questions? Ask them down below</h1>
-      
-            <section id="comments">
-                <h2 class="visually-hidden">Pet comments</h2>
 
-                <?php $comments = getAllPetComments($pet['id']);
-                drawAllPetComments($comments); 
-
-                if(isset($_SESSION['username'])){
-                    if (!userOwnsPet($_SESSION['username'],$_GET['id'])) { 
-                        commentForm();
-                    } 
-                } 
-                else { ?>
-                    <p>Want to ask a question? <a href='login.php'>Log in</a></p>
-                <?php } ?>
-            </section>
-        </section>
-
+        <?php drawCommentSection($pet); ?>
     </section>
 
 

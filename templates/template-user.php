@@ -24,4 +24,46 @@
     <?php } ?>
     </ul>
 
+<?php } 
+
+
+
+function drawUserActions() {
+    if(!isset($_GET['id'])){ ?>
+        <form action="edit_profile.php" method="post">
+            <input type="submit" value="Edit Profile">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
+        </form>
+        <form action="add-animal-adoption.php" method="post">
+            <input type="submit" value="Add Animal">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['token']?>">
+        </form>
+    <?php } 
+} 
+
+
+function drawFavoritesSection($favs) { ?>
+    <!--Só mostra caso a lista de favoritos não seja nula-->
+    <div id="favourite">
+        <?php if(!isset($_GET['id'])){ ?>
+            <?php if($favs!=NULL){?>
+                <h2 id="fav">Favourites</h2>
+                <?php foreach($favs as $favID) { 
+                    $favInfo = getPetInfo($favID['pet_id']);
+                    drawPetPhotoName($favInfo,$favID['pet_id']);
+                }
+            }
+        } ?>
+    </div>  
+<?php } 
+
+
+function drawProposalSection($proposals) { ?>
+    <div id="proposal">
+        <?php if(!isset($_GET['id'])){ ?>
+            <?php if($proposals!=NULL){
+                drawProposals($proposals); 
+            }
+        } ?>
+    </div>  
 <?php } ?>
