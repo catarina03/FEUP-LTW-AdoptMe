@@ -4,6 +4,10 @@
     width: 100%;
     display: inline-block;
 }
+
+#main > div{
+    margin-left: 15%;
+}
 #userAndPosts{
     display: inline-flex;
 }
@@ -50,7 +54,6 @@ header>img {
 }
 
 #posts {
-    /*width: 100%; */
     margin: 95px;
 }
 
@@ -97,11 +100,8 @@ input[type=submit]:hover {
     margin: 5px 10px;
 }
 
-#fav,#proposal{
-    /*position: relative; */
-    display: inline-block;
+#favourite > h2,#proposal > h2, #proposal > ul{
     margin-left: 5%;
-    left: 5.5%;
 }
 
 /*favourites list*/
@@ -109,19 +109,21 @@ input[type=submit]:hover {
     display: block;
 }
 
-#fav{
+#favourite > h2{
     font-size: 30px;
 }
 
 #favourite > article{
-    display: block;
+    display: inline-block;
+    vertical-align: top;
     margin-left: 5%;
     margin-right: 5%;
     padding: 0 10px;
+    background-color: #FFF8CD;
 }
 
 #favourite > article > h3{
-    /*text-align: center;*/
+    text-align: center;
 }
 
 #proposal > ul {
@@ -131,4 +133,3 @@ input[type=submit]:hover {
 #proposal > ul > li > form{
     margin-left: 50px;
 }
-
