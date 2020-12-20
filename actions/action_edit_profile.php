@@ -12,10 +12,19 @@
     $user = createArrayWithUserInfo();
 
     global $db;
-    $stmt = $db->prepare('UPDATE account
-        SET email = ?, password = ?, bio = ?
-        WHERE id = ?');
-    $stmt->execute(array($user['email'], $user['password'], $user['bio'], $user['id'])); 
+
+	if(isset($user['password']) && $user['password'] !== ''){
+		$stmt = $db->prepare('UPDATE account
+			SET email = ?, password = ?, bio = ?
+			WHERE id = ?');
+		$stmt->execute(array($user['email'], $user['password'], $user['bio'], $user['id'])); 
+	}
+	else{
+		$stmt = $db->prepare('UPDATE account
+			SET email = ?, bio = ?
+			WHERE id = ?');
+		$stmt->execute(array($user['email'],$user['bio'], $user['id'])); 
+	}
 
     $stmt = $db->prepare('UPDATE person
         SET name = ?, location_id = ?
@@ -24,21 +33,4 @@
 
     echo '<script>alert("Updated user information!"); location.replace("../pages/userprofile.php");</script>';
     die();   
-
-
-    
-    function createArrayWithUserInfo() {
-        $user['id'] = $_POST['id'];
-        $user['name'] = $_POST['name'];
-        $user['bio'] = $_POST['bio'];
-        $user['email'] = $_POST['email'];
-        $user['password'] = password_hash($_POST['password'],PASSWORD_DEFAULT);
-        $user['location'] = getLocationId($_POST['location']);
-
-        return $user;
-    }
-
-    
-    
-
 ?>

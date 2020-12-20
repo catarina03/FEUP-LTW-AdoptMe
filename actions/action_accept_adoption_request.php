@@ -1,6 +1,7 @@
 <?php 
     include_once('../includes/init.php');
     include_once('../includes/validate_input.php');
+    include_once('../database/db_user.php');
 
     if (!isset($_SESSION['username'])){
         echo '<script>alert("Session sets - username!"); location.replace("../pages/userprofile.php");</script>';
@@ -38,24 +39,4 @@
         echo '<script>alert("Invalid button input!"); location.replace("../pages/userprofile.php");</script>';
         die();
     }
-    
-
-?>
-
-<?php 
-
-    function deleteProposal($proposal) {
-        global $db;
-
-        $stmt = $db->prepare('DELETE FROM proposal WHERE proposal.id = ?');
-        $stmt->execute(array($proposal['id']));
-    }
-
-    function acceptRequest($proposal) {
-        global $db;
-
-        $stmt = $db->prepare('UPDATE pet SET adopted = ?, has_for_adoption = ? WHERE pet.id = ?');
-        $stmt->execute(array($proposal['made_adoption_proposal'], NULL, $proposal['pet_id']));
-    }
-
 ?>

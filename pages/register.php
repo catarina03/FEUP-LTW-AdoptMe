@@ -1,20 +1,14 @@
-<link rel="stylesheet" href="../css/register.css" > 
-
 <?php 
     include_once('../includes/init.php');
     include_once('../database/db_user.php');
     include_once('../templates/template-forms.php');
+    include_once('../templates/template-common.php');
 
     $cities = getAllCities();
+    $title = "<title>Register | Adopt Me!</title>";
 
-?>
-<head>
-    <title> Register | Adopt Me!</title>
-</head>
-
-<?php  include_once('../templates/common/header.php');
-
+    drawStyle("register");
+    drawHeader($title); 
     drawRegisterForm($cities);
-
-    include_once('../templates/common/footer.php');
+    drawFooter();
 ?>

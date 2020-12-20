@@ -19,8 +19,6 @@
 
     move_uploaded_file($_FILES['image']['tmp_name'],$originalFileName);
 
-    //TODO
-    //support more image extensions
     $original = imagecreatefromjpeg($originalFileName);
 
     $width = imagesx($original);

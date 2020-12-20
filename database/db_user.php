@@ -121,7 +121,7 @@
 
     function getAllCities(){
         global $db;
-        $stmt = $db->prepare('SELECT city FROM location');
+        $stmt = $db->prepare('SELECT DISTINCT city FROM location');
         $stmt->execute();
         return $stmt->fetchAll();
     }
@@ -261,6 +261,66 @@
         }
 
         return $location_id;
+    }
+
+
+    function createArrayWithUserInfo() {
+        $user['id'] = $_POST['id'];
+        $user['name'] = $_POST['name'];
+        $user['bio'] = $_POST['bio'];
+        $user['email'] = $_POST['email'];
+
+		if(isset($_POST['password']) && $_POST['password'] !== '')
+			$user['password'] = password_hash($_POST['password'],PASSWORD_DEFAULT);
+		else 
+			$user['password']='';
+
+        $user['location'] = getLocationId($_POST['location']);
+
+        return $user;
+    }
+
+
+    function send_request($owner_of_pet) {
+        global $db;
+
+        date_default_timezone_set('Europe/Lisbon');
+        $date = date('m-d-Y h:i:s', time());
+
+        $account_id = getUserHavePetForAdoption($_GET['pet_id']);
+
+        if($account_id == $owner_of_pet) {
+            die(header('Location: ../pages/pages_index.php'));
+        }
+
+        $stmt = $db->prepare('INSERT into proposal VALUES(?, ?, ?, ?, ?, ?)');
+        $stmt->execute(array(NULL, 1, $date, $_GET['pet_id'], $_GET['user_id'], $account_id));
+    }
+
+
+    function deleteProposal($proposal) {
+        global $db;
+
+        $stmt = $db->prepare('DELETE FROM proposal WHERE proposal.id = ?');
+        $stmt->execute(array($proposal['id']));
+    }
+
+    function acceptRequest($proposal) {
+        global $db;
+
+        $stmt = $db->prepare('UPDATE pet SET adopted = ?, has_for_adoption = ? WHERE pet.id = ?');
+        $stmt->execute(array($proposal['made_adoption_proposal'], NULL, $proposal['pet_id']));
+    }
+
+
+    function addAnimalToUser() {
+        $animal = createArrayWithAnimalInfo();
+        
+        global $db;
+        $stmt = $db->prepare('INSERT INTO pet VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        return $stmt->execute(array($animal['id'], $animal['name'], $animal['bio'], $animal['gender'], 
+            $animal['weight'], $animal['height'], $animal['color'], $animal['breed'], 
+            $animal['has_for_adoption'], $animal['adopted']));
     }
 
 ?>

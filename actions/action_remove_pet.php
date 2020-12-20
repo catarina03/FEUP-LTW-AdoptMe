@@ -8,5 +8,4 @@
 
     echo '<script>alert("Removed pet post!"); location.replace("../pages/userprofile.php");</script>';
     die();
-
 ?>
