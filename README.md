@@ -11,10 +11,6 @@
 - bernardo@gmail.com/bernardo123 
 - jessica@gmail.com/jessica123 
 - catarina@gmail.com/catarina123 
-- shelter1@gmail.com/shelter1 
-- shelter2@gmail.com/shelter2 
-- worker1@gmail.com/worker1 
-- worker2@gmail.com/worker2 
 
 # Libraries:
  - none
