@@ -1,10 +1,10 @@
 # ltw-project-g21
 
 # Elements:
-- [Bernardo Ferreira](https://github.com/BernardoFerreira00)
-- [Catarina Fernandes](https://github.com/catarina03)
-- [Jéssica Nascimento](https://github.com/jessymireie)
-- [João Vítor Fernandes](https://github.com/JViii)
+- [Bernardo Ferreira](https://github.com/BernardoFerreira00) (201806581)
+- [Catarina Fernandes](https://github.com/catarina03) (201806610)
+- [Jéssica Nascimento](https://github.com/jessymireie) (201806723)
+- [João Vítor Fernandes](https://github.com/JViii) (201806724)
 
 # Credentials (username/password (role))
 - joao@gmail.com/joao123 
