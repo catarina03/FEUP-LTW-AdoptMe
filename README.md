@@ -34,17 +34,5 @@
      - Error/success messages: yes
      - Forms don't lose data on error: no
 
-# Mockups:
-![Index](./images/Index.png)
-![Search](./images/Search.png)
-![Login](./images/Log_in.png)
-![Sign up](./images/Sign_up.png)
-![Index after login](./images/Index_logged_in.png)
-![Pet Profile](./images/Pet_profile.png)
-![User Profile](./images/User_profile.png)
-
-# Navigation
-![Navigation Diagram](./images/navigation_diagram.png)
-
-# Database
-![Database](./images/database.png)
+# Website link:
+ - http://gnomo.fe.up.pt/~up201806610/LTW/pages/pages_index.php
