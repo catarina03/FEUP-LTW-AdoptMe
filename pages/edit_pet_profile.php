@@ -11,8 +11,7 @@
     }
     
     if (!isset($_SESSION['username']))
-    die(header('Location: ../pages/login.php'));
-    
+        die(header('Location: ../pages/login.php'));
     
     if(!userOwnsPet($_SESSION['username'],$_GET['id'])){
         echo '<script>alert("User does not have ownership permission to edit pet!"); location.replace("../pages/petprofile.php?id=' . $_GET['id'] . ');</script>';

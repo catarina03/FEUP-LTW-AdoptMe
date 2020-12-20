@@ -1,4 +1,4 @@
-<?php function drawUserProfile($user){ ?>
+<?php function drawUser($user){ ?>
     <header>
         <img src="../images/accounts/small/<?=$user['id']?>.jpg" alt="profile picture" width="80" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
         <h2><?php echo htmlentities($user['name']) ?></h2>
@@ -66,4 +66,19 @@ function drawProposalSection($proposals) { ?>
             }
         } ?>
     </div>  
+<?php } 
+
+
+function drawUserProfile($user, $pets, $favs, $proposals) { ?>
+    <div id="main">
+    <div id="userAndPosts">
+            <aside id="user_profile">
+                <?php drawUser($user);
+                drawUserActions(); ?>
+            </aside>
+            <?php drawAllPetPosts($pets, $user); ?>
+        </div>
+        <?php drawFavoritesSection($favs); 
+        drawProposalSection($proposals); ?>
+    </div>
 <?php } ?>

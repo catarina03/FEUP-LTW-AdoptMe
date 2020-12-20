@@ -17,18 +17,6 @@
 
     drawStyle("petProfile");
     drawHeader($title); 
-?>
-
-    <section id='main'>
-        <?php drawPetProfile($pet,$petID); 
-        drawPetActions($petID, $user); ?>
-
-        <hr>
-
-        <?php drawCommentSection($pet); ?>
-    </section>
-
-
-<?php
-drawFooter();
+    drawPetProfile($petID, $pet, $user);
+    drawFooter();
 ?>

@@ -25,20 +25,6 @@
 
     drawStyle("userProfile");
     drawHeader($title); 
-?>
-
-<div id="main">
-    <div id="userAndPosts">
-        <aside id="user_profile">
-            <?php drawUserProfile($user);
-            drawUserActions(); ?>
-        </aside>
-        <?php drawAllPetPosts($pets, $user); ?>
-    </div>
-    <?php drawFavoritesSection($favs); 
-    drawProposalSection($proposals); ?>
-</div>
-
-<?php 
-drawFooter();
+    drawUserProfile($user, $pets, $favs, $proposals);
+    drawFooter();
 ?>

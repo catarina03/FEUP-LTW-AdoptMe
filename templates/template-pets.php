@@ -3,7 +3,7 @@
     include_once('../database/db_user.php');    
 
 
-function drawPetProfile($pet,$petID) { ?>
+function drawPet($pet,$petID) { ?>
         <div>
             <h2 class="visually-hidden">Pet profile</h2>
             <img src="../images/pets/original/<?=$petID?>.jpg" alt="pet image" height="200" onerror="this.onerror=null;this.src='../images/missing_image.jpg';">
@@ -208,6 +208,40 @@ function drawEditPet($petID, $pet) { ?>
             </form>
         </article>
         
+    </section>
+<?php } 
+
+
+function drawIndex($webPets) { ?>
+    <div id="main">
+        <?php foreach($webPets as $webPet) { 
+            drawPetPhotoName($webPet,$webPet['id']);
+        }?>
+    </div>
+<?php } 
+
+
+function drawPetProfile($petID, $pet, $user) { ?>
+    <section id='main'>
+        <?php drawPet($pet,$petID); 
+        drawPetActions($petID, $user); ?>
+
+        <hr>
+
+        <?php drawCommentSection($pet); ?>
+    </section>
+<?php } 
+
+
+function drawSearch() { ?>
+    <script src="../js/search_pets.js" defer=""></script>
+    <section id="main">
+        <aside id="search_filters">
+            <?php drawSearchForm(); ?>
+        <aside>
+        <section id="search_results">
+            <h2 class="visually-hidden">Search</h2>
+        </section>
     </section>
 <?php } ?>
 
