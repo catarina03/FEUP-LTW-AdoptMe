@@ -1,7 +1,7 @@
 
     #main {
         background-color: #FFF8CD;
-        padding-bottom: 100%;
+        padding-bottom: 25%;
         width: 100%;
         position: relative;
         top: 11px;
@@ -14,7 +14,7 @@
     }
     
     #description {
-        margin-left: 50px;
+        margin-left: 80px;
     }
     
     #description h2 {
@@ -26,56 +26,15 @@
         margin-right: 10px;
         border-radius: 10%;
     }
-    /* para o pet profile*/
-    
-    #main>button {
-        display: block;
-        position: relative;
-        margin-left: 24%;
-        top: -50px;
-        right: -20px;
-        font-size: 30px;
-        font-weight: 600;
-        border: none;
-        color: #535353;
-        background-color: #FFF8CD;
-    }
-    
-    #main>button:hover {
-        padding: 2px 5px;
-        color: #FFF8CD;
-        background-color: #ff8829;
-    }
-
-    /*love button*/
-    #main > form > button[type=submit]{
-        position: relative;
-        top:-70px;
-        margin-left: 80px;
-        border: none;
-        background-color: #FFF8CD;
-        font-size: 50px;
-    }
-    #main > form > button[type=submit]>i:hover{
-        transition: 0.3s;
-        position: relative;
-        top: -2px;
-        color:#ff8829;
-    }
-    
-
-    /*para o edit pet profile*/
-    
     #main>form {
-        margin-left: 23%;
+        margin-left: 25%;
+        position: relative;
+        top:-50px;
     }
-    
-    #main>form>label>input[type="file"] {
-        display: none;
-    }
-    
+
+        
     #main>form>label,
-    #main>form>input[type="submit"] {
+    #main>form>input[type="submit"], #send {
         padding: 10px 15px;
         background-color: #737373;
         color: #FFF8CD;
@@ -84,15 +43,55 @@
     }
     
     #main>form>label:hover,
-    #main>form>input[type="submit"]:hover {
+    #main>form>input[type="submit"]:hover, #send:hover {
         background-color: #ff8829;
     }
-    
-    #main>form>label {
-        margin-left: 30px;
-        margin-right: 10px;
-    }
-    
+       
     #main>form>input[type="submit"] {
         border: none;
     }
+
+/*Questions*/
+#main > hr{
+    left: -20%;
+    border: 2px solid #737373;
+    width:90%;
+    margin-bottom: 20px;
+    margin-left: 25%;
+}
+#questions{
+    margin-left: 25%;
+}
+
+#questions > h1{
+
+    margin: 0;
+    position: relative;
+    left: 50px;
+    color: #ff8829;
+    font-size: 22px;
+}
+#comments > article > div{
+    display: inline; 
+    margin-right: 30px;
+}
+#comments > article > div > div{
+    display: inline-block;
+}
+#comments > article > div > div> p{
+    text-align: center;
+    align-self: flex-end;
+    margin-left: 20px;
+}
+#add_comment {
+    margin-top: 30px;
+}
+#add_comment> label > textarea {
+    display: block;
+    border:1px solid #b3b3b3;
+    border-radius: 5px;
+}
+
+#send{
+    border: none;
+}

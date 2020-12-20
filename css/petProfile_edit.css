@@ -1,0 +1,15 @@
+/* para o pet profile quando adopta*/
+#main>form>label>input[type="file"] {
+    display: none
+}
+
+#main>form>label {
+    margin-right: 5px;
+    position: relative;
+}
+#main>form{
+    margin-left:31%;   
+}
+#description {
+    margin-left: 100px;
+}

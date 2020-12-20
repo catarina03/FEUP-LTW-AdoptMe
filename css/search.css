@@ -1,6 +1,8 @@
-#main{
+#main {
     background-color: #FFF8CD;
-    padding-bottom: 100%;
+    padding-bottom: 25%;
+    width: 100%;
+    display: inline-block;
 }
 form{
     display: inline-block;
@@ -14,23 +16,13 @@ form > label{
     font-size: 20px;
 }
 label > input{
-    border:none;
+    border:1px solid #b3b3b3;
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 2px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom:20px;
-}
-label > select{
-    border: none;
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 2px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom:10px;
-    background-color: white;
 }
 
 .pet_card{

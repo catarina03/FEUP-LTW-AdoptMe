@@ -4,40 +4,27 @@
     margin-top: 15px;
     display: block;
 }
-#user_profile {
-    padding-top: 10px;
+
+#main >img{
+    margin-left:47% ;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+#main > form{
+    position: relative;
+    top:1px;
+    left:17%
+}
+
+
+
+
+#description{
     padding-left: 40%;
 }
 
-#user_profile>header>img {
-    margin-left: 65px;
-    border-radius: 50%;
-    width: 150px;
-}
-
-#user_profile > header > h2{
-    margin-left: 30px;
-}
-
-#user_profile > footer > h3{
-    display: inline;
-    margin-left: 20px;
-}
-#user_profile > footer{
-    margin-top: 20px;
-}
-#user_profile>header{
-    margin-bottom: 20px;
-}
-#user_profile > p{
-    margin-left: 40px;
-}
-
-#edit{
-    padding-left: 40%;
-}
-
-#edit > h3{
+#description > h3{
     margin-left: 30px;
 }
 
@@ -65,10 +52,10 @@ input[type="submit"]{
     border: none;
 }
 
-#edit > form:nth-child(3)> label{
+#description > form label{
     display: block;
 
 }
-#edit > form:nth-child(3) input[type="submit"]{
+#description > form> input[type="submit"]{
    margin-left: 100px;
 }
