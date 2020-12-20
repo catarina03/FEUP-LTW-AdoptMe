@@ -21,7 +21,7 @@
      - CSRF: yes
      - SQL using prepare/execute: yes
      - Passwords: bcrypt
-     - Data Validation: regex / php / html / javascript / ajax
+     - Data Validation: regex / php
 
  - Technologies
      - Separated logic/database/presentation: yes
