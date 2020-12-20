@@ -269,7 +269,12 @@
         $user['name'] = $_POST['name'];
         $user['bio'] = $_POST['bio'];
         $user['email'] = $_POST['email'];
-        $user['password'] = password_hash($_POST['password'],PASSWORD_DEFAULT);
+
+		if(isset($_POST['password']) && $_POST['password'] !== '')
+			$user['password'] = password_hash($_POST['password'],PASSWORD_DEFAULT);
+		else 
+			$user['password']='';
+
         $user['location'] = getLocationId($_POST['location']);
 
         return $user;

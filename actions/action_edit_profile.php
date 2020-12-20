@@ -12,10 +12,19 @@
     $user = createArrayWithUserInfo();
 
     global $db;
-    $stmt = $db->prepare('UPDATE account
-        SET email = ?, password = ?, bio = ?
-        WHERE id = ?');
-    $stmt->execute(array($user['email'], $user['password'], $user['bio'], $user['id'])); 
+
+	if(isset($user['password']) && $user['password'] !== ''){
+		$stmt = $db->prepare('UPDATE account
+			SET email = ?, password = ?, bio = ?
+			WHERE id = ?');
+		$stmt->execute(array($user['email'], $user['password'], $user['bio'], $user['id'])); 
+	}
+	else{
+		$stmt = $db->prepare('UPDATE account
+			SET email = ?, bio = ?
+			WHERE id = ?');
+		$stmt->execute(array($user['email'],$user['bio'], $user['id'])); 
+	}
 
     $stmt = $db->prepare('UPDATE person
         SET name = ?, location_id = ?
